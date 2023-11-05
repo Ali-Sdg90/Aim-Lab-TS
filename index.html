@@ -3,11 +3,45 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="Style/style.scss" />
+        <link rel="stylesheet" href="./Style/style.css" />
         <title>Aim-Lab-TS</title>
     </head>
     <body>
-        <h1>Aloha</h1>
-        <script src="JS/index.js"></script>
+        <!-- <h1>Aloha</h1> -->
+
+        <header>
+            <div class="reload-btn">reload</div>
+
+            <div class="header-info">
+                <div class="point-section">
+                    <div class="point-value">76</div>
+                    <div class="point-text">Points</div>
+                </div>
+
+                <div class="timer-section">--:--</div>
+
+                <div class="accuracy-section">
+                    <div class="accuracy-value">33</div>
+                    <div class="accuracy-text">%</div>
+                </div>
+            </div>
+
+            <div class="setting-btn">setting</div>
+        </header>
+
+        <main class="game-section">
+            <div class="game-targets">
+                <div class="game-target"></div>
+                <div class="game-target"></div>
+                <div class="game-target"></div>
+                <div class="game-target"></div>
+            </div>
+
+            <div class="player-gun"></div>
+        </main>
+
+        <!-- <div class="setting-page"></div> -->
+        <script src="./JS/index.js"></script>
+        <script src="./JS/timer.js"></script>
     </body>
 </html>

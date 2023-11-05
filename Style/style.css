@@ -1,1 +1,101 @@
-/*# sourceMappingURL=style.css.map */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+body {
+  background-color: #222;
+  color: white;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+header {
+  border: 2px solid red;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+header .reload-btn {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid blue;
+  width: 50px;
+  height: 50px;
+}
+header .header-info {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid blue;
+  width: 400px;
+}
+header .header-info .point-section {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+header .header-info .timer-section {
+  font-size: 60px;
+}
+header .header-info .accuracy-section {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+header .setting-btn {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid blue;
+  width: 50px;
+  height: 50px;
+}
+
+.game-section {
+  background: rgb(0, 33, 31);
+  width: 100%;
+  height: 100vh;
+}
+.game-section .game-targets {
+  display: inline-block;
+  border: 1px solid yellow;
+  background-color: rgba(137, 43, 226, 0.47);
+  width: 70%;
+  height: 60vh;
+  margin: 25vh 15% 15vh;
+  position: relative;
+}
+.game-section .game-targets .game-target {
+  border: 1px solid green;
+  background-color: rgb(47, 196, 9);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+.game-section .game-targets .game-target:hover {
+  background-color: rgb(40, 158, 11);
+}/*# sourceMappingURL=style.css.map */

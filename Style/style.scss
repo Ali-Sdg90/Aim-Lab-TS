@@ -1,0 +1,94 @@
+@import "mixin";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: 5px; //temp
+}
+
+body {
+    background-color: #222;
+    color: white;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+header {
+    border: 2px solid red;
+    @include flex-space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    .reload-btn {
+        @include felx-center; //temp
+        border: 1px solid blue;
+        width: 50px;
+        height: 50px;
+    }
+
+    .header-info {
+        @include flex-space-between;
+        border: 1px solid blue;
+        width: 400px;
+
+        .point-section {
+            @include flex-space-between;
+            gap: 5px;
+        }
+
+        .timer-section {
+            font-size: 60px;
+        }
+
+        .accuracy-section {
+            @include flex-space-between;
+            gap: 5px;
+        }
+    }
+
+    .setting-btn {
+        @include felx-center; //temp
+        border: 1px solid blue;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.game-section {
+    background: rgb(0, 33, 31);
+    width: 100%;
+    height: 100vh;
+
+    .game-targets {
+        display: inline-block;
+        border: 1px solid yellow;
+        background-color: rgba(137, 43, 226, 0.47);
+        width: 70%;
+        height: 60vh;
+        margin: 25vh 15% 15vh;
+        position: relative;
+
+        .game-target {
+            border: 1px solid green;
+            background-color: rgb(47, 196, 9);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            cursor: pointer;
+            transition: background-color 0.15s;
+
+            &:hover {
+                background-color: rgb(40, 158, 11);
+            }
+        }
+    }
+}
