@@ -1,3 +1,20 @@
+// index.ts --------------------------------------------------
+let points: number = 0;
+
+const pointValue: HTMLElement | null = document.querySelector(".point-value");
+
+const updatePointValue = (addToPoints: boolean): void => {
+    if (addToPoints) {
+        points++;
+    } else {
+        points -= 10;
+    }
+    
+    if (pointValue) {
+        pointValue.textContent = String(points);
+    }
+};
+
 // Timer.ts --------------------------------------------------
 
 let maxTimeCounter: number = 5;
@@ -30,4 +47,25 @@ if (timer) {
     }, 1000);
 }
 
-// -----------------------------------------------------------
+// target.ts ----------------------------------------------------
+
+const targets: NodeListOf<HTMLElement> =
+    document.querySelectorAll(".game-target");
+
+const randomNumberMaker = (): number => {
+    return Math.trunc(Math.random() * 100);
+};
+
+const randomPositionMaker = (target: HTMLElement): void => {
+    target.style.top = `${randomNumberMaker()}%`;
+    target.style.left = `${randomNumberMaker()}%`;
+};
+
+targets.forEach((target: HTMLElement) => {
+    randomPositionMaker(target);
+    target.addEventListener("mouseenter", (): void => {
+        randomPositionMaker(target);
+        updatePointValue(true);
+        console.log("boom");
+    });
+});

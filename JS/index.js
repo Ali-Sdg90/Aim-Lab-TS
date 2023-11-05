@@ -1,4 +1,17 @@
 "use strict";
+let points = 0;
+const pointValue = document.querySelector(".point-value");
+const updatePointValue = (addToPoints) => {
+    if (addToPoints) {
+        points++;
+    }
+    else {
+        points -= 10;
+    }
+    if (pointValue) {
+        pointValue.textContent = String(points);
+    }
+};
 let maxTimeCounter = 5;
 const timer = document.querySelector(".timer-section");
 const timerNumHelper = (timeNumber, fillerChar) => {
@@ -22,4 +35,20 @@ if (timer) {
         updateTimer();
     }, 1000);
 }
+const targets = document.querySelectorAll(".game-target");
+const randomNumberMaker = () => {
+    return Math.trunc(Math.random() * 100);
+};
+const randomPositionMaker = (target) => {
+    target.style.top = `${randomNumberMaker()}%`;
+    target.style.left = `${randomNumberMaker()}%`;
+};
+targets.forEach((target) => {
+    randomPositionMaker(target);
+    target.addEventListener("mouseenter", () => {
+        randomPositionMaker(target);
+        updatePointValue(true);
+        console.log("boom");
+    });
+});
 //# sourceMappingURL=index.js.map

@@ -84,7 +84,7 @@ header {
             top: 50%;
             left: 50%;
             cursor: pointer;
-            transition: background-color 0.15s;
+            transition: background-color 0.15s, top 0.15s, left 0.15s;
 
             &:hover {
                 background-color: rgb(40, 158, 11);
