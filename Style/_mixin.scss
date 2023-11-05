@@ -5,7 +5,7 @@
     align-items: center;
 }
 
-@mixin felx-center {
+@mixin flex-center {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;

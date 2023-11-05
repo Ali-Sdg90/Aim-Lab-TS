@@ -1,15 +1,26 @@
 // index.ts --------------------------------------------------
 let points: number = 0;
+let accuracy: number = 100;
 
 const pointValue: HTMLElement | null = document.querySelector(".point-value");
+const accuracyValue: HTMLElement | null =
+    document.querySelector(".accuracy-value");
+
+const loseAccuracy = (): void => {
+    accuracy -= 10;
+    if (accuracyValue) {
+        accuracyValue.textContent = String(accuracy);
+    }
+};
 
 const updatePointValue = (addToPoints: boolean): void => {
     if (addToPoints) {
         points++;
     } else {
+        loseAccuracy();
         points -= 10;
     }
-    
+
     if (pointValue) {
         pointValue.textContent = String(points);
     }
@@ -51,6 +62,8 @@ if (timer) {
 
 const targets: NodeListOf<HTMLElement> =
     document.querySelectorAll(".game-target");
+const badTargets: NodeListOf<HTMLElement> =
+    document.querySelectorAll(".bad-target");
 
 const randomNumberMaker = (): number => {
     return Math.trunc(Math.random() * 100);
@@ -66,6 +79,23 @@ targets.forEach((target: HTMLElement) => {
     target.addEventListener("mouseenter", (): void => {
         randomPositionMaker(target);
         updatePointValue(true);
+        console.log("boom");
+    });
+});
+
+const element = document.documentElement; // or specify the element you want to make fullscreen
+element.requestFullscreen();
+
+badTargets.forEach((target: HTMLElement) => {
+    randomPositionMaker(target);
+
+    setInterval(() => {
+        randomPositionMaker(target);
+    }, 2000 - Math.trunc(Math.random() * 500));
+
+    target.addEventListener("mouseenter", (): void => {
+        randomPositionMaker(target);
+        updatePointValue(false);
         console.log("boom");
     });
 });

@@ -13,67 +13,90 @@ body {
     width: 100%;
     height: 100vh;
     position: relative;
-    overflow: hidden;
+    font-family: sans-serif;
+    // don't work...
+    // overflow: visible;
+    // min-height: 765px;
+    // min-width: 700px;
 }
 
 header {
-    border: 2px solid red;
+    // border: 2px solid red;
     @include flex-space-between;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    height: 11vh;
+    font-weight: 600;
+    padding: 0 20px;
 
     .reload-btn {
-        @include felx-center; //temp
-        border: 1px solid blue;
+        @include flex-center; //temp
+        // border: 1px solid blue;
         width: 50px;
         height: 50px;
     }
 
     .header-info {
         @include flex-space-between;
-        border: 1px solid blue;
-        width: 400px;
+        // border: 1px solid blue;
+        width: 550px;
+        font-size: 24px;
 
         .point-section {
-            @include flex-space-between;
+            // width: 110px;
+            @include flex-center;
             gap: 5px;
+
+            .point-value {
+                // border: 1px solid red;
+                width: 50px;
+                @include flex-center;
+            }
         }
 
         .timer-section {
-            font-size: 60px;
+            font-size: 38px;
+            padding-right: 27px;
         }
 
         .accuracy-section {
             @include flex-space-between;
+            // border: 1px solid red;
             gap: 5px;
+            width: 98px;
+            @include flex-center;
+            justify-content: flex-start;
         }
     }
 
     .setting-btn {
-        @include felx-center; //temp
-        border: 1px solid blue;
+        @include flex-center; //temp
+        // border: 1px solid blue;
         width: 50px;
         height: 50px;
     }
 }
 
 .game-section {
-    background: rgb(0, 33, 31);
+    background: url("../Imgs/game-background.png") no-repeat;
+    background-size: cover;
+    background-position: center center;
     width: 100%;
     height: 100vh;
 
     .game-targets {
         display: inline-block;
-        border: 1px solid yellow;
-        background-color: rgba(137, 43, 226, 0.47);
+        // border: 1px solid yellow;
+        // background-color: rgba(137, 43, 226, 0.47);
         width: 70%;
         height: 60vh;
-        margin: 25vh 15% 15vh;
+        margin: 15vh 15% 24vh;
         position: relative;
 
-        .game-target {
+        .game-target,
+        .bad-target {
             border: 1px solid green;
             background-color: rgb(47, 196, 9);
             width: 60px;
@@ -88,6 +111,15 @@ header {
 
             &:hover {
                 background-color: rgb(40, 158, 11);
+            }
+        }
+
+        .bad-target {
+            border: 1px solid rgb(128, 0, 0);
+            background-color: rgb(196, 9, 9);
+
+            &:hover {
+                background-color: rgb(158, 11, 11);
             }
         }
     }

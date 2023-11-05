@@ -11,11 +11,10 @@ body {
   width: 100%;
   height: 100vh;
   position: relative;
-  overflow: hidden;
+  font-family: sans-serif;
 }
 
 header {
-  border: 2px solid red;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -24,13 +23,15 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  height: 11vh;
+  font-weight: 600;
+  padding: 0 20px;
 }
 header .reload-btn {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  border: 1px solid blue;
   width: 50px;
   height: 50px;
 }
@@ -39,18 +40,26 @@ header .header-info {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid blue;
-  width: 400px;
+  width: 550px;
+  font-size: 24px;
 }
 header .header-info .point-section {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 5px;
 }
+header .header-info .point-section .point-value {
+  width: 50px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
 header .header-info .timer-section {
-  font-size: 60px;
+  font-size: 38px;
+  padding-right: 27px;
 }
 header .header-info .accuracy-section {
   display: flex;
@@ -58,32 +67,38 @@ header .header-info .accuracy-section {
   justify-content: space-between;
   align-items: center;
   gap: 5px;
+  width: 98px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
 }
 header .setting-btn {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  border: 1px solid blue;
   width: 50px;
   height: 50px;
 }
 
 .game-section {
-  background: rgb(0, 33, 31);
+  background: url("../Imgs/game-background.png") no-repeat;
+  background-size: cover;
+  background-position: center center;
   width: 100%;
   height: 100vh;
 }
 .game-section .game-targets {
   display: inline-block;
-  border: 1px solid yellow;
-  background-color: rgba(137, 43, 226, 0.47);
   width: 70%;
   height: 60vh;
-  margin: 25vh 15% 15vh;
+  margin: 15vh 15% 24vh;
   position: relative;
 }
-.game-section .game-targets .game-target {
+.game-section .game-targets .game-target,
+.game-section .game-targets .bad-target {
   border: 1px solid green;
   background-color: rgb(47, 196, 9);
   width: 60px;
@@ -96,6 +111,14 @@ header .setting-btn {
   cursor: pointer;
   transition: background-color 0.15s, top 0.15s, left 0.15s;
 }
-.game-section .game-targets .game-target:hover {
+.game-section .game-targets .game-target:hover,
+.game-section .game-targets .bad-target:hover {
   background-color: rgb(40, 158, 11);
+}
+.game-section .game-targets .bad-target {
+  border: 1px solid rgb(128, 0, 0);
+  background-color: rgb(196, 9, 9);
+}
+.game-section .game-targets .bad-target:hover {
+  background-color: rgb(158, 11, 11);
 }/*# sourceMappingURL=style.css.map */

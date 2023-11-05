@@ -1,11 +1,20 @@
 "use strict";
 let points = 0;
+let accuracy = 100;
 const pointValue = document.querySelector(".point-value");
+const accuracyValue = document.querySelector(".accuracy-value");
+const loseAccuracy = () => {
+    accuracy -= 10;
+    if (accuracyValue) {
+        accuracyValue.textContent = String(accuracy);
+    }
+};
 const updatePointValue = (addToPoints) => {
     if (addToPoints) {
         points++;
     }
     else {
+        loseAccuracy();
         points -= 10;
     }
     if (pointValue) {
@@ -36,6 +45,7 @@ if (timer) {
     }, 1000);
 }
 const targets = document.querySelectorAll(".game-target");
+const badTargets = document.querySelectorAll(".bad-target");
 const randomNumberMaker = () => {
     return Math.trunc(Math.random() * 100);
 };
@@ -48,6 +58,19 @@ targets.forEach((target) => {
     target.addEventListener("mouseenter", () => {
         randomPositionMaker(target);
         updatePointValue(true);
+        console.log("boom");
+    });
+});
+const element = document.documentElement;
+element.requestFullscreen();
+badTargets.forEach((target) => {
+    randomPositionMaker(target);
+    setInterval(() => {
+        randomPositionMaker(target);
+    }, 2000 - Math.trunc(Math.random() * 500));
+    target.addEventListener("mouseenter", () => {
+        randomPositionMaker(target);
+        updatePointValue(false);
         console.log("boom");
     });
 });
