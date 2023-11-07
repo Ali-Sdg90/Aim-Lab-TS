@@ -25,15 +25,15 @@ header {
   width: 100%;
   height: 11vh;
   font-weight: 600;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 header .reload-btn {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
+  background: url("../Imgs/reload-icon.svg") center/cover no-repeat, rgba(46, 57, 101, 0.8);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.5s;
 }
 header .header-info {
   display: flex;
@@ -75,12 +75,15 @@ header .header-info .accuracy-section {
   justify-content: flex-start;
 }
 header .setting-btn {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
+  width: 54px;
+  height: 54px;
+  background: url("../Imgs/setting-icon.svg") center no-repeat, rgba(46, 57, 101, 0.8);
+  background-size: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: 2.5px solid #171717;
+  outline-offset: -4px;
+  transition: transform 0.5s;
 }
 
 .game-section {
@@ -121,4 +124,67 @@ header .setting-btn {
 }
 .game-section .game-targets .bad-target:hover {
   background-color: rgb(158, 11, 11);
+}
+
+.setting-page {
+  border: 2px solid red;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.setting-page .setting-menu {
+  border: 1px solid blue;
+  width: 500px;
+  font-size: 25px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12px 15px 15px;
+}
+.setting-page .setting-menu .setting-title {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+.setting-page .setting-menu form {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 45px 0 5px;
+}
+.setting-page .setting-menu .timer-form,
+.setting-page .setting-menu .movment-form {
+  padding-right: 5px;
+}
+.setting-page .setting-menu .second-text {
+  margin-right: 20px;
+}
+.setting-page .setting-menu input {
+  width: 100px;
+  height: 25px;
+  border: none;
+}
+.setting-page .setting-menu .apply-btn {
+  width: 100%;
+  height: 45px;
+  border: 2px solid blue;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 25px;
+  margin-top: 10px;
 }/*# sourceMappingURL=style.css.map */

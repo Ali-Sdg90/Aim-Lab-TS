@@ -26,6 +26,46 @@ const updatePointValue = (addToPoints: boolean): void => {
     }
 };
 
+const reloadBtn: HTMLElement | null = document.querySelector(".reload-btn");
+
+let rotateDeg: number = 0;
+
+if (reloadBtn) {
+    reloadBtn.addEventListener("click", (): void => {
+        reloadBtn.style.transform = `rotate(${(rotateDeg += 360)}deg)`;
+        console.log("l");
+
+        setTimeout(() => {
+            location.reload();
+        }, 500);
+    });
+}
+
+const settingBtn: HTMLElement | null = document.querySelector(".setting-btn");
+const settingPage: HTMLElement | null = document.querySelector(".setting-page");
+
+let settingClicked = 0;
+
+if (settingBtn && settingPage) {
+    settingBtn.addEventListener("click", function () {
+        if (settingClicked++ % 2 == 0) {
+            settingPage.style.transition = "opacity 0.3s";
+            settingPage.style.display = "grid";
+
+            setTimeout(() => {
+                settingPage.style.opacity = "1";
+            }, 0);
+        } else {
+            setTimeout(() => {
+                settingPage.style.display = "none";
+            }, 300);
+
+            settingPage.style.opacity = "0";
+        }
+        settingBtn.style.transform = `rotate(${settingClicked * 90}deg)`;
+    });
+}
+
 // Timer.ts --------------------------------------------------
 
 let maxTimeCounter: number = 5;
@@ -82,9 +122,6 @@ targets.forEach((target: HTMLElement) => {
         console.log("boom");
     });
 });
-
-const element = document.documentElement; // or specify the element you want to make fullscreen
-element.requestFullscreen();
 
 badTargets.forEach((target: HTMLElement) => {
     randomPositionMaker(target);

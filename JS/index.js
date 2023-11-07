@@ -21,6 +21,38 @@ const updatePointValue = (addToPoints) => {
         pointValue.textContent = String(points);
     }
 };
+const reloadBtn = document.querySelector(".reload-btn");
+let rotateDeg = 0;
+if (reloadBtn) {
+    reloadBtn.addEventListener("click", () => {
+        reloadBtn.style.transform = `rotate(${(rotateDeg += 360)}deg)`;
+        console.log("l");
+        setTimeout(() => {
+            location.reload();
+        }, 500);
+    });
+}
+const settingBtn = document.querySelector(".setting-btn");
+const settingPage = document.querySelector(".setting-page");
+let settingClicked = 0;
+if (settingBtn && settingPage) {
+    settingBtn.addEventListener("click", function () {
+        if (settingClicked++ % 2 == 0) {
+            settingPage.style.transition = "opacity 0.3s";
+            settingPage.style.display = "grid";
+            setTimeout(() => {
+                settingPage.style.opacity = "1";
+            }, 0);
+        }
+        else {
+            setTimeout(() => {
+                settingPage.style.display = "none";
+            }, 300);
+            settingPage.style.opacity = "0";
+        }
+        settingBtn.style.transform = `rotate(${settingClicked * 90}deg)`;
+    });
+}
 let maxTimeCounter = 5;
 const timer = document.querySelector(".timer-section");
 const timerNumHelper = (timeNumber, fillerChar) => {
@@ -61,8 +93,6 @@ targets.forEach((target) => {
         console.log("boom");
     });
 });
-const element = document.documentElement;
-element.requestFullscreen();
 badTargets.forEach((target) => {
     randomPositionMaker(target);
     setInterval(() => {

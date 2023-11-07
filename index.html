@@ -8,7 +8,7 @@
     </head>
     <body>
         <header>
-            <div class="reload-btn">reload</div>
+            <div class="reload-btn"></div>
 
             <div class="header-info">
                 <div class="point-section">
@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-            <div class="setting-btn">setting</div>
+            <div class="setting-btn"></div>
         </header>
 
         <main class="game-section">
@@ -40,7 +40,83 @@
             <div class="player-gun"></div>
         </main>
 
-        <!-- <div class="setting-page"></div> -->
+        <div class="setting-page">
+            <div class="setting-menu">
+                <div class="setting-title">- Setting -</div>
+
+                <form>
+                    <label for="number-of-targets">Number of targets</label>
+                    <input
+                        type="number"
+                        name="number-of-targets"
+                        id="number-of-targets"
+                    />
+                </form>
+
+                <form>
+                    <label for="number-of-bombs">Number of bombs</label>
+                    <input
+                        type="number"
+                        name="number-of-bombs"
+                        id="number-of-bombs"
+                    />
+                </form>
+
+                <form>
+                    <label for="bombs-can-move">Bombs can move</label>
+                    <input
+                        type="checkbox"
+                        name="bombs-can-move"
+                        id="bombs-can-move"
+                    />
+                </form>
+
+                <form>
+                    <label for="Targets-can-move">Targets can move</label>
+                    <input
+                        type="checkbox"
+                        name="Targets-can-move"
+                        id="Targets-can-move"
+                    />
+                </form>
+
+                <form class="timer-form">
+                    <label for="timer-duration">Timer duration</label>
+                    <div>
+                        <input
+                            type="number"
+                            name="timer-duration"
+                            id="timer-duration"
+                        />
+                        <span class="second-text">s</span>
+                    </div>
+                </form>
+
+                <form class="movment-form">
+                    <label for="movement-speed">Movement speed</label>
+                    <div>
+                        <input
+                            type="number"
+                            name="movement-speed"
+                            id="movement-speed"
+                        />
+                        <span>ms</span>
+                    </div>
+                </form>
+
+                <form>
+                    <label for="always-ready">Always-ready</label>
+                    <input
+                        type="checkbox"
+                        name="always-ready"
+                        id="always-ready"
+                    />
+                </form>
+
+                <button class="apply-btn">Apply</button>
+            </div>
+        </div>
+
         <script src="./JS/index.js"></script>
         <!-- <script src="./JS/timer.js"></script> -->
     </body>
