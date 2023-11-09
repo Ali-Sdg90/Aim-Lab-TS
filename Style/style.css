@@ -34,6 +34,7 @@ header .reload-btn {
   cursor: pointer;
   border-radius: 50%;
   transition: transform 0.5s;
+  z-index: 2;
 }
 header .header-info {
   display: flex;
@@ -84,6 +85,7 @@ header .setting-btn {
   outline: 2.5px solid #171717;
   outline-offset: -4px;
   transition: transform 0.5s;
+  z-index: 2;
 }
 
 .game-section {
@@ -127,7 +129,6 @@ header .setting-btn {
 }
 
 .setting-page {
-  border: 2px solid red;
   width: 100%;
   height: 100vh;
   position: absolute;
@@ -158,6 +159,9 @@ header .setting-btn {
   justify-content: center;
   align-items: center;
   font-size: 30px;
+  border-bottom: 1px solid blue;
+  border-radius: 0;
+  padding-bottom: 7px;
 }
 .setting-page .setting-menu form {
   width: 100%;
@@ -167,22 +171,47 @@ header .setting-btn {
   align-items: center;
   padding: 0 45px 0 5px;
 }
+.setting-page .setting-menu form .input-box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.setting-page .setting-menu form .input-box .change-indicator {
+  color: red;
+  position: relative;
+  top: 5.5px;
+}
+.setting-page .setting-menu form .input-box input {
+  width: 100px;
+  height: 25px;
+  border: none;
+  padding: 3px 5px;
+  font-size: 20px;
+  background-color: #d1d1d1;
+}
+.setting-page .setting-menu form .input-box input::-webkit-outer-spin-button, .setting-page .setting-menu form .input-box input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.setting-page .setting-menu form .input-box input[type=checkbox] {
+  width: 25px;
+}
+.setting-page .setting-menu form .checkbox-container {
+  margin-right: 35px;
+}
+.setting-page .setting-menu form .tiemr-container {
+  margin-right: 20px;
+}
 .setting-page .setting-menu .timer-form,
 .setting-page .setting-menu .movment-form {
   padding-right: 5px;
 }
-.setting-page .setting-menu .second-text {
-  margin-right: 20px;
-}
-.setting-page .setting-menu input {
-  width: 100px;
-  height: 25px;
-  border: none;
-}
 .setting-page .setting-menu .apply-btn {
   width: 100%;
   height: 45px;
-  border: 2px solid blue;
+  border: 1px solid blue;
   background: rgba(255, 255, 255, 0.2);
   color: white;
   font-size: 25px;

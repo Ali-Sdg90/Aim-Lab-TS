@@ -40,6 +40,7 @@ header {
         cursor: pointer;
         border-radius: 50%;
         transition: transform 0.5s;
+        z-index: 2;
     }
 
     .header-info {
@@ -87,6 +88,7 @@ header {
         outline: 2.5px solid #171717;
         outline-offset: -4px;
         transition: transform 0.5s;
+        z-index: 2;
     }
 }
 
@@ -137,7 +139,7 @@ header {
 }
 
 .setting-page {
-    border: 2px solid red;
+    // border: 2px solid red;
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -163,6 +165,9 @@ header {
             width: 100%;
             @include flex-center;
             font-size: 30px;
+            border-bottom: 1px solid blue;
+            border-radius: 0;
+            padding-bottom: 7px;
         }
 
         form {
@@ -172,6 +177,50 @@ header {
             justify-content: space-between;
             align-items: center;
             padding: 0 45px 0 5px;
+
+            .input-box {
+                // border: 1px solid yellow;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+
+                .change-indicator {
+                    color: red;
+                    // border: 1px solid red;
+                    position: relative;
+                    top: 5.5px;
+                }
+
+                input {
+                    width: 100px;
+                    height: 25px;
+                    border: none;
+                    padding: 3px 5px;
+                    font-size: 20px;
+                    background-color: #d1d1d1;
+
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+
+                    &[type="checkbox"] {
+                        width: 25px;
+                        // accent-color: green;
+                    }
+                }
+            }
+
+            .checkbox-container {
+                margin-right: 35px;
+            }
+
+            .tiemr-container {
+                margin-right: 20px;
+            }
         }
 
         .timer-form,
@@ -179,20 +228,10 @@ header {
             padding-right: 5px;
         }
 
-        .second-text {
-            margin-right: 20px;
-        }
-
-        input {
-            width: 100px;
-            height: 25px;
-            border: none;
-        }
-
         .apply-btn {
             width: 100%;
             height: 45px;
-            border: 2px solid blue;
+            border: 1px solid blue;
             background: rgba(255, 255, 255, 0.2);
             color: white;
             font-size: 25px;

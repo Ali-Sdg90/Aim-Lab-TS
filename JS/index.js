@@ -104,4 +104,18 @@ badTargets.forEach((target) => {
         console.log("boom");
     });
 });
+const gameTargets = document.querySelector("game-targets");
+const NoTargets = document.getElementById("number-of-targets");
+const NoBombs = document.getElementById("number-of-bombs");
+const bombsCanMove = document.getElementById("bombs-can-move");
+const targetsCanMove = document.getElementById("targets-can-move");
+const timerDuration = document.getElementById("timer-duration");
+const movementSpeed = document.getElementById("movement-speed");
+const alwaysReady = document.getElementById("always-ready");
+if (NoTargets && gameTargets) {
+    const input = NoTargets;
+    for (let i = 0; i < +input.value; i++) {
+        gameTargets.innerHTML += `<div class="game-target"></div>`;
+    }
+}
 //# sourceMappingURL=index.js.map

@@ -46,71 +46,102 @@
 
                 <form>
                     <label for="number-of-targets">Number of targets</label>
-                    <input
-                        type="number"
-                        name="number-of-targets"
-                        id="number-of-targets"
-                    />
+                    <div class="input-box">
+                        <input
+                            type="number"
+                            name="number-of-targets"
+                            id="number-of-targets"
+                        />
+                        <span class="change-indicator number-of-targets-star"
+                            >*</span
+                        >
+                    </div>
                 </form>
 
                 <form>
                     <label for="number-of-bombs">Number of bombs</label>
-                    <input
-                        type="number"
-                        name="number-of-bombs"
-                        id="number-of-bombs"
-                    />
+                    <div class="input-box">
+                        <input
+                            type="number"
+                            name="number-of-bombs"
+                            id="number-of-bombs"
+                        />
+                        <span class="change-indicator number-of-bombs-star"
+                            >*</span
+                        >
+                    </div>
                 </form>
 
                 <form>
                     <label for="bombs-can-move">Bombs can move</label>
-                    <input
-                        type="checkbox"
-                        name="bombs-can-move"
-                        id="bombs-can-move"
-                    />
+                    <div class="input-box checkbox-container">
+                        <input
+                            type="checkbox"
+                            name="bombs-can-move"
+                            id="bombs-can-move"
+                        />
+                        <span class="change-indicator bombs-can-move-star"
+                            >*</span
+                        >
+                    </div>
                 </form>
 
                 <form>
-                    <label for="Targets-can-move">Targets can move</label>
-                    <input
-                        type="checkbox"
-                        name="Targets-can-move"
-                        id="Targets-can-move"
-                    />
+                    <label for="targets-can-move">Targets can move</label>
+                    <div class="input-box checkbox-container">
+                        <input
+                            type="checkbox"
+                            name="targets-can-move"
+                            id="targets-can-move"
+                        />
+                        <span class="change-indicator targets-can-move-star"
+                            >*</span
+                        >
+                    </div>
                 </form>
 
                 <form class="timer-form">
                     <label for="timer-duration">Timer duration</label>
-                    <div>
+                    <div class="input-box tiemr-container">
                         <input
                             type="number"
                             name="timer-duration"
                             id="timer-duration"
                         />
                         <span class="second-text">s</span>
+                        <span class="change-indicator timer-duration-star"
+                            >*</span
+                        >
                     </div>
                 </form>
 
                 <form class="movment-form">
                     <label for="movement-speed">Movement speed</label>
-                    <div>
+                    <div class="input-box">
                         <input
                             type="number"
                             name="movement-speed"
                             id="movement-speed"
                         />
                         <span>ms</span>
+                        <span class="change-indicator movement-speed-star"
+                            >*</span
+                        >
                     </div>
                 </form>
 
                 <form>
-                    <label for="always-ready">Always-ready</label>
-                    <input
-                        type="checkbox"
-                        name="always-ready"
-                        id="always-ready"
-                    />
+                    <label for="always-ready">Always ready</label>
+                    <div class="input-box checkbox-container">
+                        <input
+                            type="checkbox"
+                            name="always-ready"
+                            id="always-ready"
+                        />
+                        <span class="change-indicator always-ready-star"
+                            >*</span
+                        >
+                    </div>
                 </form>
 
                 <button class="apply-btn">Apply</button>

@@ -136,3 +136,27 @@ badTargets.forEach((target: HTMLElement) => {
         console.log("boom");
     });
 });
+
+// setting.ts ---------------------------------------------------
+
+const gameTargets: HTMLElement | null = document.querySelector("game-targets");
+
+const NoTargets = document.getElementById("number-of-targets");
+const NoBombs: HTMLElement | null = document.getElementById("number-of-bombs");
+const bombsCanMove: HTMLElement | null =
+    document.getElementById("bombs-can-move");
+const targetsCanMove: HTMLElement | null =
+    document.getElementById("targets-can-move");
+const timerDuration: HTMLElement | null =
+    document.getElementById("timer-duration");
+const movementSpeed: HTMLElement | null =
+    document.getElementById("movement-speed");
+const alwaysReady: HTMLElement | null = document.getElementById("always-ready");
+
+if (NoTargets && gameTargets) {
+    const input = NoTargets as HTMLInputElement;
+
+    for (let i: number = 0; i < +input.value; i++) {
+        gameTargets.innerHTML += `<div class="game-target"></div>`;
+    }
+}
