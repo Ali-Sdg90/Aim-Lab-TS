@@ -83,7 +83,10 @@ let targetsCanMove = false;
 let bombsCanMove = true;
 let timerDuration = 60;
 let movementSpeed = 2000;
-let alwaysReady = false;
+let targetsClickMode = true;
+let bombsClickMode = false;
+let targetsSize = 40;
+let bombsSize = 60;
 let validInputsArray = [true, true, true, true];
 const NoTargets_MinMax = [1, 200];
 const NoBombs_MinMax = [0, 200];
@@ -95,7 +98,10 @@ const targetsCanMoveInput = document.getElementById("targets-can-move");
 const bombsCanMoveInput = document.getElementById("bombs-can-move");
 const timerDurationInput = document.getElementById("timer-duration");
 const movementSpeedInput = document.getElementById("movement-speed");
-const alwaysReadyInput = document.getElementById("always-ready");
+const targetsClickModeInput = document.getElementById("targets-click-mode");
+const bombsClickModeInput = document.getElementById("bombs-click-mode");
+const targetsSizeInput = document.getElementById("targets-size");
+const bombsSizeInput = document.getElementById("bombs-size");
 const applyBtn = document.querySelector(".apply-btn");
 NoTargetsInput.value = String(NoTargets);
 NoBombsInput.value = String(NoBombs);
@@ -103,7 +109,10 @@ targetsCanMoveInput.checked = targetsCanMove;
 bombsCanMoveInput.checked = bombsCanMove;
 timerDurationInput.value = String(timerDuration);
 movementSpeedInput.value = String(movementSpeed);
-alwaysReadyInput.checked = alwaysReady;
+targetsClickModeInput.checked = targetsClickMode;
+bombsClickModeInput.checked = bombsClickMode;
+targetsSizeInput.value = String(targetsSize);
+bombsSizeInput.value = String(bombsSize);
 const addTitle = (input, minMax) => {
     input.title = `Min: ${minMax[0]}\nMax: ${minMax[1]}`;
 };
@@ -137,7 +146,10 @@ const targetsCanMoveStar = document.querySelector(".targets-can-move-star");
 const bombsCanMoveStar = document.querySelector(".bombs-can-move-star");
 const timerDurationStar = document.querySelector(".timer-duration-star");
 const movementSpeedStar = document.querySelector(".movement-speed-star");
-const alwaysReadyStar = document.querySelector(".always-ready-star");
+const targetsClickModeStar = document.querySelector(".targets-click-mode-star");
+const bombsClickModeStar = document.querySelector(".bombs-click-mode-star");
+const targetsSizeStar = document.querySelector(".targets-size-star");
+const bombsSizeStar = document.querySelector(".bombs-size-star");
 const InputStarChecker = (input, setValueForInput, star) => {
     const InputStarCheckerFunc = () => {
         if (typeof setValueForInput === "number") {
@@ -168,7 +180,10 @@ const setStarCheckers = () => {
     InputStarChecker(bombsCanMoveInput, bombsCanMove, bombsCanMoveStar);
     InputStarChecker(timerDurationInput, timerDuration, timerDurationStar);
     InputStarChecker(movementSpeedInput, movementSpeed, movementSpeedStar);
-    InputStarChecker(alwaysReadyInput, alwaysReady, alwaysReadyStar);
+    InputStarChecker(bombsClickModeInput, bombsClickMode, bombsClickModeStar);
+    InputStarChecker(targetsSizeInput, targetsSize, targetsSizeStar);
+    InputStarChecker(bombsSizeInput, bombsSize, bombsSizeStar);
+    InputStarChecker(targetsClickModeInput, targetsClickMode, targetsClickModeStar);
 };
 applyBtn?.addEventListener("click", () => {
     let allowApply = true;
@@ -184,7 +199,10 @@ applyBtn?.addEventListener("click", () => {
         bombsCanMove = bombsCanMoveInput.checked;
         timerDuration = +timerDurationInput.value;
         movementSpeed = +movementSpeedInput.value;
-        alwaysReady = alwaysReadyInput.checked;
+        targetsClickMode = targetsClickModeInput.checked;
+        bombsClickMode = bombsClickModeInput.checked;
+        targetsSize = +targetsSizeInput.value;
+        bombsSize = +bombsSizeInput.value;
         applySetting();
     }
     else {
@@ -208,7 +226,7 @@ const applySetting = () => {
         }
     }
     const targets = document.querySelectorAll(".game-target");
-    const badTargets = document.querySelectorAll(".bad-target");
+    const bombs = document.querySelectorAll(".bad-target");
     const randomNumberMaker = () => {
         return Math.trunc(Math.random() * 100);
     };
@@ -218,25 +236,29 @@ const applySetting = () => {
     };
     targets.forEach((target) => {
         randomPositionMaker(target);
+        target.style.width = `${targetsSize}px`;
+        target.style.height = `${targetsSize}px`;
         if (targetsCanMove) {
             setInterval(() => {
                 randomPositionMaker(target);
             }, movementSpeed - Math.trunc((Math.random() * movementSpeed) / 4));
         }
-        target.addEventListener("click", () => {
+        target.addEventListener(targetsClickMode ? "click" : "mouseenter", () => {
             randomPositionMaker(target);
             updatePointValue(true);
             console.log("Good Boom");
         });
     });
-    badTargets.forEach((target) => {
+    bombs.forEach((target) => {
         randomPositionMaker(target);
+        target.style.width = `${bombsSize}px`;
+        target.style.height = `${bombsSize}px`;
         if (bombsCanMove) {
             setInterval(() => {
                 randomPositionMaker(target);
             }, movementSpeed - Math.trunc((Math.random() * movementSpeed) / 4));
         }
-        target.addEventListener("mouseenter", () => {
+        target.addEventListener(bombsClickMode ? "click" : "mouseenter", () => {
             randomPositionMaker(target);
             updatePointValue(false);
             console.log("Bad Boom");

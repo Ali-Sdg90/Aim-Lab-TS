@@ -135,18 +135,74 @@
                 </form>
 
                 <form>
-                    <label for="always-ready">Always ready</label>
+                    <label for="targets-click-mode">Targets click-mode</label>
                     <div class="input-box checkbox-container">
                         <input
                             type="checkbox"
-                            name="always-ready"
-                            id="always-ready"
+                            name="targets-click-mode"
+                            id="targets-click-mode"
                         />
-                        <span class="change-indicator always-ready-star"
+                        <span class="change-indicator targets-click-mode-star"
                             >*</span
                         >
                     </div>
                 </form>
+
+                <form>
+                    <label for="bombs-click-mode">Bombs click-mode</label>
+                    <div class="input-box checkbox-container">
+                        <input
+                            type="checkbox"
+                            name="bombs-click-mode"
+                            id="bombs-click-mode"
+                        />
+                        <span class="change-indicator bombs-click-mode-star"
+                            >*</span
+                        >
+                    </div>
+                </form>
+
+                <div class="ball-size-setting">
+                    <form>
+                        <label for="targets-size">Targets Size</label>
+                        <div class="input-box">
+                            <input
+                                type="range"
+                                name="targets-size"
+                                id="targets-size"
+                                max="80"
+                                min="30"
+                            />
+                            <span class="change-indicator targets-size-star"
+                                >*</span
+                            >
+                        </div>
+                    </form>
+                    <div class="ball-showcase-container target-container">
+                        <div class="ball-showcase"></div>
+                    </div>
+                </div>
+
+                <div class="ball-size-setting">
+                    <form>
+                        <label for="bombs-size">bombs Size</label>
+                        <div class="input-box">
+                            <input
+                                type="range"
+                                name="bombs-size"
+                                id="bombs-size"
+                                max="80"
+                                min="30"
+                            />
+                            <span class="change-indicator bombs-size-star"
+                                >*</span
+                            >
+                        </div>
+                    </form>
+                    <div class="ball-showcase-container bomb-container">
+                        <div class="ball-showcase"></div>
+                    </div>
+                </div>
 
                 <button class="apply-btn">Apply</button>
             </div>

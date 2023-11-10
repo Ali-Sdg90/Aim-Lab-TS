@@ -157,7 +157,7 @@ header {
         flex-flow: column nowrap;
         justify-content: flex-start;
         align-items: flex-start;
-        gap: 20px;
+        gap: 15px;
         background: rgba(0, 0, 0, 0.6);
         padding: 12px 15px 15px;
 
@@ -217,11 +217,56 @@ header {
                     &[type="checkbox"] {
                         width: 25px;
                     }
+
+                    &[type="range"] {
+                        padding: 0;
+                    }
                 }
             }
 
             .checkbox-container {
                 margin-right: 35px;
+            }
+        }
+
+        .ball-size-setting {
+            width: 100%;
+            position: relative;
+
+            .ball-showcase-container {
+                border: 1px solid yellow;
+                width: 70px;
+                height: 70px;
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .ball-showcase {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                }
+            }
+
+            .bomb-container {
+                right: -100px;
+                top: -41.5px;
+
+                .ball-showcase {
+                    border: 1px solid rgb(128, 0, 0);
+                    background-color: rgb(196, 9, 9);
+                }
+            }
+
+            .target-container {
+                right: -100px;
+                top: 2px;
+
+                .ball-showcase {
+                    border: 1px solid green;
+                    background-color: rgb(47, 196, 9);
+                }
             }
         }
 

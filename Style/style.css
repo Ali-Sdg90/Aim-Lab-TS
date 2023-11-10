@@ -148,7 +148,7 @@ header .setting-btn {
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 20px;
+  gap: 15px;
   background: rgba(0, 0, 0, 0.6);
   padding: 12px 15px 15px;
 }
@@ -204,8 +204,45 @@ header .setting-btn {
 .setting-page .setting-menu form .input-box input[type=checkbox] {
   width: 25px;
 }
+.setting-page .setting-menu form .input-box input[type=range] {
+  padding: 0;
+}
 .setting-page .setting-menu form .checkbox-container {
   margin-right: 35px;
+}
+.setting-page .setting-menu .ball-size-setting {
+  width: 100%;
+  position: relative;
+}
+.setting-page .setting-menu .ball-size-setting .ball-showcase-container {
+  border: 1px solid yellow;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.setting-page .setting-menu .ball-size-setting .ball-showcase-container .ball-showcase {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.setting-page .setting-menu .ball-size-setting .bomb-container {
+  right: -100px;
+  top: -41.5px;
+}
+.setting-page .setting-menu .ball-size-setting .bomb-container .ball-showcase {
+  border: 1px solid rgb(128, 0, 0);
+  background-color: rgb(196, 9, 9);
+}
+.setting-page .setting-menu .ball-size-setting .target-container {
+  right: -100px;
+  top: 2px;
+}
+.setting-page .setting-menu .ball-size-setting .target-container .ball-showcase {
+  border: 1px solid green;
+  background-color: rgb(47, 196, 9);
 }
 .setting-page .setting-menu .timer-form,
 .setting-page .setting-menu .movment-form {
