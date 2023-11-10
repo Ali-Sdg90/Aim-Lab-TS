@@ -215,34 +215,36 @@ header .setting-btn {
   position: relative;
 }
 .setting-page .setting-menu .ball-size-setting .ball-showcase-container {
-  border: 1px solid yellow;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
-.setting-page .setting-menu .ball-size-setting .ball-showcase-container .ball-showcase {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-}
-.setting-page .setting-menu .ball-size-setting .bomb-container {
+.setting-page .setting-menu .ball-size-setting .bombs-container {
   right: -100px;
   top: -41.5px;
 }
-.setting-page .setting-menu .ball-size-setting .bomb-container .ball-showcase {
+.setting-page .setting-menu .ball-size-setting .bombs-container .bombs-ball-showcase {
   border: 1px solid rgb(128, 0, 0);
   background-color: rgb(196, 9, 9);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
 }
-.setting-page .setting-menu .ball-size-setting .target-container {
+.setting-page .setting-menu .ball-size-setting .targets-container {
   right: -100px;
   top: 2px;
 }
-.setting-page .setting-menu .ball-size-setting .target-container .ball-showcase {
+.setting-page .setting-menu .ball-size-setting .targets-container .targets-ball-showcase {
   border: 1px solid green;
   background-color: rgb(47, 196, 9);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
 }
 .setting-page .setting-menu .timer-form,
 .setting-page .setting-menu .movment-form {

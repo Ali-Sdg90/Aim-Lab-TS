@@ -185,6 +185,33 @@ const setStarCheckers = () => {
     InputStarChecker(bombsSizeInput, bombsSize, bombsSizeStar);
     InputStarChecker(targetsClickModeInput, targetsClickMode, targetsClickModeStar);
 };
+const bombsShowcaseContainer = document.querySelector(".bombs-container");
+const targetsShowcaseContainer = document.querySelector(".targets-container");
+const bombsShowcase = document.querySelector(".bombs-ball-showcase");
+const targetsShowcase = document.querySelector(".targets-ball-showcase");
+const showcaseTransition = (container, introTransition) => {
+    if (container) {
+        container.style.opacity = String(+introTransition);
+    }
+};
+let targetsFadeOutTimeout;
+let bombsFadeOutTimeout;
+let zIndexCounter = 1;
+const showcaseTransitions = (input, showcaseContainer, showcaseBall, timeoutValue) => {
+    input.addEventListener("input", () => {
+        showcaseTransition(showcaseContainer, true);
+        showcaseBall.style.width = input.value + "px";
+        showcaseBall.style.height = input.value + "px";
+        showcaseBall.style.zIndex = String(zIndexCounter++);
+        console.log(zIndexCounter);
+        clearTimeout(timeoutValue);
+        timeoutValue = setTimeout(() => {
+            showcaseTransition(showcaseContainer, false);
+        }, 1200);
+    });
+};
+showcaseTransitions(bombsSizeInput, bombsShowcaseContainer, bombsShowcase, bombsFadeOutTimeout);
+showcaseTransitions(targetsSizeInput, targetsShowcaseContainer, targetsShowcase, targetsFadeOutTimeout);
 applyBtn?.addEventListener("click", () => {
     let allowApply = true;
     for (let i = 0; i < 3; i++) {

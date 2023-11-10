@@ -98,8 +98,6 @@ if (timer) {
     }, 1000);
 }
 
-// target.ts ----------------------------------------------------
-
 // setting.ts ---------------------------------------------------
 
 const gameTargets: HTMLElement | null = document.querySelector(".game-targets");
@@ -261,6 +259,7 @@ const InputStarChecker = (
     input.removeEventListener("change", InputStarCheckerFunc);
     input.addEventListener("change", InputStarCheckerFunc);
 };
+
 const setStarCheckers = (): void => {
     InputStarChecker(NoTargetsInput, NoTargets, NoTargetsStar);
     InputStarChecker(NoBombsInput, NoBombs, NoBombstsStar);
@@ -277,6 +276,65 @@ const setStarCheckers = (): void => {
         targetsClickModeStar
     );
 };
+
+const bombsShowcaseContainer: HTMLElement | null =
+    document.querySelector(".bombs-container");
+const targetsShowcaseContainer: HTMLElement | null =
+    document.querySelector(".targets-container");
+
+const bombsShowcase: HTMLElement | null = document.querySelector(
+    ".bombs-ball-showcase"
+) as HTMLElement;
+const targetsShowcase: HTMLElement | null = document.querySelector(
+    ".targets-ball-showcase"
+) as HTMLElement;
+
+const showcaseTransition = (
+    container: HTMLElement | null,
+    introTransition: boolean
+): void => {
+    if (container) {
+        container.style.opacity = String(+introTransition);
+    }
+};
+
+let targetsFadeOutTimeout: number | undefined;
+let bombsFadeOutTimeout: number | undefined;
+let zIndexCounter: number = 1;
+
+const showcaseTransitions = (
+    input: HTMLInputElement,
+    showcaseContainer: HTMLElement | null,
+    showcaseBall: HTMLElement,
+    timeoutValue: number | undefined
+): void => {
+    input.addEventListener("input", () => {
+        showcaseTransition(showcaseContainer, true);
+
+        showcaseBall.style.width = input.value + "px";
+        showcaseBall.style.height = input.value + "px";
+        showcaseBall.style.zIndex = String(zIndexCounter++);
+        console.log(zIndexCounter);
+
+        clearTimeout(timeoutValue);
+        timeoutValue = setTimeout(() => {
+            showcaseTransition(showcaseContainer, false);
+        }, 1200);
+    });
+};
+
+showcaseTransitions(
+    bombsSizeInput,
+    bombsShowcaseContainer,
+    bombsShowcase,
+    bombsFadeOutTimeout
+);
+showcaseTransitions(
+    targetsSizeInput,
+    targetsShowcaseContainer,
+    targetsShowcase,
+    targetsFadeOutTimeout
+);
 
 applyBtn?.addEventListener("click", () => {
     let allowApply: boolean = true;

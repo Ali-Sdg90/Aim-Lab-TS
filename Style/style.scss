@@ -234,38 +234,40 @@ header {
             position: relative;
 
             .ball-showcase-container {
-                border: 1px solid yellow;
-                width: 70px;
-                height: 70px;
+                // border: 1px solid yellow;
+                width: 80px;
+                height: 80px;
                 position: absolute;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
-                .ball-showcase {
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 50%;
-                }
+                opacity: 0;
+                transition: opacity 0.3s;
             }
 
-            .bomb-container {
+            .bombs-container {
                 right: -100px;
                 top: -41.5px;
 
-                .ball-showcase {
+                .bombs-ball-showcase {
                     border: 1px solid rgb(128, 0, 0);
                     background-color: rgb(196, 9, 9);
+                    border-radius: 50%;
+                    width: 60px;
+                    height: 60px;
                 }
             }
 
-            .target-container {
+            .targets-container {
                 right: -100px;
                 top: 2px;
 
-                .ball-showcase {
+                .targets-ball-showcase {
                     border: 1px solid green;
                     background-color: rgb(47, 196, 9);
+                    border-radius: 50%;
+                    width: 60px;
+                    height: 60px;
                 }
             }
         }
