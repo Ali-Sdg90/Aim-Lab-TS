@@ -89,7 +89,7 @@ header .setting-btn {
 }
 
 .game-section {
-  background: url("../Imgs/game-background.png") no-repeat;
+  background: url("../Imgs/game-background-dark.png") no-repeat;
   background-size: cover;
   background-position: center center;
   width: 100%;
