@@ -76,46 +76,133 @@ if (timer) {
         updateTimer();
     }, 1000);
 }
-const targets = document.querySelectorAll(".game-target");
-const badTargets = document.querySelectorAll(".bad-target");
-const randomNumberMaker = () => {
-    return Math.trunc(Math.random() * 100);
+const gameTargets = document.querySelector(".game-targets");
+let NoTargets = 4;
+let NoBombs = 2;
+let targetsCanMove = false;
+let bombsCanMove = true;
+let timerDuration = 60;
+let movementSpeed = 2000;
+let alwaysReady = false;
+let validInputsArray = [true, true, true, true];
+const NoTargets_MinMax = [1, 200];
+const NoBombs_MinMax = [0, 200];
+const timerDuration_MinMax = [5, 3000];
+const movementSpeed_MinMax = [100, 4000];
+const NoTargetsInput = document.getElementById("number-of-targets");
+const NoBombsInput = document.getElementById("number-of-bombs");
+const targetsCanMoveInput = document.getElementById("targets-can-move");
+const bombsCanMoveInput = document.getElementById("bombs-can-move");
+const timerDurationInput = document.getElementById("timer-duration");
+const movementSpeedInput = document.getElementById("movement-speed");
+const alwaysReadyInput = document.getElementById("always-ready");
+const applyBtn = document.querySelector(".apply-btn");
+NoTargetsInput.value = String(NoTargets);
+NoBombsInput.value = String(NoBombs);
+targetsCanMoveInput.checked = targetsCanMove;
+bombsCanMoveInput.checked = bombsCanMove;
+timerDurationInput.value = String(timerDuration);
+movementSpeedInput.value = String(movementSpeed);
+alwaysReadyInput.checked = alwaysReady;
+const addTitle = (input, minMax) => {
+    input.title = `Min: ${minMax[0]}\nMax: ${minMax[1]}`;
 };
-const randomPositionMaker = (target) => {
-    target.style.top = `${randomNumberMaker()}%`;
-    target.style.left = `${randomNumberMaker()}%`;
+addTitle(NoTargetsInput, NoTargets_MinMax);
+addTitle(NoBombsInput, NoBombs_MinMax);
+addTitle(timerDurationInput, timerDuration_MinMax);
+addTitle(movementSpeedInput, movementSpeed_MinMax);
+const inputValidationChecker = (input, minMax, validationNumber) => {
+    input.addEventListener("input", () => {
+        if (+input.value >= minMax[0] && +input.value <= minMax[1]) {
+            console.log("ok");
+            input.style.background = "#d1d1d1";
+            input.style.color = "#000";
+            validInputsArray[validationNumber] = true;
+        }
+        else {
+            console.log("no!");
+            input.style.background = "#bc0000";
+            input.style.color = "#fff";
+            validInputsArray[validationNumber] = false;
+        }
+    });
 };
-targets.forEach((target) => {
-    randomPositionMaker(target);
-    target.addEventListener("mouseenter", () => {
-        randomPositionMaker(target);
-        updatePointValue(true);
-        console.log("boom");
-    });
-});
-badTargets.forEach((target) => {
-    randomPositionMaker(target);
-    setInterval(() => {
-        randomPositionMaker(target);
-    }, 2000 - Math.trunc(Math.random() * 500));
-    target.addEventListener("mouseenter", () => {
-        randomPositionMaker(target);
-        updatePointValue(false);
-        console.log("boom");
-    });
-});
-const gameTargets = document.querySelector("game-targets");
-const NoTargets = document.getElementById("number-of-targets");
-const NoBombs = document.getElementById("number-of-bombs");
-const bombsCanMove = document.getElementById("bombs-can-move");
-const targetsCanMove = document.getElementById("targets-can-move");
-const timerDuration = document.getElementById("timer-duration");
-const movementSpeed = document.getElementById("movement-speed");
-const alwaysReady = document.getElementById("always-ready");
-if (NoTargets && gameTargets) {
-    const input = NoTargets;
-    for (let i = 0; i < +input.value; i++) {
-        gameTargets.innerHTML += `<div class="game-target"></div>`;
+inputValidationChecker(NoTargetsInput, NoTargets_MinMax, 0);
+inputValidationChecker(NoBombsInput, NoBombs_MinMax, 1);
+inputValidationChecker(timerDurationInput, timerDuration_MinMax, 2);
+inputValidationChecker(movementSpeedInput, movementSpeed_MinMax, 3);
+applyBtn?.addEventListener("click", () => {
+    let allowApply = true;
+    for (let i = 0; i < 3; i++) {
+        if (validInputsArray[i] === false) {
+            allowApply = false;
+        }
     }
-}
+    if (allowApply) {
+        NoTargets = +NoTargetsInput.value;
+        NoBombs = +NoBombsInput.value;
+        targetsCanMove = targetsCanMoveInput.checked;
+        bombsCanMove = bombsCanMoveInput.checked;
+        timerDuration = +timerDurationInput.value;
+        movementSpeed = +movementSpeedInput.value;
+        alwaysReady = alwaysReadyInput.checked;
+        applySetting();
+    }
+    else {
+        console.log("no!");
+        applyBtn.style.background = "#bc0000";
+        applyBtn.style.cursor = "not-allowed";
+        setTimeout(() => {
+            applyBtn.style.background = "rgba(255, 255, 255, 0.2)";
+            applyBtn.style.cursor = "pointer";
+        }, 400);
+    }
+});
+const applySetting = () => {
+    if (gameTargets) {
+        gameTargets.innerHTML = "";
+        for (let i = 0; i < +NoTargetsInput.value; i++) {
+            gameTargets.innerHTML += `<div class="game-target"></div>`;
+        }
+        for (let i = 0; i < +NoBombsInput.value; i++) {
+            gameTargets.innerHTML += `<div class="bad-target"></div>`;
+        }
+    }
+    const targets = document.querySelectorAll(".game-target");
+    const badTargets = document.querySelectorAll(".bad-target");
+    const randomNumberMaker = () => {
+        return Math.trunc(Math.random() * 100);
+    };
+    const randomPositionMaker = (target) => {
+        target.style.top = `${randomNumberMaker()}%`;
+        target.style.left = `${randomNumberMaker()}%`;
+    };
+    targets.forEach((target) => {
+        randomPositionMaker(target);
+        if (targetsCanMove) {
+            setInterval(() => {
+                randomPositionMaker(target);
+            }, movementSpeed - Math.trunc((Math.random() * movementSpeed) / 4));
+        }
+        target.addEventListener("mouseenter", () => {
+            randomPositionMaker(target);
+            updatePointValue(true);
+            console.log("Good Boom");
+        });
+    });
+    badTargets.forEach((target) => {
+        randomPositionMaker(target);
+        if (bombsCanMove) {
+            setInterval(() => {
+                randomPositionMaker(target);
+            }, movementSpeed - Math.trunc((Math.random() * movementSpeed) / 4));
+        }
+        target.addEventListener("mouseenter", () => {
+            randomPositionMaker(target);
+            updatePointValue(false);
+            console.log("Bad Boom");
+        });
+    });
+};
+applySetting();
 //# sourceMappingURL=index.js.map

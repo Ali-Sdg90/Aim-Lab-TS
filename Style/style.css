@@ -162,6 +162,8 @@ header .setting-btn {
   border-bottom: 1px solid blue;
   border-radius: 0;
   padding-bottom: 7px;
+  letter-spacing: 0.5px;
+  text-shadow: 2px 0 rgba(98, 0, 255, 0.4), -2px 0 rgba(255, 0, 0, 0.4);
 }
 .setting-page .setting-menu form {
   width: 100%;
@@ -187,9 +189,10 @@ header .setting-btn {
   width: 100px;
   height: 25px;
   border: none;
-  padding: 3px 5px;
-  font-size: 20px;
+  padding: 6px 5px 3px;
+  font-size: 18px;
   background-color: #d1d1d1;
+  transition: background-color 0.15s, color 0.15s;
 }
 .setting-page .setting-menu form .input-box input::-webkit-outer-spin-button, .setting-page .setting-menu form .input-box input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -216,4 +219,12 @@ header .setting-btn {
   color: white;
   font-size: 25px;
   margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.setting-page .setting-menu .apply-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+.setting-page .setting-menu .apply-btn:active {
+  background: rgba(255, 255, 255, 0.19);
 }/*# sourceMappingURL=style.css.map */
