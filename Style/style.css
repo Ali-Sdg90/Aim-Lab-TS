@@ -171,7 +171,7 @@ header .setting-btn {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 0 45px 0 5px;
+  padding: 0 25px 0 5px;
 }
 .setting-page .setting-menu form .input-box {
   display: flex;
@@ -179,11 +179,14 @@ header .setting-btn {
   justify-content: center;
   align-items: center;
   gap: 5px;
+  display: grid;
+  grid-template-columns: 1fr 25px;
 }
 .setting-page .setting-menu form .input-box .change-indicator {
   color: red;
   position: relative;
   top: 5.5px;
+  display: none;
 }
 .setting-page .setting-menu form .input-box input {
   width: 100px;
@@ -204,12 +207,12 @@ header .setting-btn {
 .setting-page .setting-menu form .checkbox-container {
   margin-right: 35px;
 }
-.setting-page .setting-menu form .tiemr-container {
-  margin-right: 20px;
-}
 .setting-page .setting-menu .timer-form,
 .setting-page .setting-menu .movment-form {
   padding-right: 5px;
+}
+.setting-page .setting-menu .movment-div {
+  margin-right: -20px;
 }
 .setting-page .setting-menu .apply-btn {
   width: 100%;

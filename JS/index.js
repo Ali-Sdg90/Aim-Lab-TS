@@ -15,7 +15,7 @@ const updatePointValue = (addToPoints) => {
     }
     else {
         loseAccuracy();
-        points -= 10;
+        points -= 5;
     }
     if (pointValue) {
         pointValue.textContent = String(points);
@@ -131,6 +131,45 @@ inputValidationChecker(NoTargetsInput, NoTargets_MinMax, 0);
 inputValidationChecker(NoBombsInput, NoBombs_MinMax, 1);
 inputValidationChecker(timerDurationInput, timerDuration_MinMax, 2);
 inputValidationChecker(movementSpeedInput, movementSpeed_MinMax, 3);
+const NoTargetsStar = document.querySelector(".number-of-targets-star");
+const NoBombstsStar = document.querySelector(".number-of-bombs-star");
+const targetsCanMoveStar = document.querySelector(".targets-can-move-star");
+const bombsCanMoveStar = document.querySelector(".bombs-can-move-star");
+const timerDurationStar = document.querySelector(".timer-duration-star");
+const movementSpeedStar = document.querySelector(".movement-speed-star");
+const alwaysReadyStar = document.querySelector(".always-ready-star");
+const InputStarChecker = (input, setValueForInput, star) => {
+    const InputStarCheckerFunc = () => {
+        if (typeof setValueForInput === "number") {
+            if (+input.value !== setValueForInput) {
+                star.style.display = "block";
+            }
+            else {
+                star.style.display = "none";
+            }
+        }
+        else {
+            if (input.checked !== setValueForInput) {
+                star.style.display = "block";
+            }
+            else {
+                star.style.display = "none";
+            }
+        }
+    };
+    InputStarCheckerFunc();
+    input.removeEventListener("change", InputStarCheckerFunc);
+    input.addEventListener("change", InputStarCheckerFunc);
+};
+const setStarCheckers = () => {
+    InputStarChecker(NoTargetsInput, NoTargets, NoTargetsStar);
+    InputStarChecker(NoBombsInput, NoBombs, NoBombstsStar);
+    InputStarChecker(targetsCanMoveInput, targetsCanMove, targetsCanMoveStar);
+    InputStarChecker(bombsCanMoveInput, bombsCanMove, bombsCanMoveStar);
+    InputStarChecker(timerDurationInput, timerDuration, timerDurationStar);
+    InputStarChecker(movementSpeedInput, movementSpeed, movementSpeedStar);
+    InputStarChecker(alwaysReadyInput, alwaysReady, alwaysReadyStar);
+};
 applyBtn?.addEventListener("click", () => {
     let allowApply = true;
     for (let i = 0; i < 3; i++) {
@@ -184,7 +223,7 @@ const applySetting = () => {
                 randomPositionMaker(target);
             }, movementSpeed - Math.trunc((Math.random() * movementSpeed) / 4));
         }
-        target.addEventListener("mouseenter", () => {
+        target.addEventListener("click", () => {
             randomPositionMaker(target);
             updatePointValue(true);
             console.log("Good Boom");
@@ -203,6 +242,7 @@ const applySetting = () => {
             console.log("Bad Boom");
         });
     });
+    setStarCheckers();
 };
 applySetting();
 //# sourceMappingURL=index.js.map

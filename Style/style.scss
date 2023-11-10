@@ -179,7 +179,7 @@ header {
             flex-flow: row nowrap;
             justify-content: space-between;
             align-items: center;
-            padding: 0 45px 0 5px;
+            padding: 0 25px 0 5px;
 
             .input-box {
                 // border: 1px solid yellow;
@@ -188,16 +188,19 @@ header {
                 justify-content: center;
                 align-items: center;
                 gap: 5px;
+                display: grid;
+                grid-template-columns: 1fr 25px;
 
                 .change-indicator {
                     color: red;
                     // border: 1px solid red;
                     position: relative;
                     top: 5.5px;
+                    display: none;
                 }
 
                 input {
-                    width: 100px; //fix it
+                    width: 100px;
                     height: 25px;
                     border: none;
                     padding: 6px 5px 3px;
@@ -220,15 +223,15 @@ header {
             .checkbox-container {
                 margin-right: 35px;
             }
-
-            .tiemr-container {
-                margin-right: 20px;
-            }
         }
 
         .timer-form,
         .movment-form {
             padding-right: 5px;
+        }
+
+        .movment-div {
+            margin-right: -20px;
         }
 
         .apply-btn {
