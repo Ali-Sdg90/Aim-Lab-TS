@@ -66,38 +66,6 @@ if (settingBtn && settingPage) {
     });
 }
 
-// Timer.ts --------------------------------------------------
-
-let maxTimeCounter: number = 5;
-
-const timer: HTMLElement | null = document.querySelector(".timer-section");
-
-const timerNumHelper = (timeNumber: number, fillerChar: string): string => {
-    return String(Math.trunc(timeNumber)).padStart(2, fillerChar);
-};
-
-let TimeInterval: number = 0;
-
-const updateTimer = (): void => {
-    if (timer) {
-        const minValue: string = timerNumHelper(maxTimeCounter / 60, " ");
-        const secValue: string = timerNumHelper(maxTimeCounter % 60, "0");
-        timer.textContent = `${minValue}:${secValue}`;
-
-        if (!maxTimeCounter--) {
-            console.log("End of the timer");
-            clearInterval(TimeInterval);
-        }
-    }
-};
-updateTimer();
-
-if (timer) {
-    TimeInterval = setInterval(() => {
-        updateTimer();
-    }, 1000);
-}
-
 // setting.ts ---------------------------------------------------
 
 const gameTargets: HTMLElement | null = document.querySelector(".game-targets");
@@ -106,9 +74,9 @@ let NoTargets: number = 4;
 let NoBombs: number = 2;
 let targetsCanMove: boolean = false;
 let bombsCanMove: boolean = true;
-let timerDuration: number = 60;
+let timerDuration: number = 30;
 let movementSpeed: number = 2000;
-let targetsClickMode: boolean = true;
+let targetsClickMode: boolean = false;
 let bombsClickMode: boolean = false;
 let targetsSize: number = 40;
 let bombsSize: number = 60;
@@ -117,7 +85,7 @@ let validInputsArray: boolean[] = [true, true, true, true];
 
 const NoTargets_MinMax: number[] = [1, 200];
 const NoBombs_MinMax: number[] = [0, 200];
-const timerDuration_MinMax: number[] = [5, 3000];
+const timerDuration_MinMax: number[] = [5, 600];
 const movementSpeed_MinMax: number[] = [100, 4000];
 
 const NoTargetsInput = document.getElementById(
@@ -339,7 +307,7 @@ showcaseTransitions(
 applyBtn?.addEventListener("click", () => {
     let allowApply: boolean = true;
 
-    for (let i: number = 0; i < 3; i++) {
+    for (let i: number = 0; i < 4; i++) {
         if (validInputsArray[i] === false) {
             allowApply = false;
         }
@@ -356,6 +324,7 @@ applyBtn?.addEventListener("click", () => {
         bombsClickMode = bombsClickModeInput.checked;
         targetsSize = +targetsSizeInput.value;
         bombsSize = +bombsSizeInput.value;
+        maxTimeCounter = timerDuration;
 
         applySetting();
     } else {
@@ -443,3 +412,35 @@ const applySetting = () => {
 };
 
 applySetting();
+
+// Timer.ts --------------------------------------------------
+
+let maxTimeCounter: number = timerDuration;
+
+const timer: HTMLElement | null = document.querySelector(".timer-section");
+
+const timerNumHelper = (timeNumber: number, fillerChar: string): string => {
+    return String(Math.trunc(timeNumber)).padStart(2, fillerChar);
+};
+
+let TimeInterval: number = 0;
+
+const updateTimer = (): void => {
+    if (timer) {
+        const minValue: string = timerNumHelper(maxTimeCounter / 60, " ");
+        const secValue: string = timerNumHelper(maxTimeCounter % 60, "0");
+        timer.textContent = `${minValue}:${secValue}`;
+
+        if (!maxTimeCounter--) {
+            console.log("End of the timer");
+            clearInterval(TimeInterval);
+        }
+    }
+};
+updateTimer();
+
+if (timer) {
+    TimeInterval = setInterval(() => {
+        updateTimer();
+    }, 1000);
+}

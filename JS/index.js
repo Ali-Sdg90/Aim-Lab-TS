@@ -53,44 +53,21 @@ if (settingBtn && settingPage) {
         settingBtn.style.transform = `rotate(${settingClicked * 90}deg)`;
     });
 }
-let maxTimeCounter = 5;
-const timer = document.querySelector(".timer-section");
-const timerNumHelper = (timeNumber, fillerChar) => {
-    return String(Math.trunc(timeNumber)).padStart(2, fillerChar);
-};
-let TimeInterval = 0;
-const updateTimer = () => {
-    if (timer) {
-        const minValue = timerNumHelper(maxTimeCounter / 60, " ");
-        const secValue = timerNumHelper(maxTimeCounter % 60, "0");
-        timer.textContent = `${minValue}:${secValue}`;
-        if (!maxTimeCounter--) {
-            console.log("End of the timer");
-            clearInterval(TimeInterval);
-        }
-    }
-};
-updateTimer();
-if (timer) {
-    TimeInterval = setInterval(() => {
-        updateTimer();
-    }, 1000);
-}
 const gameTargets = document.querySelector(".game-targets");
 let NoTargets = 4;
 let NoBombs = 2;
 let targetsCanMove = false;
 let bombsCanMove = true;
-let timerDuration = 60;
+let timerDuration = 30;
 let movementSpeed = 2000;
-let targetsClickMode = true;
+let targetsClickMode = false;
 let bombsClickMode = false;
 let targetsSize = 40;
 let bombsSize = 60;
 let validInputsArray = [true, true, true, true];
 const NoTargets_MinMax = [1, 200];
 const NoBombs_MinMax = [0, 200];
-const timerDuration_MinMax = [5, 3000];
+const timerDuration_MinMax = [5, 600];
 const movementSpeed_MinMax = [100, 4000];
 const NoTargetsInput = document.getElementById("number-of-targets");
 const NoBombsInput = document.getElementById("number-of-bombs");
@@ -214,7 +191,7 @@ showcaseTransitions(bombsSizeInput, bombsShowcaseContainer, bombsShowcase, bombs
 showcaseTransitions(targetsSizeInput, targetsShowcaseContainer, targetsShowcase, targetsFadeOutTimeout);
 applyBtn?.addEventListener("click", () => {
     let allowApply = true;
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
         if (validInputsArray[i] === false) {
             allowApply = false;
         }
@@ -230,6 +207,7 @@ applyBtn?.addEventListener("click", () => {
         bombsClickMode = bombsClickModeInput.checked;
         targetsSize = +targetsSizeInput.value;
         bombsSize = +bombsSizeInput.value;
+        maxTimeCounter = timerDuration;
         applySetting();
     }
     else {
@@ -294,4 +272,27 @@ const applySetting = () => {
     setStarCheckers();
 };
 applySetting();
+let maxTimeCounter = timerDuration;
+const timer = document.querySelector(".timer-section");
+const timerNumHelper = (timeNumber, fillerChar) => {
+    return String(Math.trunc(timeNumber)).padStart(2, fillerChar);
+};
+let TimeInterval = 0;
+const updateTimer = () => {
+    if (timer) {
+        const minValue = timerNumHelper(maxTimeCounter / 60, " ");
+        const secValue = timerNumHelper(maxTimeCounter % 60, "0");
+        timer.textContent = `${minValue}:${secValue}`;
+        if (!maxTimeCounter--) {
+            console.log("End of the timer");
+            clearInterval(TimeInterval);
+        }
+    }
+};
+updateTimer();
+if (timer) {
+    TimeInterval = setInterval(() => {
+        updateTimer();
+    }, 1000);
+}
 //# sourceMappingURL=index.js.map

@@ -141,7 +141,7 @@ header .setting-btn {
   align-items: center;
 }
 .setting-page .setting-menu {
-  border: 1px solid blue;
+  border: 1px solid rgb(0, 0, 156);
   width: 500px;
   font-size: 25px;
   display: flex;
@@ -151,6 +151,7 @@ header .setting-btn {
   gap: 15px;
   background: rgba(0, 0, 0, 0.6);
   padding: 12px 15px 15px;
+  box-shadow: inset 0 0 3px 3px rgb(13, 0, 53), 0 0 10px 5px rgba(13, 0, 53, 0.57);
 }
 .setting-page .setting-menu .setting-title {
   width: 100%;
@@ -159,7 +160,7 @@ header .setting-btn {
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  border-bottom: 1px solid blue;
+  border-bottom: 1px solid rgb(0, 0, 193);
   border-radius: 0;
   padding-bottom: 7px;
   letter-spacing: 0.5px;
@@ -256,7 +257,7 @@ header .setting-btn {
 .setting-page .setting-menu .apply-btn {
   width: 100%;
   height: 45px;
-  border: 1px solid blue;
+  border: 1px solid rgb(0, 0, 175);
   background: rgba(255, 255, 255, 0.2);
   color: white;
   font-size: 25px;
