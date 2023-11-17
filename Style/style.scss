@@ -162,7 +162,8 @@ header {
         gap: 15px;
         background: rgba(0, 0, 0, 0.6);
         padding: 12px 15px 15px;
-        box-shadow: inset 0 0 3px 3px rgb(13, 0, 53), 0 0 10px 5px rgba(13, 0, 53, 0.57);
+        box-shadow: inset 0 0 3px 3px rgb(13, 0, 53),
+            0 0 10px 5px rgba(13, 0, 53, 0.57);
 
         .setting-title {
             width: 100%;
@@ -304,4 +305,15 @@ header {
             }
         }
     }
+}
+
+.black-screen {
+    width: 100%;
+    height: 100vh;
+    background: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s;
+    z-index: 3;
 }

@@ -1,25 +1,59 @@
 // index.ts --------------------------------------------------
-let points: number = 0;
-let accuracy: number = 100;
+let points: number;
+let hitClicks: number;
+let numberOfClicks: number;
+let timerDuration: number = 30;
+let maxTimeCounter: number = timerDuration;
 
+const gameTargets: HTMLElement | null = document.querySelector(".game-targets");
+const blackScreen: null | HTMLElement = document.querySelector(".black-screen");
 const pointValue: HTMLElement | null = document.querySelector(".point-value");
 const accuracyValue: HTMLElement | null =
     document.querySelector(".accuracy-value");
 
-const loseAccuracy = (): void => {
-    accuracy -= 10;
+const blackFlash = () => {
+    if (blackScreen) {
+        blackScreen.style.display = "block";
+        blackScreen.style.opacity = "1";
+
+        setTimeout(() => {
+            blackScreen.style.opacity = "0";
+            setTimeout(() => {
+                blackScreen.style.display = "none";
+            }, 500);
+        }, 10);
+    }
+
+    points = 0;
+    hitClicks = 0;
+    numberOfClicks = 0;
+    maxTimeCounter = timerDuration;
+
     if (accuracyValue) {
-        accuracyValue.textContent = String(accuracy);
+        accuracyValue.textContent = "100";
+    }
+
+    if (pointValue) {
+        pointValue.textContent = String(points);
     }
 };
 
-const updatePointValue = (addToPoints: boolean): void => {
-    if (addToPoints) {
-        points++;
-    } else {
-        loseAccuracy();
-        points -= 5;
+blackFlash();
+
+const calculateAccuracy = () => {
+    const showAccuracy = ((hitClicks / numberOfClicks) * 100).toFixed(0);
+    if (accuracyValue && targetsClickMode) {
+        accuracyValue.textContent = String(showAccuracy);
     }
+};
+
+gameTargets?.addEventListener("click", (): void => {
+    numberOfClicks++;
+    calculateAccuracy();
+});
+
+const updatePointValue = (addToPoints: boolean): void => {
+    addToPoints ? points++ : (points -= 5);
 
     if (pointValue) {
         pointValue.textContent = String(points);
@@ -33,10 +67,9 @@ let rotateDeg: number = 0;
 if (reloadBtn) {
     reloadBtn.addEventListener("click", (): void => {
         reloadBtn.style.transform = `rotate(${(rotateDeg += 360)}deg)`;
-        console.log("l");
 
         setTimeout(() => {
-            location.reload();
+            blackFlash();
         }, 500);
     });
 }
@@ -68,18 +101,15 @@ if (settingBtn && settingPage) {
 
 // setting.ts ---------------------------------------------------
 
-const gameTargets: HTMLElement | null = document.querySelector(".game-targets");
-
 let NoTargets: number = 4;
 let NoBombs: number = 2;
 let targetsCanMove: boolean = false;
 let bombsCanMove: boolean = true;
-let timerDuration: number = 30;
 let movementSpeed: number = 2000;
-let targetsClickMode: boolean = false;
+let targetsClickMode: boolean = true;
 let bombsClickMode: boolean = false;
-let targetsSize: number = 40;
-let bombsSize: number = 60;
+let targetsSize: number = 60;
+let bombsSize: number = 70;
 
 let validInputsArray: boolean[] = [true, true, true, true];
 
@@ -328,7 +358,6 @@ applyBtn?.addEventListener("click", () => {
 
         applySetting();
     } else {
-        console.log("no!");
         applyBtn.style.background = "#bc0000";
         applyBtn.style.cursor = "not-allowed";
 
@@ -383,6 +412,12 @@ const applySetting = () => {
                 randomPositionMaker(target);
                 updatePointValue(true);
                 console.log("Good Boom");
+
+                if (targetsClickMode) {
+                    hitClicks += 2;
+                    numberOfClicks++;
+                    calculateAccuracy();
+                }
             }
         );
     });
@@ -414,8 +449,6 @@ const applySetting = () => {
 applySetting();
 
 // Timer.ts --------------------------------------------------
-
-let maxTimeCounter: number = timerDuration;
 
 const timer: HTMLElement | null = document.querySelector(".timer-section");
 

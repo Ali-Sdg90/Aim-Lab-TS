@@ -1,22 +1,48 @@
 "use strict";
-let points = 0;
-let accuracy = 100;
+let points;
+let hitClicks;
+let numberOfClicks;
+let timerDuration = 30;
+let maxTimeCounter = timerDuration;
+const gameTargets = document.querySelector(".game-targets");
+const blackScreen = document.querySelector(".black-screen");
 const pointValue = document.querySelector(".point-value");
 const accuracyValue = document.querySelector(".accuracy-value");
-const loseAccuracy = () => {
-    accuracy -= 10;
+const blackFlash = () => {
+    if (blackScreen) {
+        blackScreen.style.display = "block";
+        blackScreen.style.opacity = "1";
+        setTimeout(() => {
+            blackScreen.style.opacity = "0";
+            setTimeout(() => {
+                blackScreen.style.display = "none";
+            }, 500);
+        }, 10);
+    }
+    points = 0;
+    hitClicks = 0;
+    numberOfClicks = 0;
+    maxTimeCounter = timerDuration;
     if (accuracyValue) {
-        accuracyValue.textContent = String(accuracy);
+        accuracyValue.textContent = "100";
+    }
+    if (pointValue) {
+        pointValue.textContent = String(points);
     }
 };
+blackFlash();
+const calculateAccuracy = () => {
+    const showAccuracy = ((hitClicks / numberOfClicks) * 100).toFixed(0);
+    if (accuracyValue && targetsClickMode) {
+        accuracyValue.textContent = String(showAccuracy);
+    }
+};
+gameTargets?.addEventListener("click", () => {
+    numberOfClicks++;
+    calculateAccuracy();
+});
 const updatePointValue = (addToPoints) => {
-    if (addToPoints) {
-        points++;
-    }
-    else {
-        loseAccuracy();
-        points -= 5;
-    }
+    addToPoints ? points++ : (points -= 5);
     if (pointValue) {
         pointValue.textContent = String(points);
     }
@@ -26,9 +52,8 @@ let rotateDeg = 0;
 if (reloadBtn) {
     reloadBtn.addEventListener("click", () => {
         reloadBtn.style.transform = `rotate(${(rotateDeg += 360)}deg)`;
-        console.log("l");
         setTimeout(() => {
-            location.reload();
+            blackFlash();
         }, 500);
     });
 }
@@ -53,17 +78,15 @@ if (settingBtn && settingPage) {
         settingBtn.style.transform = `rotate(${settingClicked * 90}deg)`;
     });
 }
-const gameTargets = document.querySelector(".game-targets");
 let NoTargets = 4;
 let NoBombs = 2;
 let targetsCanMove = false;
 let bombsCanMove = true;
-let timerDuration = 30;
 let movementSpeed = 2000;
-let targetsClickMode = false;
+let targetsClickMode = true;
 let bombsClickMode = false;
-let targetsSize = 40;
-let bombsSize = 60;
+let targetsSize = 60;
+let bombsSize = 70;
 let validInputsArray = [true, true, true, true];
 const NoTargets_MinMax = [1, 200];
 const NoBombs_MinMax = [0, 200];
@@ -211,7 +234,6 @@ applyBtn?.addEventListener("click", () => {
         applySetting();
     }
     else {
-        console.log("no!");
         applyBtn.style.background = "#bc0000";
         applyBtn.style.cursor = "not-allowed";
         setTimeout(() => {
@@ -252,6 +274,11 @@ const applySetting = () => {
             randomPositionMaker(target);
             updatePointValue(true);
             console.log("Good Boom");
+            if (targetsClickMode) {
+                hitClicks += 2;
+                numberOfClicks++;
+                calculateAccuracy();
+            }
         });
     });
     bombs.forEach((target) => {
@@ -272,7 +299,6 @@ const applySetting = () => {
     setStarCheckers();
 };
 applySetting();
-let maxTimeCounter = timerDuration;
 const timer = document.querySelector(".timer-section");
 const timerNumHelper = (timeNumber, fillerChar) => {
     return String(Math.trunc(timeNumber)).padStart(2, fillerChar);
