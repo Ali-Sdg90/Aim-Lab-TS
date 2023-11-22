@@ -4,10 +4,45 @@ let hitClicks;
 let numberOfClicks;
 let timerDuration = 30;
 let maxTimeCounter = timerDuration;
+let TimeInterval = 0;
 const gameTargets = document.querySelector(".game-targets");
 const blackScreen = document.querySelector(".black-screen");
 const pointValue = document.querySelector(".point-value");
 const accuracyValue = document.querySelector(".accuracy-value");
+const timer = document.querySelector(".timer-section");
+const timerNumHelper = (timeNumber, fillerChar) => {
+    return String(Math.trunc(timeNumber)).padStart(2, fillerChar);
+};
+const updateTimer = () => {
+    if (timer) {
+        const minValue = timerNumHelper(maxTimeCounter / 60, " ");
+        const secValue = timerNumHelper(maxTimeCounter % 60, "0");
+        timer.textContent = `${minValue}:${secValue}`;
+        if (!maxTimeCounter--) {
+            console.log("End of the timer");
+            clearInterval(TimeInterval);
+        }
+    }
+};
+const resetTimer = () => {
+    console.log("IN");
+    maxTimeCounter = timerDuration;
+    clearInterval(TimeInterval);
+    TimeInterval = setInterval(() => {
+        updateTimer();
+    }, 1000);
+};
+const resetGame = () => {
+    points = 0;
+    hitClicks = 0;
+    numberOfClicks = 0;
+    if (accuracyValue) {
+        accuracyValue.textContent = "100";
+    }
+    if (pointValue) {
+        pointValue.textContent = String(points);
+    }
+};
 const blackFlash = () => {
     if (blackScreen) {
         blackScreen.style.display = "block";
@@ -18,16 +53,6 @@ const blackFlash = () => {
                 blackScreen.style.display = "none";
             }, 500);
         }, 10);
-    }
-    points = 0;
-    hitClicks = 0;
-    numberOfClicks = 0;
-    maxTimeCounter = timerDuration;
-    if (accuracyValue) {
-        accuracyValue.textContent = "100";
-    }
-    if (pointValue) {
-        pointValue.textContent = String(points);
     }
 };
 blackFlash();
@@ -54,6 +79,9 @@ if (reloadBtn) {
         reloadBtn.style.transform = `rotate(${(rotateDeg += 360)}deg)`;
         setTimeout(() => {
             blackFlash();
+            setTimeout(() => {
+                startGameCounter();
+            }, 100);
         }, 500);
     });
 }
@@ -62,18 +90,17 @@ const settingPage = document.querySelector(".setting-page");
 let settingClicked = 0;
 if (settingBtn && settingPage) {
     settingBtn.addEventListener("click", function () {
-        if (settingClicked++ % 2 == 0) {
-            settingPage.style.transition = "opacity 0.3s";
+        if (settingClicked++ % 2 != 0) {
             settingPage.style.display = "grid";
             setTimeout(() => {
                 settingPage.style.opacity = "1";
             }, 0);
         }
         else {
+            settingPage.style.opacity = "0";
             setTimeout(() => {
                 settingPage.style.display = "none";
             }, 300);
-            settingPage.style.opacity = "0";
         }
         settingBtn.style.transform = `rotate(${settingClicked * 90}deg)`;
     });
@@ -212,6 +239,51 @@ const showcaseTransitions = (input, showcaseContainer, showcaseBall, timeoutValu
 };
 showcaseTransitions(bombsSizeInput, bombsShowcaseContainer, bombsShowcase, bombsFadeOutTimeout);
 showcaseTransitions(targetsSizeInput, targetsShowcaseContainer, targetsShowcase, targetsFadeOutTimeout);
+const gameCounter = document.querySelector(".game-counter");
+let counterStartNumber = 4;
+let gameTimerInterval;
+const startGameCounter = () => {
+    console.log("startGameCounter");
+    clearInterval(TimeInterval);
+    if (timer) {
+        timer.textContent = "--:--";
+    }
+    if (accuracyValue) {
+        accuracyValue.textContent = "100";
+    }
+    if (pointValue) {
+        pointValue.textContent = "0";
+    }
+    if (gameCounter) {
+        if (gameTimerInterval) {
+            clearInterval(gameTimerInterval);
+        }
+        gameCounter.style.display = "flex";
+        gameCounter.style.opacity = "1";
+        counterStartNumber = 4;
+        const updateCounter = () => {
+            gameCounter.style.boxShadow = `inset 0 0 ${counterStartNumber * 25}px ${counterStartNumber * 5}px rgba(0, 30, 255, 0.5)`;
+            if (counterStartNumber > 0) {
+                gameCounter.textContent = String(counterStartNumber - 1);
+            }
+            counterStartNumber--;
+            if (!counterStartNumber) {
+                setTimeout(() => {
+                    clearInterval(gameTimerInterval);
+                    setTimeout(() => {
+                        gameCounter.style.display = "none";
+                    }, 300);
+                    gameCounter.style.opacity = "0";
+                    resetGame();
+                }, 1000);
+                console.log(counterStartNumber);
+                resetTimer();
+            }
+        };
+        updateCounter();
+        gameTimerInterval = setInterval(updateCounter, 1000);
+    }
+};
 applyBtn?.addEventListener("click", () => {
     let allowApply = true;
     for (let i = 0; i < 4; i++) {
@@ -230,7 +302,6 @@ applyBtn?.addEventListener("click", () => {
         bombsClickMode = bombsClickModeInput.checked;
         targetsSize = +targetsSizeInput.value;
         bombsSize = +bombsSizeInput.value;
-        maxTimeCounter = timerDuration;
         applySetting();
     }
     else {
@@ -241,6 +312,12 @@ applyBtn?.addEventListener("click", () => {
             applyBtn.style.cursor = "pointer";
         }, 400);
     }
+    settingBtn?.click();
+    if (settingBtn && reloadBtn) {
+        settingBtn.style.zIndex = "2";
+        reloadBtn.style.zIndex = "2";
+    }
+    startGameCounter();
 });
 const applySetting = () => {
     if (gameTargets) {
@@ -299,26 +376,4 @@ const applySetting = () => {
     setStarCheckers();
 };
 applySetting();
-const timer = document.querySelector(".timer-section");
-const timerNumHelper = (timeNumber, fillerChar) => {
-    return String(Math.trunc(timeNumber)).padStart(2, fillerChar);
-};
-let TimeInterval = 0;
-const updateTimer = () => {
-    if (timer) {
-        const minValue = timerNumHelper(maxTimeCounter / 60, " ");
-        const secValue = timerNumHelper(maxTimeCounter % 60, "0");
-        timer.textContent = `${minValue}:${secValue}`;
-        if (!maxTimeCounter--) {
-            console.log("End of the timer");
-            clearInterval(TimeInterval);
-        }
-    }
-};
-updateTimer();
-if (timer) {
-    TimeInterval = setInterval(() => {
-        updateTimer();
-    }, 1000);
-}
 //# sourceMappingURL=index.js.map

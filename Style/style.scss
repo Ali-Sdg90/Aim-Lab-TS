@@ -14,10 +14,7 @@ body {
     height: 100vh;
     position: relative;
     font-family: sans-serif;
-    // don't work...
-    // overflow: visible;
-    // min-height: 765px;
-    // min-width: 700px;
+    // cursor: url("../Imgs/c.png"), auto;
 }
 
 header {
@@ -40,7 +37,6 @@ header {
         cursor: pointer;
         border-radius: 50%;
         transition: transform 0.5s;
-        z-index: 2;
     }
 
     .header-info {
@@ -88,7 +84,6 @@ header {
         outline: 2.5px solid #171717;
         outline-offset: -4px;
         transition: transform 0.5s;
-        z-index: 2;
     }
 }
 
@@ -146,6 +141,7 @@ header {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
+    transition: opacity 0.3s;
     @include flex-center;
 
     // display: none;
@@ -316,4 +312,24 @@ header {
     left: 0;
     transition: opacity 0.5s;
     z-index: 3;
+}
+
+.game-counter {
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-shadow: inset 0 0 100px 20px rgba(0, 30, 255, 0.5);
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+    transition: opacity 0.3s, box-shadow 0.3s;
+    border-radius: 0;
+    display: none;
 }
