@@ -2,7 +2,7 @@
 let points;
 let hitClicks;
 let numberOfClicks;
-let timerDuration = 30;
+let timerDuration = 20;
 let maxTimeCounter = timerDuration;
 let TimeInterval = 0;
 const gameTargets = document.querySelector(".game-targets");
@@ -56,6 +56,33 @@ const blackFlash = () => {
     }
 };
 blackFlash();
+const playSounds = (soundNumber) => {
+    const gameVolume = 0.4;
+    const gunLoading = new Audio("../Sounds/gun-loading.aac");
+    const gunMiss = new Audio("../Sounds/gun-shot-miss.aac");
+    const gunHit = new Audio("../Sounds/gun-shot-hit.aac");
+    const bombExplode = new Audio("../Sounds/bomb-explode.aac");
+    gunLoading.volume = gameVolume;
+    gunMiss.volume = gameVolume;
+    gunHit.volume = gameVolume;
+    bombExplode.volume = gameVolume;
+    switch (soundNumber) {
+        case 1:
+            gunLoading.play();
+            break;
+        case 2:
+            gunMiss.play();
+            break;
+        case 3:
+            gunHit.play();
+            break;
+        case 4:
+            bombExplode.play();
+            break;
+        default:
+            break;
+    }
+};
 const calculateAccuracy = () => {
     const showAccuracy = ((hitClicks / numberOfClicks) * 100).toFixed(0);
     if (accuracyValue && targetsClickMode) {
@@ -65,6 +92,11 @@ const calculateAccuracy = () => {
 gameTargets?.addEventListener("click", () => {
     numberOfClicks++;
     calculateAccuracy();
+    playSounds(2);
+    gameTargets.style.cursor = `url("../Imgs/custom-cursor-clicked.png"), auto`;
+    setTimeout(() => {
+        gameTargets.style.cursor = `url("../Imgs/custom-cursor.png"), auto`;
+    }, 200);
 });
 const updatePointValue = (addToPoints) => {
     addToPoints ? points++ : (points -= 5);
@@ -244,6 +276,9 @@ let counterStartNumber = 4;
 let gameTimerInterval;
 const startGameCounter = () => {
     console.log("startGameCounter");
+    setTimeout(() => {
+        playSounds(1);
+    }, 500);
     clearInterval(TimeInterval);
     if (timer) {
         timer.textContent = "--:--";
@@ -355,6 +390,7 @@ const applySetting = () => {
                 hitClicks += 2;
                 numberOfClicks++;
                 calculateAccuracy();
+                playSounds(3);
             }
         });
     });
@@ -371,6 +407,7 @@ const applySetting = () => {
             randomPositionMaker(target);
             updatePointValue(false);
             console.log("Bad Boom");
+            playSounds(4);
         });
     });
     setStarCheckers();

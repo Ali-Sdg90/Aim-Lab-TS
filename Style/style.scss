@@ -14,7 +14,6 @@ body {
     height: 100vh;
     position: relative;
     font-family: sans-serif;
-    // cursor: url("../Imgs/c.png"), auto;
 }
 
 header {
@@ -102,6 +101,7 @@ header {
         height: 60vh;
         margin: 15vh 15% 24vh;
         position: relative;
+        cursor: url("../Imgs/custom-cursor.png"), auto;
 
         .game-target,
         .bad-target {
@@ -114,7 +114,6 @@ header {
             transform: translate(-50%, -50%);
             top: 50%;
             left: 50%;
-            cursor: pointer;
             transition: background-color 0.15s, top 0.15s, left 0.15s;
 
             &:hover {
