@@ -5,6 +5,7 @@ let numberOfClicks: number;
 let timerDuration: number = 20;
 let maxTimeCounter: number = timerDuration;
 let TimeInterval: number | undefined = 0;
+let gameVolume: number = 0.4;
 
 const gameTargets: HTMLElement | null = document.querySelector(".game-targets");
 const blackScreen: null | HTMLElement = document.querySelector(".black-screen");
@@ -76,8 +77,6 @@ const blackFlash = () => {
 blackFlash();
 
 const playSounds = (soundNumber: number) => {
-    const gameVolume: number = 0.4;
-
     const gunLoading = new Audio("../Sounds/gun-loading.aac");
     const gunMiss = new Audio("../Sounds/gun-shot-miss.aac");
     const gunHit = new Audio("../Sounds/gun-shot-hit.aac");
@@ -601,3 +600,33 @@ const applySetting = () => {
 };
 
 applySetting();
+
+const volumeIcon: HTMLElement | null = document.querySelector(
+    ".volume-indicator"
+) as HTMLElement;
+const volumeInput: HTMLInputElement | null = document.querySelector(
+    ".volume-input"
+) as HTMLInputElement;
+
+volumeInput.addEventListener("input", (): void => {
+    const volumeValue = +volumeInput.value;
+
+    if (volumeValue) {
+        volumeIcon.style.background = `
+            url("../Imgs/volume-icons/volume-icon-${
+                Math.trunc(volumeValue / (100 / 3)) + 1
+            }.png") 
+            center no-repeat, rgba(46, 57, 101, 0.8)
+        `;
+    } else {
+        volumeIcon.style.background = `
+            url("../Imgs/volume-icons/volume-icon-0.png") 
+            center no-repeat, rgba(46, 57, 101, 0.8)
+        `;
+    }
+    volumeIcon.style.backgroundSize = "35px";
+
+    gameVolume = volumeValue / 200;
+
+    console.log(gameVolume);
+});

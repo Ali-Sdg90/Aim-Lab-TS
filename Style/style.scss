@@ -332,3 +332,43 @@ header {
     border-radius: 0;
     display: none;
 }
+
+.volume-setting {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    // gap: 20px;
+
+    .volume-indicator {
+        width: 54px;
+        height: 54px;
+        background: url("../Imgs/volume-icons/volume-icon-3.png") center
+                no-repeat,
+            rgba(46, 57, 101, 0.8);
+        background-size: 35px;
+        border-radius: 50%;
+        outline: 2.5px solid #171717;
+        outline-offset: -4px;
+        cursor: pointer;
+    }
+
+    .volume-input {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(0px);
+
+        transition: opacity 0.5s, transform 0.5s;
+    }
+
+    &:hover {
+        .volume-input {
+            transform: translateX(20px);
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
