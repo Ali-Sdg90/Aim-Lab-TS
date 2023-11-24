@@ -87,7 +87,7 @@ header {
 }
 
 .game-section {
-    background: url("../Imgs/game-background-dark.png") no-repeat;
+    background: url("../Imgs/game-background-light.png") no-repeat;
     background-size: cover;
     background-position: center center;
     width: 100%;
@@ -101,7 +101,7 @@ header {
         height: 60vh;
         margin: 15vh 15% 24vh;
         position: relative;
-        cursor: url("../Imgs/custom-cursor.png"), auto;
+        cursor: url("../Imgs/custom-cursor-clicked.png"), auto;
 
         .game-target,
         .bad-target {
@@ -341,12 +341,11 @@ header {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    // gap: 20px;
 
     .volume-indicator {
         width: 54px;
         height: 54px;
-        background: url("../Imgs/volume-icons/volume-icon-3.png") center
+        background: url("../Imgs/volume-icons/volume-icon-2.png") center
                 no-repeat,
             rgba(46, 57, 101, 0.8);
         background-size: 35px;
@@ -370,5 +369,70 @@ header {
             visibility: visible;
             opacity: 1;
         }
+    }
+}
+
+.change-theme-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 54px;
+    height: 54px;
+    background: url("../Imgs/theme-icons/dark-mode-icon.png") center no-repeat,
+        rgba(46, 57, 101, 0.8);
+    background-size: 38px;
+    border-radius: 50%;
+    outline: 2.5px solid #171717;
+    outline-offset: -4px;
+    cursor: pointer;
+
+    &:hover {
+        // background: url("../Imgs/theme-icons/light-mode-icon.png") center
+        //         no-repeat,
+        //     rgba(46, 57, 101, 0.8);
+        // background-size: 35px;
+        animation: darkToLightAnimation 1s steps(1) forwards;
+    }
+}
+
+@keyframes darkToLightAnimation {
+    0% {
+        transform: rotate(0deg);
+        // background: url("../Imgs/theme-icons/dark-mode-icon.png") center
+        //         no-repeat,
+        //     rgba(46, 57, 101, 0.8);
+        // background-size: 38px;
+    }
+    12.5% {
+        transform: rotate(45deg);
+    }
+    25% {
+        transform: rotate(90deg);
+    }
+    37.5% {
+        transform: rotate(135deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    62.5% {
+        transform: rotate(225deg);
+    }
+    75% {
+        transform: rotate(270deg);
+    }
+    87.5% {
+        transform: rotate(315deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        background: url("../Imgs/theme-icons/light-mode-icon.png") center
+                no-repeat,
+            rgba(46, 57, 101, 0.8);
+        background-size: 38px;
     }
 }

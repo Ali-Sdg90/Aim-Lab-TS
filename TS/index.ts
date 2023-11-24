@@ -416,8 +416,6 @@ let counterStartNumber = 4;
 let gameTimerInterval: number | undefined;
 
 const startGameCounter = () => {
-    console.log("startGameCounter");
-
     setTimeout(() => {
         playSounds(1);
     }, 500);
@@ -466,7 +464,6 @@ const startGameCounter = () => {
                     resetGame();
                 }, 1000);
 
-                console.log(counterStartNumber);
                 resetTimer();
             }
         };
@@ -627,6 +624,4 @@ volumeInput.addEventListener("input", (): void => {
     volumeIcon.style.backgroundSize = "35px";
 
     gameVolume = volumeValue / 200;
-
-    console.log(gameVolume);
 });

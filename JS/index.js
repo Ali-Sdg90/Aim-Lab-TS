@@ -275,7 +275,6 @@ const gameCounter = document.querySelector(".game-counter");
 let counterStartNumber = 4;
 let gameTimerInterval;
 const startGameCounter = () => {
-    console.log("startGameCounter");
     setTimeout(() => {
         playSounds(1);
     }, 500);
@@ -311,7 +310,6 @@ const startGameCounter = () => {
                     gameCounter.style.opacity = "0";
                     resetGame();
                 }, 1000);
-                console.log(counterStartNumber);
                 resetTimer();
             }
         };
@@ -431,6 +429,5 @@ volumeInput.addEventListener("input", () => {
     }
     volumeIcon.style.backgroundSize = "35px";
     gameVolume = volumeValue / 200;
-    console.log(gameVolume);
 });
 //# sourceMappingURL=index.js.map
