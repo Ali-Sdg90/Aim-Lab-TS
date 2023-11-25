@@ -92,6 +92,7 @@ header .setting-btn {
   background-position: center center;
   width: 100%;
   height: 100vh;
+  border-radius: 0;
 }
 .game-section .game-targets {
   display: inline-block;

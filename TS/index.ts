@@ -77,10 +77,10 @@ const blackFlash = () => {
 blackFlash();
 
 const playSounds = (soundNumber: number) => {
-    const gunLoading = new Audio("../../Sounds/gun-loading.aac");
-    const gunMiss = new Audio("../../Sounds/gun-shot-miss.aac");
-    const gunHit = new Audio("../../Sounds/gun-shot-hit.aac");
-    const bombExplode = new Audio("../../Sounds/bomb-explode.aac");
+    const gunLoading = new Audio("./Sounds/gun-loading.aac");
+    const gunMiss = new Audio("./Sounds/gun-shot-miss.aac");
+    const gunHit = new Audio("./Sounds/gun-shot-hit.aac");
+    const bombExplode = new Audio("./Sounds/bomb-explode.aac");
 
     gunLoading.volume = gameVolume;
     gunMiss.volume = gameVolume;
@@ -117,10 +117,10 @@ gameTargets?.addEventListener("click", (): void => {
     calculateAccuracy();
     playSounds(2);
 
-    gameTargets.style.cursor = `url("../../Imgs/custom-cursor-clicked.png"), auto`;
+    gameTargets.style.cursor = `url("./Imgs/custom-cursor-clicked.png"), auto`;
 
     setTimeout(() => {
-        gameTargets.style.cursor = `url("../../Imgs/custom-cursor.png"), auto`;
+        gameTargets.style.cursor = `url("./Imgs/custom-cursor.png"), auto`;
     }, 200);
 });
 
@@ -610,14 +610,14 @@ volumeInput.addEventListener("input", (): void => {
 
     if (volumeValue) {
         volumeIcon.style.background = `
-            url("../../Imgs/volume-icons/volume-icon-${
+            url("./Imgs/volume-icons/volume-icon-${
                 Math.trunc(volumeValue / (100 / 3)) + 1
             }.png") 
             center no-repeat, rgba(46, 57, 101, 0.8)
         `;
     } else {
         volumeIcon.style.background = `
-            url("../../Imgs/volume-icons/volume-icon-0.png") 
+            url("./Imgs/volume-icons/volume-icon-0.png") 
             center no-repeat, rgba(46, 57, 101, 0.8)
         `;
     }
