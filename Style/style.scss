@@ -87,9 +87,8 @@ header {
 }
 
 .game-section {
-    background: url("../Imgs/game-background-light.png") no-repeat;
-    background-size: cover;
-    background-position: center center;
+    background: url("../Imgs/game-backgrounds/game-background-dark.png")
+        center/cover no-repeat;
     width: 100%;
     height: 100vh;
     border-radius: 0;
@@ -102,7 +101,7 @@ header {
         height: 60vh;
         margin: 15vh 15% 24vh;
         position: relative;
-        cursor: url("../Imgs/custom-cursor-clicked.png"), auto;
+        cursor: url("../Imgs/cursor-icons/custom-cursor-black.png"), auto;
 
         .game-target,
         .bad-target {
@@ -312,6 +311,7 @@ header {
     left: 0;
     transition: opacity 0.5s;
     z-index: 3;
+    border-radius: 0;
 }
 
 .game-counter {
@@ -390,50 +390,56 @@ header {
     outline: 2.5px solid #171717;
     outline-offset: -4px;
     cursor: pointer;
-
-    &:hover {
-        // background: url("../Imgs/theme-icons/light-mode-icon.png") center
-        //         no-repeat,
-        //     rgba(46, 57, 101, 0.8);
-        // background-size: 35px;
-        animation: darkToLightAnimation 1s steps(1) forwards;
-    }
 }
 
-@keyframes darkToLightAnimation {
+.darkToLightClass {
+    animation: darkToLight 0.7s forwards;
+    background: url("../Imgs/theme-icons/light-mode-icon.png") center no-repeat,
+        rgba(46, 57, 101, 0.8);
+    background-size: 34px;
+}
+
+.lightToDarkClass {
+    animation: lightToDark 0.7s;
+    background: url("../Imgs/theme-icons/dark-mode-icon.png") center no-repeat,
+        rgba(46, 57, 101, 0.8);
+    background-size: 38px;
+}
+
+@keyframes darkToLight {
     0% {
         transform: rotate(0deg);
-        // background: url("../Imgs/theme-icons/dark-mode-icon.png") center
-        //         no-repeat,
-        //     rgba(46, 57, 101, 0.8);
-        // background-size: 38px;
-    }
-    12.5% {
-        transform: rotate(45deg);
-    }
-    25% {
-        transform: rotate(90deg);
-    }
-    37.5% {
-        transform: rotate(135deg);
-    }
-    50% {
-        transform: rotate(180deg);
-    }
-    62.5% {
-        transform: rotate(225deg);
-    }
-    75% {
-        transform: rotate(270deg);
-    }
-    87.5% {
-        transform: rotate(315deg);
-    }
-    100% {
-        transform: rotate(360deg);
-        background: url("../Imgs/theme-icons/light-mode-icon.png") center
+        background: url("../Imgs/theme-icons/dark-mode-icon.png") center
                 no-repeat,
             rgba(46, 57, 101, 0.8);
         background-size: 38px;
+    }
+    90% {
+        background: url("../Imgs/theme-icons/light-mode-icon.png") center
+                no-repeat,
+            rgba(46, 57, 101, 0.8);
+        background-size: 34px;
+    }
+    100% {
+        transform: rotate(365deg);
+    }
+}
+
+@keyframes lightToDark {
+    0% {
+        transform: rotate(0deg);
+        background: url("../Imgs/theme-icons/light-mode-icon.png") center
+                no-repeat,
+            rgba(46, 57, 101, 0.8);
+        background-size: 34px;
+    }
+    90% {
+        background: url("../Imgs/theme-icons/dark-mode-icon.png") center
+                no-repeat,
+            rgba(46, 57, 101, 0.8);
+        background-size: 38px;
+    }
+    100% {
+        transform: rotate(365deg);
     }
 }

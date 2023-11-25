@@ -6,6 +6,7 @@ let timerDuration = 20;
 let maxTimeCounter = timerDuration;
 let TimeInterval = 0;
 let gameVolume = 0.4;
+let darkMode = true;
 const gameTargets = document.querySelector(".game-targets");
 const blackScreen = document.querySelector(".black-screen");
 const pointValue = document.querySelector(".point-value");
@@ -93,9 +94,9 @@ gameTargets?.addEventListener("click", () => {
     numberOfClicks++;
     calculateAccuracy();
     playSounds(2);
-    gameTargets.style.cursor = `url("./Imgs/custom-cursor-clicked.png"), auto`;
+    gameTargets.style.cursor = `url("./Imgs/cursor-icons/custom-cursor-white.png"), auto`;
     setTimeout(() => {
-        gameTargets.style.cursor = `url("./Imgs/custom-cursor.png"), auto`;
+        gameTargets.style.cursor = `url("./Imgs/cursor-icons/custom-cursor-black.png"), auto`;
     }, 200);
 });
 const updatePointValue = (addToPoints) => {
@@ -429,5 +430,40 @@ volumeInput.addEventListener("input", () => {
     }
     volumeIcon.style.backgroundSize = "35px";
     gameVolume = volumeValue / 200;
+});
+volumeIcon.addEventListener("click", () => {
+    playSounds(2);
+});
+const changeThemeBtn = document.querySelector(".change-theme-btn");
+const gameBackground = document.querySelector(".game-section");
+changeThemeBtn?.addEventListener("click", () => {
+    if (gameBackground) {
+        if (darkMode) {
+            gameBackground.style.background = `
+            url("../Imgs/game-backgrounds/game-background-light.png") 
+            center/cover no-repeat`;
+        }
+        else {
+            gameBackground.style.background = `
+            url("../Imgs/game-backgrounds/game-background-dark.png") 
+            center/cover no-repeat`;
+        }
+        changeThemeBtn.classList.toggle("lightToDarkClass");
+        changeThemeBtn.classList.toggle("darkToLightClass");
+        darkMode = !darkMode;
+        blackFlash();
+    }
+});
+changeThemeBtn?.addEventListener("mouseenter", () => {
+    if (gameBackground) {
+        changeThemeBtn.classList.toggle("lightToDarkClass");
+        changeThemeBtn.classList.toggle("darkToLightClass");
+    }
+});
+changeThemeBtn?.addEventListener("mouseleave", () => {
+    if (gameBackground) {
+        changeThemeBtn.classList.toggle("darkToLightClass");
+        changeThemeBtn.classList.toggle("lightToDarkClass");
+    }
 });
 //# sourceMappingURL=index.js.map
