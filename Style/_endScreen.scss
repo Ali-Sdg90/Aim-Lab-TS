@@ -1,0 +1,39 @@
+.end-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    // border: 3px solid red;
+    display: none;
+}
+
+.dark-shadow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s;
+}
+
+.content-container {
+    border: 1px solid red;
+    width: 800px;
+    display: block;
+    margin: auto;
+    background-color: rgb(46, 57, 101);
+    position: relative;
+    z-index: 3;
+
+    .end-screen-title{
+        border: 1px solid yellow;
+        font-size: 50px;
+    }
+}
+
+.end-screen-btns{
+    width: 800px;
+    display: block;
+    margin: 10px auto;
+}

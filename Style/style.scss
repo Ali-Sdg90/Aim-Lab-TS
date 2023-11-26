@@ -6,12 +6,12 @@
 @import "setting";
 @import "misc";
 @import "animations";
+@import "endScreen";
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    border-radius: 5px; //temp
 }
 
 body {
