@@ -7,6 +7,16 @@ let maxTimeCounter = timerDuration;
 let TimeInterval = 0;
 let gameVolume = 0.4;
 let darkMode = true;
+const gameTargets = document.querySelector(".game-targets");
+gameTargets?.addEventListener("click", () => {
+    numberOfClicks++;
+    calculateAccuracy();
+    playSounds(2);
+    gameTargets.style.cursor = `url("./Imgs/cursor-icons/custom-cursor-white.png"), auto`;
+    setTimeout(() => {
+        gameTargets.style.cursor = `url("./Imgs/cursor-icons/custom-cursor-black.png"), auto`;
+    }, 200);
+});
 const playSounds = (soundNumber) => {
     const gunLoading = new Audio("./Sounds/gun-loading.aac");
     const gunMiss = new Audio("./Sounds/gun-shot-miss.aac");
@@ -33,14 +43,4 @@ const playSounds = (soundNumber) => {
             break;
     }
 };
-const gameTargets = document.querySelector(".game-targets");
-gameTargets?.addEventListener("click", () => {
-    numberOfClicks++;
-    calculateAccuracy();
-    playSounds(2);
-    gameTargets.style.cursor = `url("./Imgs/cursor-icons/custom-cursor-white.png"), auto`;
-    setTimeout(() => {
-        gameTargets.style.cursor = `url("./Imgs/cursor-icons/custom-cursor-black.png"), auto`;
-    }, 200);
-});
 //# sourceMappingURL=index.js.map

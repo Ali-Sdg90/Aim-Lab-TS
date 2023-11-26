@@ -83,12 +83,12 @@ changeThemeBtn?.addEventListener("click", (): void => {
     if (gameBackground) {
         if (darkMode) {
             gameBackground.style.background = `
-            url("../Imgs/game-backgrounds/game-background-light.png") 
-            center/cover no-repeat`;
+                url("./Imgs/game-backgrounds/game-background-light.png") 
+                center/cover no-repeat`;
         } else {
             gameBackground.style.background = `
-            url("../Imgs/game-backgrounds/game-background-dark.png") 
-            center/cover no-repeat`;
+                url("./Imgs/game-backgrounds/game-background-dark.png") 
+                center/cover no-repeat`;
         }
 
         changeThemeBtn.classList.toggle("lightToDarkClass");

@@ -1,0 +1,51 @@
+.darkToLightClass {
+    animation: darkToLight 0.7s forwards;
+    background: url("../Imgs/theme-icons/light-mode-icon.png") center no-repeat,
+        rgba(46, 57, 101, 0.8);
+    background-size: 34px;
+}
+
+.lightToDarkClass {
+    animation: lightToDark 0.7s;
+    background: url("../Imgs/theme-icons/dark-mode-icon.png") center no-repeat,
+        rgba(46, 57, 101, 0.8);
+    background-size: 38px;
+}
+
+@keyframes darkToLight {
+    0% {
+        transform: rotate(0deg);
+        background: url("../Imgs/theme-icons/dark-mode-icon.png") center
+                no-repeat,
+            rgba(46, 57, 101, 0.8);
+        background-size: 38px;
+    }
+    90% {
+        background: url("../Imgs/theme-icons/light-mode-icon.png") center
+                no-repeat,
+            rgba(46, 57, 101, 0.8);
+        background-size: 34px;
+    }
+    100% {
+        transform: rotate(365deg);
+    }
+}
+
+@keyframes lightToDark {
+    0% {
+        transform: rotate(0deg);
+        background: url("../Imgs/theme-icons/light-mode-icon.png") center
+                no-repeat,
+            rgba(46, 57, 101, 0.8);
+        background-size: 34px;
+    }
+    90% {
+        background: url("../Imgs/theme-icons/dark-mode-icon.png") center
+                no-repeat,
+            rgba(46, 57, 101, 0.8);
+        background-size: 38px;
+    }
+    100% {
+        transform: rotate(365deg);
+    }
+}
