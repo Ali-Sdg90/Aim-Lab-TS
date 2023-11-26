@@ -1,51 +1,36 @@
-header {
+.header-info {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 11vh;
-  font-weight: 600;
-  padding: 0 30px;
-}
-header .reload-btn {
-  width: 55px;
-  height: 55px;
-  background: url("../Imgs/reload-icon.svg") center/cover no-repeat, rgba(46, 57, 101, 0.8);
-  cursor: pointer;
-  border-radius: 50%;
-  transition: transform 0.5s;
-}
-header .header-info {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 550px;
+  width: 80vh;
   font-size: 24px;
+  position: absolute;
+  top: 5.5vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-header .header-info .point-section {
+.header-info .point-section {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
-header .header-info .point-section .point-value {
+.header-info .point-section .point-value {
   width: 50px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  justify-content: flex-end;
+  padding-right: 5px;
 }
-header .header-info .timer-section {
+.header-info .timer-section {
   font-size: 38px;
-  padding-right: 27px;
+  padding-right: 20px;
 }
-header .header-info .accuracy-section {
+.header-info .accuracy-section {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -57,17 +42,6 @@ header .header-info .accuracy-section {
   justify-content: center;
   align-items: center;
   justify-content: flex-start;
-}
-header .setting-btn {
-  width: 54px;
-  height: 54px;
-  background: url("../Imgs/setting-icon.svg") center no-repeat, rgba(46, 57, 101, 0.8);
-  background-size: 42px;
-  border-radius: 50%;
-  cursor: pointer;
-  outline: 2.5px solid #171717;
-  outline-offset: -4px;
-  transition: transform 0.5s;
 }
 
 .volume-setting {
@@ -103,20 +77,57 @@ header .setting-btn {
 
 .change-theme-btn {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
   width: 54px;
   height: 54px;
-  background: url("../Imgs/theme-icons/dark-mode-icon.png") center no-repeat, rgba(46, 57, 101, 0.8);
-  background-size: 38px;
   border-radius: 50%;
   outline: 2.5px solid #171717;
   outline-offset: -4px;
   cursor: pointer;
+  bottom: 20px;
+  right: 20px;
+  background: url("../Imgs/theme-icons/dark-mode-icon.png") center no-repeat, rgba(46, 57, 101, 0.8);
+  background-size: 38px;
+}
+
+.setting-btn {
+  position: absolute;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  outline: 2.5px solid #171717;
+  outline-offset: -4px;
+  cursor: pointer;
+  top: 20px;
+  right: 20px;
+  background: url("../Imgs/setting-icon.svg") center no-repeat, rgba(46, 57, 101, 0.8);
+  background-size: 42px;
+  transition: transform 0.5s;
+}
+
+.reload-btn {
+  position: absolute;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  outline: 2.5px solid #171717;
+  outline-offset: -4px;
+  cursor: pointer;
+  top: 20px;
+  left: 20px;
+  background: url("../Imgs/reload-icon.svg") center/cover no-repeat, rgba(46, 57, 101, 0.8);
+  transition: transform 0.5s;
 }
 
 .game-section {

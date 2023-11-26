@@ -11,3 +11,17 @@
     justify-content: center;
     align-items: center;
 }
+
+@mixin gameBtns {
+    position: absolute;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    outline: 2.5px solid #171717;
+    outline-offset: -4px;
+    cursor: pointer;
+}

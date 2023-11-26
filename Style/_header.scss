@@ -1,69 +1,38 @@
-header {
-    // border: 2px solid red;
+.header-info {
     @include flex-space-between;
+    // border: 1px solid blue;
+    width: 80vh;
+    font-size: 24px;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 11vh;
-    font-weight: 600;
-    padding: 0 30px;
+    top: 5.5vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-    .reload-btn {
-        // border: 1px solid blue;
-        width: 55px;
-        height: 55px;
-        background: url("../Imgs/reload-icon.svg") center/cover no-repeat,
-            rgba(46, 57, 101, 0.8);
-        cursor: pointer;
-        border-radius: 50%;
-        transition: transform 0.5s;
-    }
+    .point-section {
+        // width: 110px;
+        @include flex-center;
+        gap: 5px;
 
-    .header-info {
-        @include flex-space-between;
-        // border: 1px solid blue;
-        width: 550px;
-        font-size: 24px;
-
-        .point-section {
-            // width: 110px;
-            @include flex-center;
-            gap: 5px;
-
-            .point-value {
-                // border: 1px solid red;
-                width: 50px;
-                @include flex-center;
-            }
-        }
-
-        .timer-section {
-            font-size: 38px;
-            padding-right: 27px;
-        }
-
-        .accuracy-section {
-            @include flex-space-between;
+        .point-value {
             // border: 1px solid red;
-            gap: 5px;
-            width: 98px;
+            width: 50px;
             @include flex-center;
-            justify-content: flex-start;
+            justify-content: flex-end;
+            padding-right: 5px;
         }
     }
 
-    .setting-btn {
-        // border: 1px solid blue;
-        width: 54px;
-        height: 54px;
-        background: url("../Imgs/setting-icon.svg") center no-repeat,
-            rgba(46, 57, 101, 0.8);
-        background-size: 42px;
-        border-radius: 50%;
-        cursor: pointer;
-        outline: 2.5px solid #171717;
-        outline-offset: -4px;
-        transition: transform 0.5s;
+    .timer-section {
+        font-size: 38px;
+        padding-right: 20px;
+    }
+
+    .accuracy-section {
+        @include flex-space-between;
+        // border: 1px solid red;
+        gap: 5px;
+        width: 98px;
+        @include flex-center;
+        justify-content: flex-start;
     }
 }
