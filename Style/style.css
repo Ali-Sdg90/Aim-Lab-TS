@@ -181,6 +181,7 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  display: none;
 }
 .setting-page .setting-menu {
   border: 1px solid rgb(0, 0, 156);
@@ -392,7 +393,6 @@
   left: 0;
   height: 100vh;
   width: 100%;
-  display: none;
 }
 
 .dark-shadow {
@@ -413,8 +413,9 @@
   background-color: rgba(46, 57, 101, 0.98);
   position: relative;
   z-index: 3;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 30px 30px;
   box-shadow: 0 0 10px 2px rgba(27, 33, 59, 0.98);
+  padding: 0 20px 20px;
 }
 .content-container .end-screen-title {
   font-size: 50px;
@@ -424,6 +425,7 @@
   align-items: center;
   height: 80px;
   text-shadow: 3px 0 rgba(98, 0, 255, 0.25), -3px 0 rgba(255, 0, 0, 0.25);
+  margin-bottom: 10px;
 }
 .content-container .round-info-container {
   display: flex;
@@ -431,11 +433,12 @@
   justify-content: flex-start;
   align-items: flex-start;
   gap: 2px;
-  margin: 30px;
+  margin-bottom: 15px;
   padding: 4px;
   background-color: rgb(18, 18, 18);
+  background-color: rgba(27, 34, 61, 0.98);
   border-radius: 9px;
-  box-shadow: 0 0 5px 2px rgba(18, 18, 18, 0.485);
+  box-shadow: 0 0 20px 2px rgba(18, 18, 18, 0.485), 0 0 5px 3px rgba(18, 18, 18, 0.2);
 }
 .content-container .round-info-container .round-info-row {
   border: 1px solid black;
@@ -444,7 +447,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: rgb(59, 59, 59);
+  background-color: rgba(67, 71, 198, 0.468);
   padding: 0 15px;
   height: 40px;
   font-size: 20px;
@@ -461,6 +464,18 @@
 .content-container .round-info-container .round-info-row .number-value .unit-value {
   font-size: 10px;
   margin-top: 10px;
+}
+.content-container .past-performance-title {
+  padding-left: 10px;
+}
+.content-container .past-performance-table {
+  background-color: rgba(27, 34, 61, 0.98);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px 3px rgba(19, 23, 41, 0.5), 0 0 5px 3px rgba(19, 23, 41, 0.4);
+  margin-top: 10px;
+  position: relative;
+  height: 265px;
 }
 
 .end-screen-btns {

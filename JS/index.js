@@ -7,6 +7,8 @@ let maxTimeCounter = timerDuration;
 let TimeInterval = 0;
 let gameVolume = 0.4;
 let darkMode = true;
+let accuracyPercentage = 100;
+let pointPerSec;
 const gameTargets = document.querySelector(".game-targets");
 gameTargets?.addEventListener("click", () => {
     numberOfClicks++;
@@ -26,21 +28,6 @@ const playSounds = (soundNumber) => {
     gunMiss.volume = gameVolume;
     gunHit.volume = gameVolume;
     bombExplode.volume = gameVolume;
-    switch (soundNumber) {
-        case 1:
-            gunLoading.play();
-            break;
-        case 2:
-            gunMiss.play();
-            break;
-        case 3:
-            gunHit.play();
-            break;
-        case 4:
-            bombExplode.play();
-            break;
-        default:
-            break;
-    }
+    console.log("Sound:", soundNumber);
 };
 //# sourceMappingURL=index.js.map

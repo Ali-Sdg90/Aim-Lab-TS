@@ -22,9 +22,9 @@ const updateTimer = (): void => {
 };
 
 const calculateAccuracy = () => {
-    const showAccuracy = ((hitClicks / numberOfClicks) * 100).toFixed(0);
+    accuracyPercentage = +((hitClicks / numberOfClicks) * 100).toFixed(0);
     if (accuracyValue && targetsClickMode) {
-        accuracyValue.textContent = String(showAccuracy);
+        accuracyValue.textContent = accuracyPercentage.toString();
     }
 };
 

@@ -6,6 +6,8 @@ let maxTimeCounter: number = timerDuration;
 let TimeInterval: number | undefined = 0;
 let gameVolume: number = 0.4;
 let darkMode: boolean = true;
+let accuracyPercentage: number = 100;
+let pointPerSec: number;
 
 const gameTargets: HTMLElement | null = document.querySelector(".game-targets");
 
@@ -31,6 +33,8 @@ const playSounds = (soundNumber: number) => {
     gunMiss.volume = gameVolume;
     gunHit.volume = gameVolume;
     bombExplode.volume = gameVolume;
+
+    console.log("Sound:", soundNumber);
 
     // switch (soundNumber) {
     //     case 1:
