@@ -181,7 +181,6 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  display: none;
 }
 .setting-page .setting-menu {
   border: 1px solid rgb(0, 0, 156);
@@ -393,6 +392,7 @@
   left: 0;
   height: 100vh;
   width: 100%;
+  display: none;
 }
 
 .dark-shadow {
