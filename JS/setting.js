@@ -73,6 +73,9 @@ const targetsSizeStar = document.querySelector(".targets-size-star");
 const bombsSizeStar = document.querySelector(".bombs-size-star");
 const InputStarChecker = (input, setValueForInput, star) => {
     const InputStarCheckerFunc = () => {
+        if (!+input.value) {
+            input.value = "0";
+        }
         if (typeof setValueForInput === "number") {
             if (+input.value !== setValueForInput) {
                 star.style.display = "block";
@@ -198,6 +201,12 @@ applyBtn?.addEventListener("click", () => {
         targetsSize = +targetsSizeInput.value;
         bombsSize = +bombsSizeInput.value;
         applySetting();
+        settingBtn?.click();
+        startGameCounter();
+        if (settingBtn && reloadBtn) {
+            settingBtn.style.zIndex = "2";
+            reloadBtn.style.zIndex = "2";
+        }
     }
     else {
         applyBtn.style.background = "#bc0000";
@@ -207,12 +216,6 @@ applyBtn?.addEventListener("click", () => {
             applyBtn.style.cursor = "pointer";
         }, 400);
     }
-    settingBtn?.click();
-    if (settingBtn && reloadBtn) {
-        settingBtn.style.zIndex = "2";
-        reloadBtn.style.zIndex = "2";
-    }
-    startGameCounter();
 });
 const applySetting = () => {
     if (gameTargets) {

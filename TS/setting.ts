@@ -1,4 +1,3 @@
-
 let NoTargets: number = 4;
 let NoBombs: number = 2;
 let targetsCanMove: boolean = false;
@@ -134,6 +133,10 @@ const InputStarChecker = (
 ): void => {
     const InputStarCheckerFunc = (): void => {
         // console.log(">>>", setValueForInput, input.value);
+
+        if (!+input.value) {
+            input.value = "0";
+        }
 
         if (typeof setValueForInput === "number") {
             if (+input.value !== setValueForInput) {
@@ -318,6 +321,13 @@ applyBtn?.addEventListener("click", () => {
         bombsSize = +bombsSizeInput.value;
 
         applySetting();
+        settingBtn?.click();
+        startGameCounter();
+
+        if (settingBtn && reloadBtn) {
+            settingBtn.style.zIndex = "2";
+            reloadBtn.style.zIndex = "2";
+        }
     } else {
         applyBtn.style.background = "#bc0000";
         applyBtn.style.cursor = "not-allowed";
@@ -327,15 +337,6 @@ applyBtn?.addEventListener("click", () => {
             applyBtn.style.cursor = "pointer";
         }, 400);
     }
-
-    settingBtn?.click();
-
-    if (settingBtn && reloadBtn) {
-        settingBtn.style.zIndex = "2";
-        reloadBtn.style.zIndex = "2";
-    }
-
-    startGameCounter();
 });
 
 const applySetting = () => {
