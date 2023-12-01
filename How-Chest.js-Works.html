@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chart.js Example</title>
+        <!-- Include Chart.js library -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <!-- Canvas element for the chart -->
+        <canvas id="myChart" width="400" height="400"></canvas>
+
+        <!-- Buttons for actions -->
+        <button id="randomizeButton">Randomize</button>
+        <button id="addDatasetButton">Add Dataset</button>
+        <button id="addDataButton">Add Data</button>
+        <button id="removeDatasetButton">Remove Dataset</button>
+        <button id="removeDataButton">Remove Data</button>
+
+        <!-- JavaScript code -->
+        <script>
+            const actions = [
+                {
+                    name: "Randomize",
+                    handler(chart) {
+                        chart.data.datasets.forEach((dataset) => {
+                            dataset.data = Array.from(
+                                { length: chart.data.labels.length },
+                                () => getRandomInt(0, 100)
+                            );
+                        });
+                        chart.update();
+                    },
+                },
+                {
+                    name: "Add Dataset",
+                    handler(chart) {
+                        const data = chart.data;
+                        const dsColor = getRandomColor();
+                        const newDataset = {
+                            label: "Dataset " + (data.datasets.length + 1),
+                            backgroundColor: dsColor,
+                            borderColor: dsColor,
+                            borderWidth: 1,
+                            stack: "combined",
+                            data: Array.from(
+                                { length: data.labels.length },
+                                () => getRandomInt(0, 100)
+                            ),
+                        };
+                        chart.data.datasets.push(newDataset);
+                        chart.update();
+                    },
+                },
+                {
+                    name: "Add Data",
+                    handler(chart) {
+                        const data = chart.data;
+                        if (data.datasets.length > 0) {
+                            data.labels.push(
+                                getNextMonth(
+                                    data.labels[data.labels.length - 1]
+                                )
+                            );
+                            data.datasets.forEach((dataset) => {
+                                dataset.data.push(getRandomInt(0, 100));
+                            });
+                            chart.update();
+                        }
+                    },
+                },
+                {
+                    name: "Remove Dataset",
+                    handler(chart) {
+                        chart.data.datasets.pop();
+                        chart.update();
+                    },
+                },
+                {
+                    name: "Remove Data",
+                    handler(chart) {
+                        chart.data.labels.splice(-1, 1); // remove the label first
+                        chart.data.datasets.forEach((dataset) => {
+                            dataset.data.pop();
+                        });
+                        chart.update();
+                    },
+                },
+            ];
+
+            const DATA_COUNT = 7;
+
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            function getRandomColor() {
+                return `rgba(${getRandomInt(0, 255)}, ${getRandomInt(
+                    0,
+                    255
+                )}, ${getRandomInt(0, 255)}, 1)`;
+            }
+
+            function getNextMonth(currentMonth) {
+                const date = new Date(currentMonth);
+                date.setMonth(date.getMonth() + 1);
+                return date.toLocaleString("default", { month: "long" });
+            }
+
+            const labels = Array.from({ length: DATA_COUNT }, (_, index) =>
+                getNextMonth(new Date(), index)
+            );
+            const data = {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "Dataset 1",
+                        data: Array.from({ length: DATA_COUNT }, () =>
+                            getRandomInt(0, 100)
+                        ),
+                        borderColor: "rgba(255, 99, 132, 1)",
+                        backgroundColor: "rgba(255, 99, 132, 0.5)",
+                        stack: "combined",
+                        type: "bar",
+                    },
+                    {
+                        label: "Dataset 2",
+                        data: Array.from({ length: DATA_COUNT }, () =>
+                            getRandomInt(0, 100)
+                        ),
+                        borderColor: "rgba(54, 162, 235, 1)",
+                        backgroundColor: "rgba(54, 162, 235, 0.5)",
+                        stack: "combined",
+                    },
+                ],
+            };
+
+            const config = {
+                type: "line",
+                data: data,
+                options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: "Chart.js Stacked Line/Bar Chart",
+                        },
+                    },
+                    scales: {
+                        y: {
+                            stacked: true,
+                        },
+                    },
+                },
+            };
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const ctx = document.getElementById("myChart").getContext("2d");
+                const myChart = new Chart(ctx, config);
+
+                // Attach event listeners to buttons
+                document
+                    .getElementById("randomizeButton")
+                    .addEventListener("click", function () {
+                        actions[0].handler(myChart);
+                    });
+
+                document
+                    .getElementById("addDatasetButton")
+                    .addEventListener("click", function () {
+                        actions[1].handler(myChart);
+                    });
+
+                document
+                    .getElementById("addDataButton")
+                    .addEventListener("click", function () {
+                        actions[2].handler(myChart);
+                    });
+
+                document
+                    .getElementById("removeDatasetButton")
+                    .addEventListener("click", function () {
+                        actions[3].handler(myChart);
+                    });
+
+                document
+                    .getElementById("removeDataButton")
+                    .addEventListener("click", function () {
+                        actions[4].handler(myChart);
+                    });
+            });
+        </script>
+    </body>
+</html>
