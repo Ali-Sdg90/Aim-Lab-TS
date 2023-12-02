@@ -132,38 +132,5 @@ const config = {
     },
 };
 
-document.addEventListener("DOMContentLoaded", function () {
-    const ctx = document.getElementById("myChart").getContext("2d");
-    const myChart = new Chart(ctx, config);
-
-    // Attach event listeners to buttons
-    // document
-    //     .getElementById("randomizeButton")
-    //     .addEventListener("click", function () {
-    //         actions[0].handler(myChart);
-    //     });
-
-    // document
-    //     .getElementById("addDatasetButton")
-    //     .addEventListener("click", function () {
-    //         actions[1].handler(myChart);
-    //     });
-
-    // document
-    //     .getElementById("addDataButton")
-    //     .addEventListener("click", function () {
-    //         actions[2].handler(myChart);
-    //     });
-
-    // document
-    //     .getElementById("removeDatasetButton")
-    //     .addEventListener("click", function () {
-    //         actions[3].handler(myChart);
-    //     });
-
-    // document
-    //     .getElementById("removeDataButton")
-    //     .addEventListener("click", function () {
-    //         actions[4].handler(myChart);
-    //     });
-});
+const ctx = document.getElementById("myChart").getContext("2d");
+const myChart = new Chart(ctx, config);

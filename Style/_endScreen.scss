@@ -5,7 +5,7 @@
     height: 100vh;
     width: 100%;
     // border: 3px solid red;
-    // display: none;
+    display: none;
 }
 
 .dark-shadow {
@@ -34,6 +34,8 @@
     box-shadow: 0 0 10px 2px rgba(27, 33, 59, 0.98);
     padding: 0 20px 20px;
     height: 1200px;
+
+    display: none;
 
     .end-screen-title {
         // border: 1px solid yellow;

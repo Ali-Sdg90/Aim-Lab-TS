@@ -17,6 +17,7 @@ const updateTimer = (): void => {
         if (!maxTimeCounter--) {
             console.log("End of the timer");
             clearInterval(TimeInterval);
+            showEndScreen();
         }
     }
 };

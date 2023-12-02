@@ -12,12 +12,12 @@
     background-size: 38px;
 }
 
-.end-screen-btns-animation {
-    animation: endScreenBtnsIntro 1s ease 0.25s forwards;
-}
-
 .content-container-animation {
     animation: endScreenIntro 1s ease forwards;
+}
+
+.end-screen-btns-animation {
+    animation: endScreenBtnsIntro 0.85s ease forwards;
 }
 
 @keyframes darkToLight {
@@ -70,7 +70,11 @@
 @keyframes endScreenBtnsIntro {
     0% {
         transform: translateY(0);
-        opacity: 0.2;
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(0);
     }
     100% {
         transform: translateY(200px);

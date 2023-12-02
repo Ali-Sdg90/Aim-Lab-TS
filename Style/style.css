@@ -181,7 +181,6 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  display: none;
 }
 .setting-page .setting-menu {
   border: 1px solid rgb(0, 0, 156);
@@ -359,12 +358,12 @@
   background-size: 38px;
 }
 
-.end-screen-btns-animation {
-  animation: endScreenBtnsIntro 1s ease 0.25s forwards;
-}
-
 .content-container-animation {
   animation: endScreenIntro 1s ease forwards;
+}
+
+.end-screen-btns-animation {
+  animation: endScreenBtnsIntro 0.85s ease forwards;
 }
 
 @keyframes darkToLight {
@@ -406,7 +405,11 @@
 @keyframes endScreenBtnsIntro {
   0% {
     transform: translateY(0);
-    opacity: 0.2;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(0);
   }
   100% {
     transform: translateY(200px);
@@ -419,6 +422,7 @@
   left: 0;
   height: 100vh;
   width: 100%;
+  display: none;
 }
 
 .dark-shadow {
@@ -447,6 +451,7 @@
   box-shadow: 0 0 10px 2px rgba(27, 33, 59, 0.98);
   padding: 0 20px 20px;
   height: 1200px;
+  display: none;
 }
 .content-container .end-screen-title {
   font-size: 50px;

@@ -89,7 +89,7 @@
                 },
             ];
 
-            const DATA_COUNT = 7;
+            const dataCounter = 7;
 
             function getRandomInt(min, max) {
                 return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -108,7 +108,7 @@
                 return date.toLocaleString("default", { month: "long" });
             }
 
-            const labels = Array.from({ length: DATA_COUNT }, (_, index) =>
+            const labels = Array.from({ length: dataCounter }, (_, index) =>
                 getNextMonth(new Date(), index)
             );
             const data = {
@@ -116,7 +116,7 @@
                 datasets: [
                     {
                         label: "Dataset 1",
-                        data: Array.from({ length: DATA_COUNT }, () =>
+                        data: Array.from({ length: dataCounter }, () =>
                             getRandomInt(0, 100)
                         ),
                         borderColor: "rgba(255, 99, 132, 1)",
@@ -126,7 +126,7 @@
                     },
                     {
                         label: "Dataset 2",
-                        data: Array.from({ length: DATA_COUNT }, () =>
+                        data: Array.from({ length: dataCounter }, () =>
                             getRandomInt(0, 100)
                         ),
                         borderColor: "rgba(54, 162, 235, 1)",
