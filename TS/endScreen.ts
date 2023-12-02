@@ -23,8 +23,9 @@ const addDataToHistory = () => {
     timerDuration_History.push(timerDuration);
     accuracyPercentage_History.push(accuracyPercentage);
     pointPerSec_History.push(pointPerSec);
-    roundTime_History.push(new Date().toLocaleString().replace(/, /g, "\n"));
+    roundTime_History.push(new Date().toLocaleString().toString());
 };
+// console.log(new Date().toLocaleString().toString().split(/, /g));
 
 addDataToHistory();
 
@@ -34,7 +35,7 @@ calculatePointPerSec();
 timerDuration = 15;
 
 addDataToHistory();
-
-calculatePointPerSec();
-
+addDataToHistory();
+addDataToHistory();
+addDataToHistory();
 addDataToHistory();

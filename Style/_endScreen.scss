@@ -5,7 +5,7 @@
     height: 100vh;
     width: 100%;
     // border: 3px solid red;
-    display: none;
+    // display: none;
 }
 
 .dark-shadow {
@@ -21,14 +21,19 @@
     border: 3px solid rgba(27, 33, 59, 0.98);
     border-top: none;
     width: 800px;
-    display: block;
     margin: auto;
     background-color: rgba(46, 57, 101, 0.98);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: normal;
     position: relative;
+    top: -600px;
     z-index: 3;
     border-radius: 0 0 30px 30px;
     box-shadow: 0 0 10px 2px rgba(27, 33, 59, 0.98);
     padding: 0 20px 20px;
+    height: 1200px;
 
     .end-screen-title {
         // border: 1px solid yellow;
@@ -49,30 +54,32 @@
         justify-content: flex-start;
         align-items: flex-start;
         gap: 2px;
-        // margin: 0 10px 10px;
         margin-bottom: 15px;
         padding: 4px;
-        background-color: rgb(18, 18, 18);
         background-color: rgba(27, 34, 61, 0.98);
         border-radius: 9px;
-        // box-shadow: 0 0 5px 2px rgba(18, 18, 18, 0.485);
         box-shadow: 0 0 20px 2px rgba(18, 18, 18, 0.485),
-            0 0 5px 3px rgba(18, 18, 18, 0.2); // Need Work...
+            0 0 5px 3px rgba(18, 18, 18, 0.2);
 
         .round-info-row {
-            border: 1px solid black;
+            border: 1px solid rgb(15, 20, 37);
             display: flex;
             flex-flow: row nowrap;
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            // background-color: rgb(59, 59, 59);
-            background-color: rgba(67, 71, 198, 0.468);
+            background-color: rgba(67, 71, 198, 0.364);
             padding: 0 15px;
             height: 40px;
             font-size: 20px;
             letter-spacing: 1px;
             border-radius: 5px;
+            box-shadow: inset 0 0 5px 3px rgba(22, 23, 67, 0.364);
+            transition: background-color 0.15s;
+
+            &:hover {
+                background-color: rgba(67, 71, 198, 0.55);
+            }
 
             .number-value {
                 display: flex;
@@ -91,7 +98,7 @@
     }
 
     .past-performance-title {
-        padding-left: 10px;
+        padding: 0 0 5px 10px;
     }
 
     .past-performance-table {
@@ -109,10 +116,40 @@
 .end-screen-btns {
     width: 800px;
     display: block;
-    margin: 10px auto;
-    // border: 1px solid red;
+    margin: 15px auto;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    padding: 0 30px;
+    position: relative;
+    top: -800px;
+    z-index: 2;
+    opacity: 0;
+
+    .end-screen-btn {
+        width: 160px;
+        height: 60px;
+        border-radius: 5px;
+        background: rgba(46, 57, 101, 0.98);
+        color: white;
+        border: 1px solid black;
+        font-size: 20px;
+        white-space: nowrap;
+        cursor: pointer;
+        box-shadow: 0 4px 5px 0px black;
+        transition: background-color 0.15s, box-shadow 0.15s, transform 0.15s,
+            letter-spacing 0.15s;
+
+        &:hover {
+            background: rgba(57, 71, 125, 0.98);
+            letter-spacing: 0.7px;
+        }
+
+        &:active {
+            background: rgba(50, 61, 109, 0.98);
+            transform: translateY(2px);
+            box-shadow: 0 2px 5px 0px black;
+        }
+    }
 }

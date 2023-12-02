@@ -18,13 +18,15 @@ const addDataToHistory = () => {
     timerDuration_History.push(timerDuration);
     accuracyPercentage_History.push(accuracyPercentage);
     pointPerSec_History.push(pointPerSec);
-    roundTime_History.push(new Date().toLocaleString().replace(/, /g, "\n"));
+    roundTime_History.push(new Date().toLocaleString().toString());
 };
 addDataToHistory();
 points = 190;
 calculatePointPerSec();
 timerDuration = 15;
 addDataToHistory();
-calculatePointPerSec();
+addDataToHistory();
+addDataToHistory();
+addDataToHistory();
 addDataToHistory();
 //# sourceMappingURL=endScreen.js.map

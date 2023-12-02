@@ -69,8 +69,18 @@ const actions = [
 
 // console.log(roundTime_History);
 
+const dateNow = new Date().toLocaleString().toString().split(/, /g)[0];
+// console.log(dateNow);
+
 const data = {
-    labels: roundTime_History,
+    labels: roundTime_History.map((date) => {
+        if (dateNow === date.split(/, /g)[0]) {
+            return date.split(/, /g)[1];
+        } else {
+            return date.split(/, /g)[0];
+        }
+    }),
+    // labels: roundTime_History,
     datasets: [
         {
             label: "Points",

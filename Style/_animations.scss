@@ -1,15 +1,23 @@
 .darkToLightClass {
-    animation: darkToLight 0.7s forwards;
+    animation: darkToLight 0.7s ease forwards;
     background: url("../Imgs/theme-icons/light-mode-icon.png") center no-repeat,
         rgba(46, 57, 101, 0.8);
     background-size: 34px;
 }
 
 .lightToDarkClass {
-    animation: lightToDark 0.7s;
+    animation: lightToDark 0.7s ease;
     background: url("../Imgs/theme-icons/dark-mode-icon.png") center no-repeat,
         rgba(46, 57, 101, 0.8);
     background-size: 38px;
+}
+
+.end-screen-btns-animation {
+    animation: endScreenBtnsIntro 1s ease 0.25s forwards;
+}
+
+.content-container-animation {
+    animation: endScreenIntro 1s ease forwards;
 }
 
 @keyframes darkToLight {
@@ -47,5 +55,25 @@
     }
     100% {
         transform: rotate(365deg);
+    }
+}
+
+@keyframes endScreenIntro {
+    0% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+@keyframes endScreenBtnsIntro {
+    0% {
+        transform: translateY(0);
+        opacity: 0.2;
+    }
+    100% {
+        transform: translateY(200px);
+        opacity: 1;
     }
 }

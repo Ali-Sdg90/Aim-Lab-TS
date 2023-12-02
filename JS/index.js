@@ -29,5 +29,21 @@ const playSounds = (soundNumber) => {
     gunHit.volume = gameVolume;
     bombExplode.volume = gameVolume;
     console.log("Sound:", soundNumber);
+    switch (soundNumber) {
+        case 1:
+            gunLoading.play();
+            break;
+        case 2:
+            gunMiss.play();
+            break;
+        case 3:
+            gunHit.play();
+            break;
+        case 4:
+            bombExplode.play();
+            break;
+        default:
+            break;
+    }
 };
 //# sourceMappingURL=index.js.map
