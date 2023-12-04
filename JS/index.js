@@ -2,7 +2,7 @@
 let points;
 let hitClicks;
 let numberOfClicks;
-let timerDuration = 20;
+let timerDuration = 10;
 let maxTimeCounter = timerDuration;
 let TimeInterval = 0;
 let gameVolume = 0.4;
@@ -28,7 +28,6 @@ const playSounds = (soundNumber) => {
     gunMiss.volume = gameVolume;
     gunHit.volume = gameVolume;
     bombExplode.volume = gameVolume;
-    console.log("Sound:", soundNumber);
     switch (soundNumber) {
         case 1:
             gunLoading.play();

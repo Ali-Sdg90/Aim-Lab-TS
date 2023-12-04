@@ -18,6 +18,7 @@ const updateTimer = (): void => {
             console.log("End of the timer");
             clearInterval(TimeInterval);
             showEndScreen();
+            addChartJS();
         }
     }
 };

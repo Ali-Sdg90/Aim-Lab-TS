@@ -136,52 +136,6 @@ const showcaseTransitions = (input, showcaseContainer, showcaseBall, timeoutValu
 };
 showcaseTransitions(bombsSizeInput, bombsShowcaseContainer, bombsShowcase, bombsFadeOutTimeout);
 showcaseTransitions(targetsSizeInput, targetsShowcaseContainer, targetsShowcase, targetsFadeOutTimeout);
-const gameCounter = document.querySelector(".game-counter");
-let counterStartNumber = 4;
-let gameTimerInterval;
-const startGameCounter = () => {
-    setTimeout(() => {
-        playSounds(1);
-    }, 500);
-    clearInterval(TimeInterval);
-    if (timer) {
-        timer.textContent = "--:--";
-    }
-    if (accuracyValue) {
-        accuracyValue.textContent = "100";
-    }
-    if (pointValue) {
-        pointValue.textContent = "0";
-    }
-    if (gameCounter) {
-        if (gameTimerInterval) {
-            clearInterval(gameTimerInterval);
-        }
-        gameCounter.style.display = "flex";
-        gameCounter.style.opacity = "1";
-        counterStartNumber = 4;
-        const updateCounter = () => {
-            gameCounter.style.boxShadow = `inset 0 0 ${counterStartNumber * 25}px ${counterStartNumber * 5}px rgba(0, 30, 255, 0.5)`;
-            if (counterStartNumber > 0) {
-                gameCounter.textContent = String(counterStartNumber - 1);
-            }
-            counterStartNumber--;
-            if (!counterStartNumber) {
-                setTimeout(() => {
-                    clearInterval(gameTimerInterval);
-                    setTimeout(() => {
-                        gameCounter.style.display = "none";
-                    }, 300);
-                    gameCounter.style.opacity = "0";
-                    resetGame();
-                }, 1000);
-                resetTimer();
-            }
-        };
-        updateCounter();
-        gameTimerInterval = setInterval(updateCounter, 1000);
-    }
-};
 applyBtn?.addEventListener("click", () => {
     let allowApply = true;
     for (let i = 0; i < 4; i++) {
