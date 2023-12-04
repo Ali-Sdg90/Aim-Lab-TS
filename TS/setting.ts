@@ -356,3 +356,6 @@ const applySetting = () => {
 };
 
 applySetting();
+if (gameTargets) {
+    gameTargets.innerHTML = "";
+}

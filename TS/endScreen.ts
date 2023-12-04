@@ -15,13 +15,16 @@ const addDataToHistory = () => {
     dataCounter++;
     points_History.push(points);
     timerDuration_History.push(timerDuration);
-    accuracyPercentage_History.push(accuracyPercentage / 5);
+    accuracyPercentage_History.push(+(accuracyPercentage / 5).toFixed(2));
     pointPerSec_History.push(pointPerSec);
     roundTime_History.push(new Date().toLocaleString().toString());
 };
 
 const endScreen: HTMLElement | null = document.querySelector(
     ".end-screen"
+) as HTMLElement;
+const darkShadow: HTMLElement | null = document.querySelector(
+    ".dark-shadow"
 ) as HTMLElement;
 const endScreenContents: HTMLElement | null = document.querySelector(
     ".content-container"
@@ -44,18 +47,33 @@ const ppsNumber: HTMLElement | null = document.querySelector(
 
 const showEndScreen = () => {
     console.log("END SCREEN!");
+    let delayEndScreen = false;
 
-    endScreen.style.display = "block";
-    endScreenContents.style.display = "flex";
-    endScreenBtns.style.display = "flex";
-    endScreenContents.classList.add("content-container-animation");
-    endScreenBtns.classList.add("end-screen-btns-animation");
+    if (!(settingClicked % 2)) {
+        settingBtn?.click();
+        delayEndScreen = true;
+    }
 
-    pointNumber.textContent = points.toString();
-    accuracyNumber.textContent = accuracyPercentage.toString();
-    timerNumber.textContent = timerDuration.toString();
-    ppsNumber.textContent = calculateHitPerSec().toString();
-    addDataToHistory();
+    setTimeout(
+        () => {
+            endScreen.style.display = "block";
+
+            setTimeout(() => {
+                darkShadow.style.opacity = "1";
+                endScreenContents.style.display = "flex";
+                endScreenBtns.style.display = "flex";
+                endScreenContents.classList.add("content-container-animation");
+                endScreenBtns.classList.add("end-screen-btns-animation");
+
+                pointNumber.textContent = points.toString();
+                accuracyNumber.textContent = accuracyPercentage.toString();
+                timerNumber.textContent = timerDuration.toString();
+                ppsNumber.textContent = calculateHitPerSec().toFixed(2);
+                addDataToHistory();
+            }, 0); // SUPER COOL
+        },
+        delayEndScreen ? 550 : 0
+    );
 };
 
 const addChartJS = () => {

@@ -230,4 +230,7 @@ const applySetting = () => {
     setStarCheckers();
 };
 applySetting();
+if (gameTargets) {
+    gameTargets.innerHTML = "";
+}
 //# sourceMappingURL=setting.js.map

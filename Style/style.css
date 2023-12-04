@@ -160,6 +160,7 @@
 .game-section .game-targets .game-target:hover,
 .game-section .game-targets .bad-target:hover {
   background-color: rgb(40, 158, 11);
+  cursor: url("../Imgs/cursor-icons/custom-cursor-black.png"), auto;
 }
 .game-section .game-targets .bad-target {
   border: 1px solid rgb(128, 0, 0);
@@ -167,6 +168,7 @@
 }
 .game-section .game-targets .bad-target:hover {
   background-color: rgb(158, 11, 11);
+  cursor: url("../Imgs/cursor-icons/custom-cursor-black.png"), auto;
 }
 
 .setting-page {
@@ -194,6 +196,7 @@
   background: rgba(0, 0, 0, 0.6);
   padding: 12px 15px 15px;
   box-shadow: inset 0 0 3px 3px rgb(13, 0, 53), 0 0 10px 5px rgba(13, 0, 53, 0.57);
+  border-radius: 8px;
 }
 .setting-page .setting-menu .setting-title {
   width: 100%;
@@ -239,6 +242,8 @@
   font-size: 18px;
   background-color: #d1d1d1;
   transition: background-color 0.15s, color 0.15s;
+  border-radius: 5px;
+  cursor: auto;
 }
 .setting-page .setting-menu form .input-box input::-webkit-outer-spin-button, .setting-page .setting-menu form .input-box input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -246,9 +251,19 @@
 }
 .setting-page .setting-menu form .input-box input[type=checkbox] {
   width: 25px;
+  accent-color: rgb(49, 79, 228);
 }
 .setting-page .setting-menu form .input-box input[type=range] {
   padding: 0;
+  accent-color: rgb(49, 79, 228);
+}
+.setting-page .setting-menu form .input-box input::-moz-selection {
+  background: rgba(47, 82, 221, 0.8);
+  color: white;
+}
+.setting-page .setting-menu form .input-box input::selection {
+  background: rgba(47, 82, 221, 0.8);
+  color: white;
 }
 .setting-page .setting-menu form .checkbox-container {
   margin-right: 35px;
@@ -290,10 +305,10 @@
   height: 60px;
 }
 .setting-page .setting-menu .timer-form,
-.setting-page .setting-menu .movment-form {
+.setting-page .setting-menu .movement-form {
   padding-right: 5px;
 }
-.setting-page .setting-menu .movment-div {
+.setting-page .setting-menu .movement-div {
   margin-right: -20px;
 }
 .setting-page .setting-menu .apply-btn {
@@ -306,6 +321,7 @@
   margin-top: 10px;
   cursor: pointer;
   transition: background-color 0.2s;
+  border-radius: 5px;
 }
 .setting-page .setting-menu .apply-btn:hover {
   background: rgba(255, 255, 255, 0.25);
@@ -429,9 +445,10 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: opacity 0.3s;
+  opacity: 0;
+  transition: opacity 1s;
 }
 
 .content-container {
@@ -446,7 +463,7 @@
   align-items: normal;
   position: relative;
   top: -600px;
-  z-index: 3;
+  z-index: 5;
   border-radius: 0 0 30px 30px;
   box-shadow: 0 0 10px 2px rgba(27, 33, 59, 0.98);
   padding: 0 20px 20px;
@@ -529,7 +546,7 @@
   padding: 0 30px;
   position: relative;
   top: -800px;
-  z-index: 2;
+  z-index: 4;
   opacity: 0;
 }
 .end-screen-btns .end-screen-btn {
@@ -559,6 +576,15 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  cursor: default;
+}
+
+::-moz-selection {
+  background: transparent;
+}
+
+::selection {
+  background: transparent;
 }
 
 body {

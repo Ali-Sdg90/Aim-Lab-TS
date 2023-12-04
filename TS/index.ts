@@ -1,7 +1,7 @@
 let points: number;
 let hitClicks: number;
 let numberOfClicks: number;
-let timerDuration: number = 10;
+let timerDuration: number = 10; // Default is 10
 let maxTimeCounter: number = timerDuration;
 let TimeInterval: number | undefined = 0;
 let gameVolume: number = 0.4;

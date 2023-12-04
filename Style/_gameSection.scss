@@ -30,6 +30,8 @@
 
             &:hover {
                 background-color: rgb(40, 158, 11);
+                cursor: url("../Imgs/cursor-icons/custom-cursor-black.png"),
+                    auto;
             }
         }
 
@@ -39,6 +41,8 @@
 
             &:hover {
                 background-color: rgb(158, 11, 11);
+                cursor: url("../Imgs/cursor-icons/custom-cursor-black.png"),
+                    auto;
             }
         }
     }

@@ -1,5 +1,4 @@
 .setting-page {
-    // border: 2px solid red;
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -25,6 +24,7 @@
         padding: 12px 15px 15px;
         box-shadow: inset 0 0 3px 3px rgb(13, 0, 53),
             0 0 10px 5px rgba(13, 0, 53, 0.57);
+        border-radius: 8px;
 
         .setting-title {
             width: 100%;
@@ -47,7 +47,6 @@
             padding: 0 25px 0 5px;
 
             .input-box {
-                // border: 1px solid yellow;
                 display: flex;
                 flex-flow: row nowrap;
                 justify-content: center;
@@ -58,7 +57,6 @@
 
                 .change-indicator {
                     color: red;
-                    // border: 1px solid red;
                     position: relative;
                     top: 5.5px;
                     display: none;
@@ -72,6 +70,8 @@
                     font-size: 18px;
                     background-color: #d1d1d1;
                     transition: background-color 0.15s, color 0.15s;
+                    border-radius: 5px;
+                    cursor: auto;
 
                     &::-webkit-outer-spin-button,
                     &::-webkit-inner-spin-button {
@@ -81,10 +81,17 @@
 
                     &[type="checkbox"] {
                         width: 25px;
+                        accent-color: rgb(49, 79, 228);
                     }
 
                     &[type="range"] {
                         padding: 0;
+                        accent-color: rgb(49, 79, 228);
+                    }
+
+                    &::selection {
+                        background: rgba(47, 82, 221, 0.8);
+                        color: white;
                     }
                 }
             }
@@ -138,11 +145,11 @@
         }
 
         .timer-form,
-        .movment-form {
+        .movement-form {
             padding-right: 5px;
         }
 
-        .movment-div {
+        .movement-div {
             margin-right: -20px;
         }
 
@@ -156,6 +163,7 @@
             margin-top: 10px;
             cursor: pointer;
             transition: background-color 0.2s;
+            border-radius: 5px;
 
             &:hover {
                 background: rgba(255, 255, 255, 0.25);
