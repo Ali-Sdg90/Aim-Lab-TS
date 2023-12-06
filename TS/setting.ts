@@ -261,8 +261,8 @@ applyBtn?.addEventListener("click", () => {
         startGameCounter();
 
         if (settingBtn && reloadBtn) {
-            settingBtn.style.zIndex = "2";
-            reloadBtn.style.zIndex = "2";
+            settingBtn.style.zIndex = "7";
+            reloadBtn.style.zIndex = "7";
         }
     } else {
         applyBtn.style.background = "#bc0000";
@@ -320,12 +320,11 @@ const applySetting = () => {
                 updatePointValue(true);
                 console.log("Good Boom");
 
-                if (targetsClickMode) {
-                    hitClicks += 2;
-                    numberOfClicks++;
-                    calculateAccuracy();
-                    playSounds(3);
-                }
+                hitClicks += 2;
+                numberOfClicks++;
+                calculateAccuracy();
+
+                playSounds(3);
             }
         );
     });

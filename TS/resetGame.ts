@@ -52,7 +52,15 @@ const startGameCounter = () => {
         playSounds(1);
     }, 500);
 
+    // setTimeout(() => {
+    //     if (settingPage) {
+    //         settingPage.style.display = "none";
+    //         settingClicked++;
+    //     }
+    // }, 0);
+
     clearInterval(TimeInterval);
+
     if (timer) {
         timer.textContent = "--:--";
     }

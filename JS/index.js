@@ -1,14 +1,14 @@
 "use strict";
-let points;
-let hitClicks;
-let numberOfClicks;
+let points = 0;
+let hitClicks = 0;
+let numberOfClicks = 0;
 let timerDuration = 10;
 let maxTimeCounter = timerDuration;
 let TimeInterval = 0;
 let gameVolume = 0.4;
 let darkMode = true;
 let accuracyPercentage = 100;
-let pointPerSec;
+let pointPerSec = 0;
 const gameTargets = document.querySelector(".game-targets");
 gameTargets?.addEventListener("click", () => {
     numberOfClicks++;

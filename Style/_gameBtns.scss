@@ -6,6 +6,7 @@
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    z-index: 7;
 
     .volume-indicator {
         width: 54px;
@@ -44,6 +45,7 @@
     background: url("../Imgs/theme-icons/dark-mode-icon.png") center no-repeat,
         rgba(46, 57, 101, 0.8);
     background-size: 38px;
+    z-index: 7;
 }
 
 .setting-btn {

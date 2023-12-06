@@ -77,7 +77,7 @@ const showEndScreen = () => {
 };
 
 const addChartJS = () => {
-    let script = document.createElement("script");
+    const script: HTMLScriptElement = document.createElement("script");
     script.src = "./JS/chart.js";
     script.id = "chartJS";
     document.head.appendChild(script);

@@ -18,14 +18,20 @@ const updateTimer = (): void => {
             console.log("End of the timer");
             clearInterval(TimeInterval);
             showEndScreen();
-            addChartJS();
+
+            setTimeout(() => {
+                addChartJS();
+            }, 650);
         }
     }
 };
 
 const calculateAccuracy = () => {
     accuracyPercentage = +((hitClicks / numberOfClicks) * 100).toFixed(0);
-    if (accuracyValue && targetsClickMode) {
+    if (!targetsClickMode) {
+        accuracyPercentage = +(accuracyPercentage / 2).toFixed(0);
+    }
+    if (accuracyValue) {
         accuracyValue.textContent = accuracyPercentage.toString();
     }
 };

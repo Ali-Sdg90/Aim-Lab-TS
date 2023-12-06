@@ -1,13 +1,13 @@
-let points: number;
-let hitClicks: number;
-let numberOfClicks: number;
+let points: number = 0;
+let hitClicks: number = 0;
+let numberOfClicks: number = 0;
 let timerDuration: number = 10; // Default is 10
 let maxTimeCounter: number = timerDuration;
 let TimeInterval: number | undefined = 0;
 let gameVolume: number = 0.4;
 let darkMode: boolean = true;
 let accuracyPercentage: number = 100;
-let pointPerSec: number;
+let pointPerSec: number = 0;
 
 const gameTargets: HTMLElement | null = document.querySelector(".game-targets");
 

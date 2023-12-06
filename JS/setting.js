@@ -158,8 +158,8 @@ applyBtn?.addEventListener("click", () => {
         settingBtn?.click();
         startGameCounter();
         if (settingBtn && reloadBtn) {
-            settingBtn.style.zIndex = "2";
-            reloadBtn.style.zIndex = "2";
+            settingBtn.style.zIndex = "7";
+            reloadBtn.style.zIndex = "7";
         }
     }
     else {
@@ -203,12 +203,10 @@ const applySetting = () => {
             randomPositionMaker(target);
             updatePointValue(true);
             console.log("Good Boom");
-            if (targetsClickMode) {
-                hitClicks += 2;
-                numberOfClicks++;
-                calculateAccuracy();
-                playSounds(3);
-            }
+            hitClicks += 2;
+            numberOfClicks++;
+            calculateAccuracy();
+            playSounds(3);
         });
     });
     bombs.forEach((target) => {

@@ -8,7 +8,6 @@ if (reloadBtn) {
 
         setTimeout(() => {
             blackFlash();
-            // resetTimer();
 
             setTimeout(() => {
                 startGameCounter();

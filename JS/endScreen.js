@@ -49,7 +49,7 @@ const showEndScreen = () => {
     }, delayEndScreen ? 550 : 0);
 };
 const addChartJS = () => {
-    let script = document.createElement("script");
+    const script = document.createElement("script");
     script.src = "./JS/chart.js";
     script.id = "chartJS";
     document.head.appendChild(script);

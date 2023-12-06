@@ -52,6 +52,7 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  z-index: 7;
 }
 .volume-setting .volume-indicator {
   width: 54px;
@@ -91,6 +92,7 @@
   right: 20px;
   background: url("../Imgs/theme-icons/dark-mode-icon.png") center no-repeat, rgba(46, 57, 101, 0.8);
   background-size: 38px;
+  z-index: 7;
 }
 
 .setting-btn {
@@ -183,6 +185,7 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  z-index: 6;
 }
 .setting-page .setting-menu {
   border: 1px solid rgb(0, 0, 156);
@@ -338,7 +341,7 @@
   top: 0;
   left: 0;
   transition: opacity 0.5s;
-  z-index: 3;
+  z-index: 10;
   border-radius: 0;
 }
 
@@ -350,7 +353,7 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  z-index: 4;
+  z-index: 9;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -559,7 +562,7 @@
   font-size: 20px;
   white-space: nowrap;
   cursor: pointer;
-  box-shadow: 0 4px 5px 0px black;
+  box-shadow: 0 4px 5px 0px rgba(0, 0, 0, 0.55);
   transition: background-color 0.15s, box-shadow 0.15s, transform 0.15s, letter-spacing 0.15s;
 }
 .end-screen-btns .end-screen-btn:hover {
