@@ -11,9 +11,9 @@ const updateTimer = () => {
         const secValue = timerNumHelper(maxTimeCounter % 60, "0");
         timer.textContent = `${minValue}:${secValue}`;
         if (!maxTimeCounter--) {
-            console.log("End of the timer");
             clearInterval(TimeInterval);
             showEndScreen();
+            playSounds(5);
             setTimeout(() => {
                 addChartJS();
             }, 650);

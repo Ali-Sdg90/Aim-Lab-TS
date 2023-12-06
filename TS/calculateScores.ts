@@ -15,9 +15,9 @@ const updateTimer = (): void => {
         timer.textContent = `${minValue}:${secValue}`;
 
         if (!maxTimeCounter--) {
-            console.log("End of the timer");
             clearInterval(TimeInterval);
             showEndScreen();
+            playSounds(5); // Super Ominous Sound! i love it!!!
 
             setTimeout(() => {
                 addChartJS();

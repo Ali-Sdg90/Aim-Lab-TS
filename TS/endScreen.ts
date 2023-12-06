@@ -20,9 +20,6 @@ const addDataToHistory = () => {
     roundTime_History.push(new Date().toLocaleString().toString());
 };
 
-const endScreen: HTMLElement | null = document.querySelector(
-    ".end-screen"
-) as HTMLElement;
 const darkShadow: HTMLElement | null = document.querySelector(
     ".dark-shadow"
 ) as HTMLElement;
@@ -46,7 +43,6 @@ const ppsNumber: HTMLElement | null = document.querySelector(
 ) as HTMLElement;
 
 const showEndScreen = () => {
-    console.log("END SCREEN!");
     let delayEndScreen = false;
 
     if (!(settingClicked % 2)) {
@@ -56,7 +52,9 @@ const showEndScreen = () => {
 
     setTimeout(
         () => {
-            endScreen.style.display = "block";
+            if (endScreen) {
+                endScreen.style.display = "block";
+            }
 
             setTimeout(() => {
                 darkShadow.style.opacity = "1";
@@ -109,7 +107,9 @@ const playAgainBtn: HTMLElement | null = document.querySelector(
 ) as HTMLElement;
 
 playAgainBtn.addEventListener("click", () => {
-    endScreen.style.display = "none";
+    if (endScreen) {
+        endScreen.style.display = "none";
+    }
     endScreenContents.style.display = "none";
     endScreenBtns.style.display = "none";
     endScreenContents.classList.remove("content-container-animation");

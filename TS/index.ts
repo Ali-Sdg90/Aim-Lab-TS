@@ -28,11 +28,13 @@ const playSounds = (soundNumber: number) => {
     const gunMiss = new Audio("./Sounds/gun-shot-miss.aac");
     const gunHit = new Audio("./Sounds/gun-shot-hit.aac");
     const bombExplode = new Audio("./Sounds/bomb-explode.aac");
+    const endScreen = new Audio("./Sounds/end-screen.aac");
 
     gunLoading.volume = gameVolume;
     gunMiss.volume = gameVolume;
     gunHit.volume = gameVolume;
     bombExplode.volume = gameVolume;
+    endScreen.volume = gameVolume;
 
     switch (soundNumber) {
         case 1:
@@ -46,6 +48,9 @@ const playSounds = (soundNumber: number) => {
             break;
         case 4:
             bombExplode.play();
+            break;
+        case 5:
+            endScreen.play();
             break;
         default:
             break;

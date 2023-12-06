@@ -1,7 +1,6 @@
 const blackScreen: null | HTMLElement = document.querySelector(".black-screen");
 
 const resetTimer = () => {
-    console.log("IN");
     maxTimeCounter = timerDuration;
 
     clearInterval(TimeInterval);
@@ -25,6 +24,8 @@ const resetGame = () => {
     }
 };
 
+let blackFlashCounter = 0;
+
 const blackFlash = () => {
     if (blackScreen) {
         blackScreen.style.display = "block";
@@ -37,6 +38,16 @@ const blackFlash = () => {
                 blackScreen.style.display = "none";
             }, 500);
         }, 10);
+    }
+
+    if (blackFlashCounter++) {
+        if (settingPage && endScreen && settingBtn) {
+            settingPage.style.display = "none";
+            settingClicked = 1;
+            settingBtn.style.transform = `rotate(90deg)`;
+
+            endScreen.style.display = "none";
+        }
     }
 };
 
@@ -51,13 +62,6 @@ const startGameCounter = () => {
     setTimeout(() => {
         playSounds(1);
     }, 500);
-
-    // setTimeout(() => {
-    //     if (settingPage) {
-    //         settingPage.style.display = "none";
-    //         settingClicked++;
-    //     }
-    // }, 0);
 
     clearInterval(TimeInterval);
 

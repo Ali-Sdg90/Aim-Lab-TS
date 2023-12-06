@@ -46,6 +46,10 @@ const bombsSizeInput: HTMLInputElement | null = document.getElementById(
     "bombs-size"
 ) as HTMLInputElement;
 
+const endScreen: HTMLElement | null = document.querySelector(
+    ".end-screen"
+) as HTMLElement;
+
 const applyBtn: HTMLElement | null = document.querySelector(".apply-btn");
 
 NoTargetsInput.value = String(NoTargets);
@@ -68,7 +72,7 @@ addTitle(NoBombsInput, NoBombs_MinMax);
 addTitle(timerDurationInput, timerDuration_MinMax);
 addTitle(movementSpeedInput, movementSpeed_MinMax);
 
-// localStorge
+// localStorage
 
 const inputValidationChecker = (
     input: HTMLInputElement,
@@ -77,12 +81,10 @@ const inputValidationChecker = (
 ): void => {
     input.addEventListener("input", (): void => {
         if (+input.value >= minMax[0] && +input.value <= minMax[1]) {
-            console.log("ok");
             input.style.background = "#d1d1d1";
             input.style.color = "#000";
             validInputsArray[validationNumber] = true;
         } else {
-            console.log("no!");
             input.style.background = "#bc0000";
             input.style.color = "#fff";
             validInputsArray[validationNumber] = false;
@@ -132,8 +134,6 @@ const InputStarChecker = (
     star: HTMLElement
 ): void => {
     const InputStarCheckerFunc = (): void => {
-        // console.log(">>>", setValueForInput, input.value);
-
         if (!+input.value) {
             input.value = "0";
         }
@@ -213,7 +213,6 @@ const showcaseTransitions = (
         showcaseBall.style.width = input.value + "px";
         showcaseBall.style.height = input.value + "px";
         showcaseBall.style.zIndex = String(zIndexCounter++);
-        console.log(zIndexCounter);
 
         clearTimeout(timeoutValue);
         timeoutValue = setTimeout(() => {
@@ -318,7 +317,6 @@ const applySetting = () => {
             (): void => {
                 randomPositionMaker(target);
                 updatePointValue(true);
-                console.log("Good Boom");
 
                 hitClicks += 2;
                 numberOfClicks++;
@@ -346,15 +344,20 @@ const applySetting = () => {
             (): void => {
                 randomPositionMaker(target);
                 updatePointValue(false);
-                console.log("Bad Boom");
                 playSounds(4);
             }
         );
     });
+
     setStarCheckers();
+
+    if (endScreen && endScreen.style.display !== "none") {
+        endScreen.style.display = "none";
+    }
 };
 
 applySetting();
+
 if (gameTargets) {
     gameTargets.innerHTML = "";
 }

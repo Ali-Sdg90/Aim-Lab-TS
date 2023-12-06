@@ -23,6 +23,7 @@ const targetsClickModeInput = document.getElementById("targets-click-mode");
 const bombsClickModeInput = document.getElementById("bombs-click-mode");
 const targetsSizeInput = document.getElementById("targets-size");
 const bombsSizeInput = document.getElementById("bombs-size");
+const endScreen = document.querySelector(".end-screen");
 const applyBtn = document.querySelector(".apply-btn");
 NoTargetsInput.value = String(NoTargets);
 NoBombsInput.value = String(NoBombs);
@@ -44,13 +45,11 @@ addTitle(movementSpeedInput, movementSpeed_MinMax);
 const inputValidationChecker = (input, minMax, validationNumber) => {
     input.addEventListener("input", () => {
         if (+input.value >= minMax[0] && +input.value <= minMax[1]) {
-            console.log("ok");
             input.style.background = "#d1d1d1";
             input.style.color = "#000";
             validInputsArray[validationNumber] = true;
         }
         else {
-            console.log("no!");
             input.style.background = "#bc0000";
             input.style.color = "#fff";
             validInputsArray[validationNumber] = false;
@@ -127,7 +126,6 @@ const showcaseTransitions = (input, showcaseContainer, showcaseBall, timeoutValu
         showcaseBall.style.width = input.value + "px";
         showcaseBall.style.height = input.value + "px";
         showcaseBall.style.zIndex = String(zIndexCounter++);
-        console.log(zIndexCounter);
         clearTimeout(timeoutValue);
         timeoutValue = setTimeout(() => {
             showcaseTransition(showcaseContainer, false);
@@ -202,7 +200,6 @@ const applySetting = () => {
         target.addEventListener(targetsClickMode ? "click" : "mouseenter", () => {
             randomPositionMaker(target);
             updatePointValue(true);
-            console.log("Good Boom");
             hitClicks += 2;
             numberOfClicks++;
             calculateAccuracy();
@@ -221,11 +218,13 @@ const applySetting = () => {
         target.addEventListener(bombsClickMode ? "click" : "mouseenter", () => {
             randomPositionMaker(target);
             updatePointValue(false);
-            console.log("Bad Boom");
             playSounds(4);
         });
     });
     setStarCheckers();
+    if (endScreen && endScreen.style.display !== "none") {
+        endScreen.style.display = "none";
+    }
 };
 applySetting();
 if (gameTargets) {

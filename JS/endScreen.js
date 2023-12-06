@@ -17,7 +17,6 @@ const addDataToHistory = () => {
     pointPerSec_History.push(pointPerSec);
     roundTime_History.push(new Date().toLocaleString().toString());
 };
-const endScreen = document.querySelector(".end-screen");
 const darkShadow = document.querySelector(".dark-shadow");
 const endScreenContents = document.querySelector(".content-container");
 const endScreenBtns = document.querySelector(".end-screen-btns");
@@ -26,14 +25,15 @@ const accuracyNumber = document.querySelector(".accuracy-number");
 const timerNumber = document.querySelector(".timer-number");
 const ppsNumber = document.querySelector(".pps-number");
 const showEndScreen = () => {
-    console.log("END SCREEN!");
     let delayEndScreen = false;
     if (!(settingClicked % 2)) {
         settingBtn?.click();
         delayEndScreen = true;
     }
     setTimeout(() => {
-        endScreen.style.display = "block";
+        if (endScreen) {
+            endScreen.style.display = "block";
+        }
         setTimeout(() => {
             darkShadow.style.opacity = "1";
             endScreenContents.style.display = "flex";
@@ -62,7 +62,9 @@ const removeChartJS = () => {
 };
 const playAgainBtn = document.querySelector(".play-again-btn");
 playAgainBtn.addEventListener("click", () => {
-    endScreen.style.display = "none";
+    if (endScreen) {
+        endScreen.style.display = "none";
+    }
     endScreenContents.style.display = "none";
     endScreenBtns.style.display = "none";
     endScreenContents.classList.remove("content-container-animation");

@@ -13,7 +13,7 @@
     // opacity: 0;
 
     .setting-menu {
-        border: 1px solid rgb(0, 0, 156);
+        border: 1px solid rgb(44, 44, 157);
         width: 500px;
         font-size: 25px;
         display: flex;
@@ -31,7 +31,7 @@
             width: 100%;
             @include flex-center;
             font-size: 30px;
-            border-bottom: 1px solid rgb(0, 0, 193);
+            border-bottom: 1px solid rgb(44, 44, 157);
             border-radius: 0;
             padding-bottom: 7px;
             letter-spacing: 0.5px;
@@ -124,7 +124,7 @@
 
                 .bombs-ball-showcase {
                     border: 1px solid rgb(128, 0, 0);
-                    background-color: rgb(196, 9, 9);
+                    background-color: rgb(167, 10, 10);
                     border-radius: 50%;
                     width: 60px;
                     height: 60px;
@@ -157,7 +157,7 @@
         .apply-btn {
             width: 100%;
             height: 45px;
-            border: 1px solid rgb(0, 0, 175);
+            border: 1px solid rgb(44, 44, 157);
             background: rgba(255, 255, 255, 0.2);
             color: white;
             font-size: 25px;

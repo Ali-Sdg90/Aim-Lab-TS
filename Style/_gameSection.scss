@@ -7,8 +7,6 @@
 
     .game-targets {
         display: inline-block;
-        // border: 1px solid yellow;
-        // background-color: rgba(137, 43, 226, 0.47);
         width: 70%;
         height: 60vh;
         margin: 15vh 15% 24vh;
@@ -37,7 +35,7 @@
 
         .bad-target {
             border: 1px solid rgb(128, 0, 0);
-            background-color: rgb(196, 9, 9);
+            background-color: rgb(167, 10, 10);
 
             &:hover {
                 background-color: rgb(158, 11, 11);
