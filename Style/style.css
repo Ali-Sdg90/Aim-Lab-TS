@@ -528,6 +528,23 @@
 .content-container .past-performance-title {
   padding: 0 0 5px 10px;
 }
+.content-container .delete-records {
+  background-color: rgba(67, 71, 198, 0.364);
+  border: 1px solid rgb(22, 30, 54);
+  padding: 2px 5px;
+  border-radius: 3px;
+  transition: background-color 0.15s, color 0.15s;
+  cursor: pointer;
+  color: rgb(215, 214, 255);
+}
+.content-container .delete-records:hover {
+  background-color: rgba(67, 71, 198, 0.55);
+  color: rgb(255, 255, 255);
+}
+.content-container .delete-records:active {
+  background-color: rgba(52, 56, 159, 0.55);
+  color: rgb(215, 214, 255);
+}
 .content-container .past-performance-table {
   background-color: rgba(27, 34, 61, 0.98);
   padding: 10px;

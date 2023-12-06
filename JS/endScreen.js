@@ -16,7 +16,28 @@ const addDataToHistory = () => {
     accuracyPercentage_History.push(+(accuracyPercentage / 5).toFixed(2));
     pointPerSec_History.push(pointPerSec);
     roundTime_History.push(new Date().toLocaleString().toString());
+    updateLocalStorage();
 };
+const updateLocalStorage = () => {
+    const setLocalStorage = {
+        points_History: points_History,
+        timerDuration_History: timerDuration_History,
+        accuracyPercentage_History: accuracyPercentage_History,
+        pointPerSec_History: pointPerSec_History,
+        roundTime_History: roundTime_History,
+    };
+    localStorage.setItem("Aim-Lab-TS-Records", JSON.stringify(setLocalStorage));
+};
+const getLocalStorage = localStorage.getItem("Aim-Lab-TS-Records");
+if (getLocalStorage) {
+    const parseLocalStorage = JSON.parse(getLocalStorage);
+    points_History = parseLocalStorage.points_History;
+    timerDuration_History = parseLocalStorage.timerDuration_History;
+    accuracyPercentage_History = parseLocalStorage.accuracyPercentage_History;
+    pointPerSec_History = parseLocalStorage.pointPerSec_History;
+    roundTime_History = parseLocalStorage.roundTime_History;
+    dataCounter = points_History.length;
+}
 const darkShadow = document.querySelector(".dark-shadow");
 const endScreenContents = document.querySelector(".content-container");
 const endScreenBtns = document.querySelector(".end-screen-btns");
@@ -72,5 +93,18 @@ playAgainBtn.addEventListener("click", () => {
     removeChartJS();
     blackFlash();
     startGameCounter();
+});
+const deleteRecordsBtn = document.querySelector(".delete-records");
+deleteRecordsBtn.addEventListener("click", () => {
+    localStorage.removeItem("Aim-Lab-TS-Records");
+    points_History = [];
+    timerDuration_History = [];
+    accuracyPercentage_History = [];
+    pointPerSec_History = [];
+    roundTime_History = [];
+    dataCounter = 0;
+    addDataToHistory();
+    removeChartJS();
+    addChartJS();
 });
 //# sourceMappingURL=endScreen.js.map
