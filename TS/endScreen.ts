@@ -171,3 +171,11 @@ deleteRecordsBtn.addEventListener("click", () => {
     removeChartJS();
     addChartJS();
 });
+
+const saveBtn: HTMLElement | null = document.querySelector(
+    ".save-btn"
+) as HTMLElement;
+
+saveBtn.addEventListener("click", () => {
+    window.print();
+});

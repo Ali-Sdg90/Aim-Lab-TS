@@ -107,4 +107,8 @@ deleteRecordsBtn.addEventListener("click", () => {
     removeChartJS();
     addChartJS();
 });
+const saveBtn = document.querySelector(".save-btn");
+saveBtn.addEventListener("click", () => {
+    window.print();
+});
 //# sourceMappingURL=endScreen.js.map
