@@ -1,4 +1,10 @@
 <h1>Aim-Lab-TS🎯</h1>
+<img
+    src="./Imgs/readme-assets/game-showcase.gif"
+    alt="Gameplay Showcase"
+    style="width: 100%"
+/>
+
 <h2>Overview</h2>
 <p>
     Aim-Lab-TS is a meticulously crafted web-based game designed to enhance your
@@ -58,6 +64,18 @@
         </p>
     </li>
 </ul>
+<img
+    src="./Imgs/readme-assets/setting-page.png"
+    alt="setting-page image"
+    style="width: 100%"
+/>
+<p>Setting Menu</p>
+<img
+    src="./Imgs/readme-assets/end-screen.png"
+    alt="end-screen image"
+    style="width: 100%"
+/>
+<p>End Screen Menu</p>
 <h2>Development Journey</h2>
 <p>
     This project serves as a testament to the developer's commitment to
