@@ -91,7 +91,7 @@ playAgainBtn.addEventListener("click", () => {
     endScreenContents.classList.remove("content-container-animation");
     endScreenBtns.classList.remove("end-screen-btns-animation");
     removeChartJS();
-    blackFlash();
+    blackFlash(true);
     startGameCounter();
 });
 const deleteRecordsBtn = document.querySelector(".delete-records");

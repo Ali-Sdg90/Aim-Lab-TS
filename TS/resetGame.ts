@@ -24,9 +24,7 @@ const resetGame = () => {
     }
 };
 
-let blackFlashCounter = 0;
-
-const blackFlash = () => {
+const blackFlash = (resetUI: boolean) => {
     if (blackScreen) {
         blackScreen.style.display = "block";
         blackScreen.style.opacity = "1";
@@ -40,7 +38,7 @@ const blackFlash = () => {
         }, 10);
     }
 
-    if (blackFlashCounter++) {
+    if (resetUI) {
         if (settingPage && endScreen && settingBtn) {
             settingPage.style.display = "none";
             settingClicked = 1;
@@ -51,7 +49,7 @@ const blackFlash = () => {
     }
 };
 
-blackFlash();
+blackFlash(false);
 
 const gameCounter: null | HTMLElement = document.querySelector(".game-counter");
 

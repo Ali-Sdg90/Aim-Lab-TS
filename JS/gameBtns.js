@@ -5,7 +5,7 @@ if (reloadBtn) {
     reloadBtn.addEventListener("click", () => {
         reloadBtn.style.transform = `rotate(${(rotateDeg += 360)}deg)`;
         setTimeout(() => {
-            blackFlash();
+            blackFlash(true);
             setTimeout(() => {
                 startGameCounter();
             }, 100);
@@ -61,17 +61,19 @@ changeThemeBtn?.addEventListener("click", () => {
         if (darkMode) {
             gameBackground.style.background = `
                 url("./Imgs/game-backgrounds/game-background-light.png") 
-                center/cover no-repeat`;
+                    center/cover no-repeat
+                `;
         }
         else {
             gameBackground.style.background = `
                 url("./Imgs/game-backgrounds/game-background-dark.png") 
-                center/cover no-repeat`;
+                    center/cover no-repeat
+                `;
         }
         changeThemeBtn.classList.toggle("lightToDarkClass");
         changeThemeBtn.classList.toggle("darkToLightClass");
         darkMode = !darkMode;
-        blackFlash();
+        blackFlash(false);
     }
 });
 changeThemeBtn?.addEventListener("mouseenter", () => {

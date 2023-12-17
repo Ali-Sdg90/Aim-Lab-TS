@@ -148,7 +148,7 @@ playAgainBtn.addEventListener("click", () => {
     endScreenBtns.classList.remove("end-screen-btns-animation");
 
     removeChartJS();
-    blackFlash();
+    blackFlash(true);
     startGameCounter();
 });
 
