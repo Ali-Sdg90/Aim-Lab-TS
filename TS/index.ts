@@ -16,6 +16,7 @@ gameTargets?.addEventListener("click", (): void => {
     calculateAccuracy();
     playSounds(2);
 
+    // For 200ms change cursor icon after click in gameTargets
     gameTargets.style.cursor = `url("./Imgs/cursor-icons/custom-cursor-white.png"), auto`;
 
     setTimeout(() => {

@@ -35,8 +35,7 @@
             border-radius: 0;
             padding-bottom: 7px;
             letter-spacing: 0.5px;
-            text-shadow: 2px 0 rgba(98, 0, 255, 0.4),
-                -2px 0 rgba(255, 0, 0, 0.4);
+            text-shadow: $setting-page-title;
         }
 
         form {
@@ -107,7 +106,6 @@
             position: relative;
 
             .ball-showcase-container {
-                // border: 1px solid yellow;
                 width: 80px;
                 height: 80px;
                 position: absolute;
@@ -123,8 +121,8 @@
                 top: -41.5px;
 
                 .bombs-ball-showcase {
-                    border: 1px solid rgb(128, 0, 0);
-                    background-color: rgb(167, 10, 10);
+                    border: 1px solid $bomb-border-color;
+                    background-color: $bomb-bg;
                     border-radius: 50%;
                     width: 60px;
                     height: 60px;
@@ -136,8 +134,8 @@
                 top: 2px;
 
                 .targets-ball-showcase {
-                    border: 1px solid green;
-                    background-color: rgb(47, 196, 9);
+                    border: 1px solid $target-border-color;
+                    background-color: $target-bg;
                     border-radius: 50%;
                     width: 60px;
                     height: 60px;

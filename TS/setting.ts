@@ -10,6 +10,7 @@ let bombsSize: number = 70;
 
 let validInputsArray: boolean[] = [true, true, true, true];
 
+// SettingPage input MinMax
 const NoTargets_MinMax: number[] = [1, 200];
 const NoBombs_MinMax: number[] = [0, 200];
 const timerDuration_MinMax: number[] = [5, 600];
@@ -52,6 +53,7 @@ const endScreen: HTMLElement | null = document.querySelector(
 
 const applyBtn: HTMLElement | null = document.querySelector(".apply-btn");
 
+// Set default values in inputs
 NoTargetsInput.value = String(NoTargets);
 NoBombsInput.value = String(NoBombs);
 targetsCanMoveInput.checked = targetsCanMove;
@@ -63,6 +65,7 @@ bombsClickModeInput.checked = bombsClickMode;
 targetsSizeInput.value = String(targetsSize);
 bombsSizeInput.value = String(bombsSize);
 
+// Add MinMax titles to inputs
 const addTitle = (input: HTMLElement, minMax: number[]): void => {
     input.title = `Min: ${minMax[0]}\nMax: ${minMax[1]}`;
 };
@@ -72,8 +75,7 @@ addTitle(NoBombsInput, NoBombs_MinMax);
 addTitle(timerDurationInput, timerDuration_MinMax);
 addTitle(movementSpeedInput, movementSpeed_MinMax);
 
-// localStorage
-
+// Check input value is in MinMax
 const inputValidationChecker = (
     input: HTMLInputElement,
     minMax: number[],
@@ -176,6 +178,7 @@ const setStarCheckers = (): void => {
     );
 };
 
+// For targets/bombs size setting
 const bombsShowcaseContainer: HTMLElement | null =
     document.querySelector(".bombs-container");
 const targetsShowcaseContainer: HTMLElement | null =
@@ -259,6 +262,7 @@ applyBtn?.addEventListener("click", () => {
         settingBtn?.click();
         startGameCounter();
 
+        // After apply btn clicked for the first time, user can interact with setting and reload btns
         if (settingBtn && reloadBtn) {
             settingBtn.style.zIndex = "7";
             reloadBtn.style.zIndex = "7";
@@ -278,6 +282,7 @@ const applySetting = () => {
     if (gameTargets) {
         gameTargets.innerHTML = "";
 
+        // Add targets and bombs
         for (let i: number = 0; i < +NoTargetsInput.value; i++) {
             gameTargets.innerHTML += `<div class="game-target"></div>`;
         }
@@ -300,6 +305,7 @@ const applySetting = () => {
         target.style.left = `${randomNumberMaker()}%`;
     };
 
+    // targets behave function
     targets.forEach((target: HTMLElement) => {
         randomPositionMaker(target);
 
@@ -327,6 +333,7 @@ const applySetting = () => {
         );
     });
 
+    // bombs behave function
     bombs.forEach((target: HTMLElement) => {
         randomPositionMaker(target);
 
@@ -356,8 +363,10 @@ const applySetting = () => {
     }
 };
 
+// Add default setting in settingPage
 applySetting();
 
+// Remove targets and bombs before Apply btn clicked at start of the game
 if (gameTargets) {
     gameTargets.innerHTML = "";
 }

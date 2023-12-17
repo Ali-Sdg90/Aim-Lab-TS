@@ -31,10 +31,6 @@
   padding-right: 20px;
 }
 .header-info .accuracy-section {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
   gap: 5px;
   width: 98px;
   display: flex;
@@ -148,7 +144,7 @@
 }
 .game-section .game-targets .game-target,
 .game-section .game-targets .bad-target {
-  border: 1px solid green;
+  border: 1px solid rgb(0, 128, 0);
   background-color: rgb(47, 196, 9);
   width: 60px;
   height: 60px;
@@ -301,7 +297,7 @@
   top: 2px;
 }
 .setting-page .setting-menu .ball-size-setting .targets-container .targets-ball-showcase {
-  border: 1px solid green;
+  border: 1px solid rgb(0, 128, 0);
   background-color: rgb(47, 196, 9);
   border-radius: 50%;
   width: 60px;

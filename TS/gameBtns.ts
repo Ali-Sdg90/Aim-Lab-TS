@@ -50,6 +50,7 @@ const volumeInput: HTMLInputElement | null = document.querySelector(
 volumeInput.addEventListener("input", (): void => {
     const volumeValue = +volumeInput.value;
 
+    // Calculate which volume icon shows
     if (volumeValue) {
         volumeIcon.style.background = `
             url("./Imgs/volume-icons/volume-icon-${
@@ -68,6 +69,7 @@ volumeInput.addEventListener("input", (): void => {
     gameVolume = volumeValue / 200;
 });
 
+// Sound volume example
 volumeIcon.addEventListener("click", () => {
     playSounds(2);
 });
@@ -92,7 +94,7 @@ changeThemeBtn?.addEventListener("click", (): void => {
                 `;
         }
 
-        changeThemeBtn.classList.toggle("lightToDarkClass");
+        changeThemeBtn.classList.toggle("lightToDarkClass"); // present at start
         changeThemeBtn.classList.toggle("darkToLightClass");
 
         darkMode = !darkMode;
@@ -101,9 +103,10 @@ changeThemeBtn?.addEventListener("click", (): void => {
     }
 });
 
+// Toggle "lightToDarkClass" and "darkToLightClass" in changeThemeBtn
 changeThemeBtn?.addEventListener("mouseenter", () => {
     if (gameBackground) {
-        changeThemeBtn.classList.toggle("lightToDarkClass");
+        changeThemeBtn.classList.toggle("lightToDarkClass"); // present at start
         changeThemeBtn.classList.toggle("darkToLightClass");
     }
 });
@@ -111,6 +114,6 @@ changeThemeBtn?.addEventListener("mouseenter", () => {
 changeThemeBtn?.addEventListener("mouseleave", () => {
     if (gameBackground) {
         changeThemeBtn.classList.toggle("darkToLightClass");
-        changeThemeBtn.classList.toggle("lightToDarkClass");
+        changeThemeBtn.classList.toggle("lightToDarkClass"); // present at start
     }
 });

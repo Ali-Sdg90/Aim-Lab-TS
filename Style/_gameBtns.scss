@@ -13,7 +13,7 @@
         height: 54px;
         background: url("../Imgs/volume-icons/volume-icon-2.png") center
                 no-repeat,
-            rgba(46, 57, 101, 0.8);
+            $default-btn-bg;
         background-size: 35px;
         border-radius: 50%;
         outline: 2.5px solid #171717;
@@ -43,7 +43,7 @@
     bottom: 20px;
     right: 20px;
     background: url("../Imgs/theme-icons/dark-mode-icon.png") center no-repeat,
-        rgba(46, 57, 101, 0.8);
+        $default-btn-bg;
     background-size: 38px;
     z-index: 7;
 }
@@ -53,7 +53,7 @@
     top: 20px;
     right: 20px;
     background: url("../Imgs/setting-icon.svg") center no-repeat,
-        rgba(46, 57, 101, 0.8);
+        $default-btn-bg;
     background-size: 42px;
     transition: transform 0.5s;
 }
@@ -63,6 +63,6 @@
     top: 20px;
     left: 20px;
     background: url("../Imgs/reload-icon.svg") center/cover no-repeat,
-        rgba(46, 57, 101, 0.8);
+        $default-btn-bg;
     transition: transform 0.5s;
 }

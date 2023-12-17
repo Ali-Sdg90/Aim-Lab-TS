@@ -15,8 +15,8 @@
 
         .game-target,
         .bad-target {
-            border: 1px solid green;
-            background-color: rgb(47, 196, 9);
+            border: 1px solid $target-border-color;
+            background-color: $target-bg;
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -27,18 +27,18 @@
             transition: background-color 0.15s, top 0.15s, left 0.15s;
 
             &:hover {
-                background-color: rgb(40, 158, 11);
+                background-color: $target-bg-hover;
                 cursor: url("../Imgs/cursor-icons/custom-cursor-black.png"),
                     auto;
             }
         }
 
         .bad-target {
-            border: 1px solid rgb(128, 0, 0);
-            background-color: rgb(167, 10, 10);
+            border: 1px solid $bomb-border-color;
+            background-color: $bomb-bg;
 
             &:hover {
-                background-color: rgb(158, 11, 11);
+                background-color: $bomb-bg-hover;
                 cursor: url("../Imgs/cursor-icons/custom-cursor-black.png"),
                     auto;
             }

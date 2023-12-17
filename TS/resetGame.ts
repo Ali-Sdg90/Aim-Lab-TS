@@ -38,6 +38,7 @@ const blackFlash = (resetUI: boolean) => {
         }, 10);
     }
 
+    // If resetUI === true, hide settingPage and endScreen
     if (resetUI) {
         if (settingPage && endScreen && settingBtn) {
             settingPage.style.display = "none";
@@ -49,6 +50,7 @@ const blackFlash = (resetUI: boolean) => {
     }
 };
 
+// blackFlash at start of game
 blackFlash(false);
 
 const gameCounter: null | HTMLElement = document.querySelector(".game-counter");

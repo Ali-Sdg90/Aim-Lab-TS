@@ -1,6 +1,5 @@
 .header-info {
     @include flex-space-between;
-    // border: 1px solid blue;
     width: 80vh;
     font-size: 24px;
     position: absolute;
@@ -9,12 +8,10 @@
     transform: translate(-50%, -50%);
 
     .point-section {
-        // width: 110px;
         @include flex-center;
         gap: 5px;
 
         .point-value {
-            // border: 1px solid red;
             width: 50px;
             @include flex-center;
             justify-content: flex-end;
@@ -28,8 +25,6 @@
     }
 
     .accuracy-section {
-        @include flex-space-between;
-        // border: 1px solid red;
         gap: 5px;
         width: 98px;
         @include flex-center;

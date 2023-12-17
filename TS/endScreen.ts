@@ -3,6 +3,7 @@ const calculateHitPerSec = (): number => {
     return pointPerSec;
 };
 
+// Number of available data in table
 let dataCounter = 0;
 
 let points_History: number[] = [];
@@ -75,6 +76,7 @@ const ppsNumber: HTMLElement | null = document.querySelector(
 const showEndScreen = () => {
     let delayEndScreen = false;
 
+    // Close the setting if it's open
     if (!(settingClicked % 2)) {
         settingBtn?.click();
         delayEndScreen = true;
@@ -100,10 +102,12 @@ const showEndScreen = () => {
                 addDataToHistory();
             }, 0); // SUPER COOL
         },
+        // delayEndScreen set to 550 only when setting is already open
         delayEndScreen ? 550 : 0
     );
 };
 
+// Add Chart.js Script
 const addChartJS = () => {
     const script: HTMLScriptElement = document.createElement("script");
     script.src = "./JS/chart.js";
@@ -111,6 +115,7 @@ const addChartJS = () => {
     document.head.appendChild(script);
 };
 
+// Remove Chart.js Script
 const removeChartJS = () => {
     const script = document.getElementById("chartJS");
     if (script) {
@@ -118,7 +123,7 @@ const removeChartJS = () => {
     }
 };
 
-// ------ TEMP ------
+// ------ For Test Chart.js ------
 
 // points = 90;
 // timerDuration = 25;
@@ -132,7 +137,7 @@ const removeChartJS = () => {
 // const settingPageTEMP = document.querySelector(".setting-page") as HTMLElement;
 // settingPageTEMP.style.display = "none";
 
-// ------------------
+// -------------------------------
 
 const playAgainBtn: HTMLElement | null = document.querySelector(
     ".play-again-btn"
@@ -167,7 +172,6 @@ deleteRecordsBtn.addEventListener("click", () => {
     dataCounter = 0;
 
     addDataToHistory();
-
     removeChartJS();
     addChartJS();
 });

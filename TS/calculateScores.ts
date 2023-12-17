@@ -4,6 +4,7 @@ const accuracyValue: HTMLElement | null =
 
 const timer: HTMLElement | null = document.querySelector(".timer-section");
 
+// Format minutes and second numbers
 const timerNumHelper = (timeNumber: number, fillerChar: string): string => {
     return String(Math.trunc(timeNumber)).padStart(2, fillerChar);
 };
@@ -17,7 +18,7 @@ const updateTimer = (): void => {
         if (!maxTimeCounter--) {
             clearInterval(TimeInterval);
             showEndScreen();
-            playSounds(5); // Super Ominous Sound! i love it!!!
+            playSounds(5); // Super Ominous Sound! I love it!!!
 
             setTimeout(() => {
                 addChartJS();
@@ -29,6 +30,7 @@ const updateTimer = (): void => {
 const calculateAccuracy = () => {
     accuracyPercentage = +((hitClicks / numberOfClicks) * 100).toFixed(0);
     if (!targetsClickMode) {
+        // hover mode for targets
         accuracyPercentage = +(accuracyPercentage / 2).toFixed(0);
     }
     if (accuracyValue) {

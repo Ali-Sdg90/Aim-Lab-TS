@@ -1,7 +1,11 @@
 dateNow = new Date().toLocaleString().toString().split(/, /g)[0];
 
+// ["12/17/2023","6:02:12 PM"]
+// console.log(new Date().toLocaleString().toString().split(/, /g));
+
 data = {
     labels: roundTime_History.map((date) => {
+        // Show time or date
         if (dateNow === date.split(/, /g)[0]) {
             return date.split(/, /g)[1];
         } else {
