@@ -56,7 +56,7 @@
             href="./Imgs/volume-icons/volume-icon-3.png"
         />
 
-        <link rel="icon" href="./Imgs/favicon.png" type="image/x-icon">
+        <link rel="icon" href="./Imgs/favicon.png" type="image/x-icon" />
 
         <link rel="stylesheet" href="./Style/style.css" />
         <link
@@ -68,284 +68,299 @@
         <title>Aim-Lab-TS</title>
     </head>
     <body>
-        <div class="reload-btn"></div>
+        <div class="scale-warning"></div>
+        <div class="custom-scale-div">
+            <div class="reload-btn"></div>
 
-        <div class="header-info">
-            <div class="point-section">
-                <div class="point-value">0</div>
-                <div class="point-text">Points</div>
+            <div class="header-info">
+                <div class="point-section">
+                    <div class="point-value">0</div>
+                    <div class="point-text">Points</div>
+                </div>
+
+                <div class="timer-section">--:--</div>
+
+                <div class="accuracy-section">
+                    <div class="accuracy-value">100</div>
+                    <div class="accuracy-text">%</div>
+                </div>
             </div>
 
-            <div class="timer-section">--:--</div>
+            <div class="setting-btn"></div>
 
-            <div class="accuracy-section">
-                <div class="accuracy-value">100</div>
-                <div class="accuracy-text">%</div>
-            </div>
-        </div>
-
-        <div class="setting-btn"></div>
-
-        <main class="game-section">
-            <div class="game-targets">
-                <!-- <div class="bad-target"></div>
+            <main class="game-section">
+                <div class="game-targets">
+                    <!-- <div class="bad-target"></div>
                 <div class="bad-target"></div>
                 <div class="game-target"></div>
                 <div class="game-target"></div>
                 <div class="game-target"></div>
                 <div class="game-target"></div> -->
-            </div>
+                </div>
 
-            <div class="player-gun"></div>
-        </main>
+                <div class="player-gun"></div>
+            </main>
 
-        <div class="game-counter">3</div>
+            <div class="game-counter">3</div>
 
-        <div class="black-screen"></div>
+            <div class="black-screen"></div>
 
-        <div class="setting-page">
-            <div class="setting-menu">
-                <div class="setting-title">- Setting -</div>
+            <div class="setting-page">
+                <div class="setting-menu">
+                    <div class="setting-title">- Setting -</div>
 
-                <form>
-                    <label for="number-of-targets">Number of targets</label>
-                    <div class="input-box">
-                        <input
-                            type="number"
-                            name="number-of-targets"
-                            id="number-of-targets"
-                        />
-                        <span class="change-indicator number-of-targets-star"
-                            >*</span
-                        >
-                    </div>
-                </form>
-
-                <form>
-                    <label for="number-of-bombs">Number of bombs</label>
-                    <div class="input-box">
-                        <input
-                            type="number"
-                            name="number-of-bombs"
-                            id="number-of-bombs"
-                        />
-                        <span class="change-indicator number-of-bombs-star"
-                            >*</span
-                        >
-                    </div>
-                </form>
-
-                <form>
-                    <label for="targets-can-move">Targets can move</label>
-                    <div class="input-box checkbox-container">
-                        <input
-                            type="checkbox"
-                            name="targets-can-move"
-                            id="targets-can-move"
-                        />
-                        <span class="change-indicator targets-can-move-star"
-                            >*</span
-                        >
-                    </div>
-                </form>
-
-                <form>
-                    <label for="bombs-can-move">Bombs can move</label>
-                    <div class="input-box checkbox-container">
-                        <input
-                            type="checkbox"
-                            name="bombs-can-move"
-                            id="bombs-can-move"
-                        />
-                        <span class="change-indicator bombs-can-move-star"
-                            >*</span
-                        >
-                    </div>
-                </form>
-
-                <form class="timer-form">
-                    <label for="timer-duration">Timer duration</label>
-                    <div class="input-box tiemr-container">
-                        <div>
-                            <input
-                                type="number"
-                                name="timer-duration"
-                                id="timer-duration"
-                            />
-                            <span class="second-text">s</span>
-                        </div>
-                        <span class="change-indicator timer-duration-star"
-                            >*</span
-                        >
-                    </div>
-                </form>
-
-                <form class="movement-form">
-                    <label for="movement-speed">Movement delay</label>
-                    <div class="input-box movement-div">
-                        <div>
-                            <input
-                                type="number"
-                                name="movement-speed"
-                                id="movement-speed"
-                            />
-                            <span>ms</span>
-                        </div>
-                        <span class="change-indicator movement-speed-star"
-                            >*</span
-                        >
-                    </div>
-                </form>
-
-                <form>
-                    <label for="targets-click-mode">Targets click-mode</label>
-                    <div class="input-box checkbox-container">
-                        <input
-                            type="checkbox"
-                            name="targets-click-mode"
-                            id="targets-click-mode"
-                        />
-                        <span class="change-indicator targets-click-mode-star"
-                            >*</span
-                        >
-                    </div>
-                </form>
-
-                <form>
-                    <label for="bombs-click-mode">Bombs click-mode</label>
-                    <div class="input-box checkbox-container">
-                        <input
-                            type="checkbox"
-                            name="bombs-click-mode"
-                            id="bombs-click-mode"
-                        />
-                        <span class="change-indicator bombs-click-mode-star"
-                            >*</span
-                        >
-                    </div>
-                </form>
-
-                <div class="ball-size-setting">
                     <form>
-                        <label for="targets-size">Targets Size</label>
+                        <label for="number-of-targets">Number of targets</label>
                         <div class="input-box">
                             <input
-                                type="range"
-                                name="targets-size"
-                                id="targets-size"
-                                max="80"
-                                min="30"
+                                type="number"
+                                name="number-of-targets"
+                                id="number-of-targets"
                             />
-                            <span class="change-indicator targets-size-star"
+                            <span
+                                class="change-indicator number-of-targets-star"
                                 >*</span
                             >
                         </div>
                     </form>
-                    <div class="ball-showcase-container targets-container">
-                        <div class="targets-ball-showcase"></div>
-                    </div>
-                </div>
 
-                <div class="ball-size-setting">
                     <form>
-                        <label for="bombs-size">bombs Size</label>
+                        <label for="number-of-bombs">Number of bombs</label>
                         <div class="input-box">
                             <input
-                                type="range"
-                                name="bombs-size"
-                                id="bombs-size"
-                                max="80"
-                                min="30"
+                                type="number"
+                                name="number-of-bombs"
+                                id="number-of-bombs"
                             />
-                            <span class="change-indicator bombs-size-star"
+                            <span class="change-indicator number-of-bombs-star"
                                 >*</span
                             >
                         </div>
                     </form>
-                    <div class="ball-showcase-container bombs-container">
-                        <div class="bombs-ball-showcase"></div>
-                    </div>
-                </div>
 
-                <button class="apply-btn">Apply & Start</button>
+                    <form>
+                        <label for="targets-can-move">Targets can move</label>
+                        <div class="input-box checkbox-container">
+                            <input
+                                type="checkbox"
+                                name="targets-can-move"
+                                id="targets-can-move"
+                            />
+                            <span class="change-indicator targets-can-move-star"
+                                >*</span
+                            >
+                        </div>
+                    </form>
+
+                    <form>
+                        <label for="bombs-can-move">Bombs can move</label>
+                        <div class="input-box checkbox-container">
+                            <input
+                                type="checkbox"
+                                name="bombs-can-move"
+                                id="bombs-can-move"
+                            />
+                            <span class="change-indicator bombs-can-move-star"
+                                >*</span
+                            >
+                        </div>
+                    </form>
+
+                    <form class="timer-form">
+                        <label for="timer-duration">Timer duration</label>
+                        <div class="input-box tiemr-container">
+                            <div>
+                                <input
+                                    type="number"
+                                    name="timer-duration"
+                                    id="timer-duration"
+                                />
+                                <span class="second-text">s</span>
+                            </div>
+                            <span class="change-indicator timer-duration-star"
+                                >*</span
+                            >
+                        </div>
+                    </form>
+
+                    <form class="movement-form">
+                        <label for="movement-speed">Movement delay</label>
+                        <div class="input-box movement-div">
+                            <div>
+                                <input
+                                    type="number"
+                                    name="movement-speed"
+                                    id="movement-speed"
+                                />
+                                <span>ms</span>
+                            </div>
+                            <span class="change-indicator movement-speed-star"
+                                >*</span
+                            >
+                        </div>
+                    </form>
+
+                    <form>
+                        <label for="targets-click-mode"
+                            >Targets click-mode</label
+                        >
+                        <div class="input-box checkbox-container">
+                            <input
+                                type="checkbox"
+                                name="targets-click-mode"
+                                id="targets-click-mode"
+                            />
+                            <span
+                                class="change-indicator targets-click-mode-star"
+                                >*</span
+                            >
+                        </div>
+                    </form>
+
+                    <form>
+                        <label for="bombs-click-mode">Bombs click-mode</label>
+                        <div class="input-box checkbox-container">
+                            <input
+                                type="checkbox"
+                                name="bombs-click-mode"
+                                id="bombs-click-mode"
+                            />
+                            <span class="change-indicator bombs-click-mode-star"
+                                >*</span
+                            >
+                        </div>
+                    </form>
+
+                    <div class="ball-size-setting">
+                        <form>
+                            <label for="targets-size">Targets Size</label>
+                            <div class="input-box">
+                                <input
+                                    type="range"
+                                    name="targets-size"
+                                    id="targets-size"
+                                    max="80"
+                                    min="30"
+                                />
+                                <span class="change-indicator targets-size-star"
+                                    >*</span
+                                >
+                            </div>
+                        </form>
+                        <div class="ball-showcase-container targets-container">
+                            <div class="targets-ball-showcase"></div>
+                        </div>
+                    </div>
+
+                    <div class="ball-size-setting">
+                        <form>
+                            <label for="bombs-size">bombs Size</label>
+                            <div class="input-box">
+                                <input
+                                    type="range"
+                                    name="bombs-size"
+                                    id="bombs-size"
+                                    max="80"
+                                    min="30"
+                                />
+                                <span class="change-indicator bombs-size-star"
+                                    >*</span
+                                >
+                            </div>
+                        </form>
+                        <div class="ball-showcase-container bombs-container">
+                            <div class="bombs-ball-showcase"></div>
+                        </div>
+                    </div>
+
+                    <button class="apply-btn">Apply & Start</button>
+                </div>
             </div>
-        </div>
 
-        <div class="volume-setting">
-            <div class="volume-indicator"></div>
-            <input type="range" class="volume-input" max="98" value="30" />
-        </div>
-
-        <div class="change-theme-btn lightToDarkClass"></div>
-
-        <div class="end-screen">
-            <div class="dark-shadow"></div>
-
-            <!-- content-container-animation -->
-            <div class="content-container">
-                <div class="end-screen-title">- Analyze Round -</div>
-
-                <div class="round-info-container">
-                    <div class="round-info-row point-section">
-                        <div class="point-text">Points</div>
-                        <div class="point-value number-value">
-                            <div class="point-number">300</div>
-                            <div class="point-unit unit-value">Points</div>
-                        </div>
-                    </div>
-
-                    <div class="round-info-row accuracy-section">
-                        <div class="accuracy-text">Accuracy</div>
-                        <div class="accuracy-value number-value">
-                            <div class="accuracy-number">89</div>
-                            <div class="accuracy-unit unit-value">%</div>
-                        </div>
-                    </div>
-
-                    <div class="round-info-row timer-section">
-                        <div class="timer-text">Timer</div>
-                        <div class="timer-value number-value">
-                            <div class="timer-number">25</div>
-                            <div class="timer-unit unit-value">sec</div>
-                        </div>
-                    </div>
-
-                    <!--pps = points per second -->
-                    <div class="round-info-row pps-section">
-                        <div class="pps-text">Hits per 10 sec</div>
-                        <div class="pps-value number-value">
-                            <div class="pps-number">0.9</div>
-                            <div class="pps-unit unit-value">Hit/10s</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="past-performance-container">
-                    <div class="past-performance-title">
-                        Past Performances:
-                        <button class="delete-records">
-                            Delete old records
-                        </button>
-                    </div>
-
-                    <div class="past-performance-table">
-                        <canvas id="myChart" width="600" height="200"></canvas>
-                    </div>
-                </div>
+            <div class="volume-setting">
+                <div class="volume-indicator"></div>
+                <input type="range" class="volume-input" max="98" value="30" />
             </div>
 
-            <!-- end-screen-btns-animation -->
-            <div class="end-screen-btns">
-                <a
-                    href="https://github.com/Ali-Sdg90/Aim-Lab-TS"
-                    target="_blank"
-                >
-                    <button class="end-screen-btn github-btn">GitHub</button></a
-                >
-                <button class="end-screen-btn play-again-btn">
-                    Play Again
-                </button>
-                <button class="end-screen-btn save-btn">Save Analyze</button>
+            <div class="change-theme-btn lightToDarkClass"></div>
+
+            <div class="end-screen">
+                <div class="dark-shadow"></div>
+
+                <!-- content-container-animation -->
+                <div class="content-container">
+                    <div class="end-screen-title">- Analyze Round -</div>
+
+                    <div class="round-info-container">
+                        <div class="round-info-row point-section">
+                            <div class="point-text">Points</div>
+                            <div class="point-value number-value">
+                                <div class="point-number">300</div>
+                                <div class="point-unit unit-value">Points</div>
+                            </div>
+                        </div>
+
+                        <div class="round-info-row accuracy-section">
+                            <div class="accuracy-text">Accuracy</div>
+                            <div class="accuracy-value number-value">
+                                <div class="accuracy-number">89</div>
+                                <div class="accuracy-unit unit-value">%</div>
+                            </div>
+                        </div>
+
+                        <div class="round-info-row timer-section">
+                            <div class="timer-text">Timer</div>
+                            <div class="timer-value number-value">
+                                <div class="timer-number">25</div>
+                                <div class="timer-unit unit-value">sec</div>
+                            </div>
+                        </div>
+
+                        <!--pps = points per second -->
+                        <div class="round-info-row pps-section">
+                            <div class="pps-text">Hits per 10 sec</div>
+                            <div class="pps-value number-value">
+                                <div class="pps-number">0.9</div>
+                                <div class="pps-unit unit-value">Hit/10s</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="past-performance-container">
+                        <div class="past-performance-title">
+                            Past Performances:
+                            <button class="delete-records">
+                                Delete old records
+                            </button>
+                        </div>
+
+                        <div class="past-performance-table">
+                            <canvas
+                                id="myChart"
+                                width="600"
+                                height="200"
+                            ></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- end-screen-btns-animation -->
+                <div class="end-screen-btns">
+                    <a
+                        href="https://github.com/Ali-Sdg90/Aim-Lab-TS"
+                        target="_blank"
+                    >
+                        <button class="end-screen-btn github-btn">
+                            GitHub
+                        </button></a
+                    >
+                    <button class="end-screen-btn play-again-btn">
+                        Play Again
+                    </button>
+                    <button class="end-screen-btn save-btn">
+                        Save Analyze
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -357,6 +372,8 @@
         <script src="./JS/setting.js"></script>
         <script src="./JS/endScreen.js"></script>
         <script src="./JS/chartJSVariables.js"></script>
+        <script src="JS/customScaleCalc.js"></script>
+
         <!-- <script src="./JS/chart.js"></script> -->
     </body>
 </html>

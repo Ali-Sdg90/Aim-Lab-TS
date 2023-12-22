@@ -1,0 +1,11 @@
+.custom-scale-calc {
+    // transform: scale(0.5) rotate(90deg) translate(-50%, -53%);
+    transform-origin: left;
+    width: 140vh;
+    overflow: hidden;
+    position: absolute;
+}
+
+.scale-warning {
+    text-align: center;
+}
