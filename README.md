@@ -100,3 +100,35 @@
     mastery. Explore, play, and witness your progress in the pursuit of
     precision. Happy coding! ❤️
 </p>
+
+<h2>CI/CD Process</h2>
+<p>
+    This project uses GitHub Actions for Continuous Integration (CI) and Continuous Deployment (CD). The CI/CD pipeline is defined in the <code>.github/workflows/ci-cd.yml</code> file.
+</p>
+<h3>Steps in the CI/CD Pipeline</h3>
+<ul>
+    <li>
+        <strong>Build:</strong> This step checks out the repository, sets up Node.js, installs dependencies, and builds the project using the <code>npm run build</code> command.
+    </li>
+    <li>
+        <strong>Test:</strong> This step runs after the build step. It checks out the repository, sets up Node.js, installs dependencies, and runs tests using the <code>npm test</code> command.
+    </li>
+    <li>
+        <strong>Deploy:</strong> This step runs after the test step. It checks out the repository, sets up Node.js, installs dependencies, and deploys the project to GitHub Pages using the <code>npm run deploy</code> command.
+    </li>
+</ul>
+<h3>Running CI/CD Processes Locally</h3>
+<p>
+    You can run the CI/CD processes locally using the following commands:
+</p>
+<ul>
+    <li>
+        <strong>Build:</strong> <code>npm run build</code>
+    </li>
+    <li>
+        <strong>Test:</strong> <code>npm test</code>
+    </li>
+    <li>
+        <strong>Deploy:</strong> <code>npm run deploy</code>
+    </li>
+</ul>

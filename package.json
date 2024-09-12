@@ -1,5 +1,10 @@
 {
   "dependencies": {
     "chart.js": "^4.4.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "deploy": "gh-pages -d build"
   }
 }
