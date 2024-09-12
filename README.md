@@ -100,3 +100,25 @@
     mastery. Explore, play, and witness your progress in the pursuit of
     precision. Happy coding! ❤️
 </p>
+
+<h2>Setup Instructions</h2>
+<p>Follow these steps to set up the project:</p>
+<ol>
+    <li>Clone the repository: <code>git clone https://github.com/Ali-Sdg90/Aim-Lab-TS.git</code></li>
+    <li>Navigate to the project directory: <code>cd Aim-Lab-TS</code></li>
+    <li>Install the dependencies: <code>npm install</code></li>
+</ol>
+
+<h2>Requirements</h2>
+<p>Ensure you have the following installed:</p>
+<ul>
+    <li>Node.js (v14 or higher)</li>
+    <li>npm (v6 or higher)</li>
+</ul>
+
+<h2>Run Instructions</h2>
+<p>To run the project locally, follow these steps:</p>
+<ol>
+    <li>Start the development server: <code>npm start</code></li>
+    <li>Open your browser and navigate to <code>http://localhost:3000</code></li>
+</ol>

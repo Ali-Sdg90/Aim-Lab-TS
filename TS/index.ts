@@ -9,8 +9,10 @@ let darkMode: boolean = true;
 let accuracyPercentage: number = 100;
 let pointPerSec: number = 0;
 
+// Select the game targets container
 const gameTargets: HTMLElement | null = document.querySelector(".game-targets");
 
+// Add event listener to the game targets container
 gameTargets?.addEventListener("click", (): void => {
     numberOfClicks++;
     calculateAccuracy();
@@ -24,6 +26,7 @@ gameTargets?.addEventListener("click", (): void => {
     }, 200);
 });
 
+// Function to play different sounds based on the sound number
 const playSounds = (soundNumber: number) => {
     const gunLoading = new Audio("./Sounds/gun-loading.aac");
     const gunMiss = new Audio("./Sounds/gun-shot-miss.aac");

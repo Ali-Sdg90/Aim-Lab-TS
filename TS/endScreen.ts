@@ -1,3 +1,7 @@
+/**
+ * Calculates the hits per second and updates the pointPerSec variable.
+ * @returns The calculated hits per second.
+ */
 const calculateHitPerSec = (): number => {
     pointPerSec = +(hitClicks / timerDuration / 2).toFixed(3) * 10;
     return pointPerSec;
@@ -12,7 +16,10 @@ let accuracyPercentage_History: number[] = [];
 let pointPerSec_History: number[] = [];
 let roundTime_History: string[] = [];
 
-const addDataToHistory = () => {
+/**
+ * Adds the current game data to the history arrays and updates local storage.
+ */
+const addDataToHistory = (): void => {
     dataCounter++;
     points_History.push(points);
     timerDuration_History.push(timerDuration);
@@ -23,7 +30,10 @@ const addDataToHistory = () => {
     updateLocalStorage();
 };
 
-const updateLocalStorage = () => {
+/**
+ * Updates the local storage with the current game data history.
+ */
+const updateLocalStorage = (): void => {
     const setLocalStorage: {
         [key: string]: string[] | number[];
     } = {
@@ -37,6 +47,7 @@ const updateLocalStorage = () => {
     localStorage.setItem("Aim-Lab-TS-Records", JSON.stringify(setLocalStorage));
 };
 
+// Retrieve and parse the local storage data
 const getLocalStorage = localStorage.getItem("Aim-Lab-TS-Records");
 
 if (getLocalStorage) {
@@ -73,7 +84,10 @@ const ppsNumber: HTMLElement | null = document.querySelector(
     ".pps-number"
 ) as HTMLElement;
 
-const showEndScreen = () => {
+/**
+ * Shows the end screen with game statistics and animations.
+ */
+const showEndScreen = (): void => {
     let delayEndScreen = false;
 
     // Close the setting if it's open
@@ -107,37 +121,25 @@ const showEndScreen = () => {
     );
 };
 
-// Add Chart.js Script
-const addChartJS = () => {
+/**
+ * Adds the Chart.js script to the document.
+ */
+const addChartJS = (): void => {
     const script: HTMLScriptElement = document.createElement("script");
     script.src = "./JS/chart.js";
     script.id = "chartJS";
     document.head.appendChild(script);
 };
 
-// Remove Chart.js Script
-const removeChartJS = () => {
+/**
+ * Removes the Chart.js script from the document.
+ */
+const removeChartJS = (): void => {
     const script = document.getElementById("chartJS");
     if (script) {
         document.head.removeChild(script);
     }
 };
-
-// ------ For Test Chart.js ------
-
-// points = 90;
-// timerDuration = 25;
-// accuracyPercentage = 80;
-// calculateHitPerSec();
-// showEndScreen();
-// addChartJS();
-// if (endScreen) {
-//     endScreen.style.display = "block";
-// }
-// const settingPageTEMP = document.querySelector(".setting-page") as HTMLElement;
-// settingPageTEMP.style.display = "none";
-
-// -------------------------------
 
 const playAgainBtn: HTMLElement | null = document.querySelector(
     ".play-again-btn"

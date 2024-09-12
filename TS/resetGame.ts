@@ -1,5 +1,6 @@
 const blackScreen: null | HTMLElement = document.querySelector(".black-screen");
 
+// Function to reset the game timer
 const resetTimer = () => {
     maxTimeCounter = timerDuration;
 
@@ -10,6 +11,7 @@ const resetTimer = () => {
     }, 1000);
 };
 
+// Function to reset the game state
 const resetGame = () => {
     points = 0;
     hitClicks = 0;
@@ -24,6 +26,7 @@ const resetGame = () => {
     }
 };
 
+// Function to create a black flash effect and optionally reset the UI
 const blackFlash = (resetUI: boolean) => {
     if (blackScreen) {
         blackScreen.style.display = "block";
@@ -58,6 +61,7 @@ const gameCounter: null | HTMLElement = document.querySelector(".game-counter");
 let counterStartNumber = 4;
 let gameTimerInterval: number | undefined;
 
+// Function to start the game counter and initialize the game state
 const startGameCounter = () => {
     setTimeout(() => {
         playSounds(1);
